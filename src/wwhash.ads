@@ -1,5 +1,7 @@
 with Interfaces; use Interfaces;
 
+with Unchecked_Deallocation;
+
 package WWHash is
 	-- Define types
 	subtype Hash_Type is Unsigned_32;
@@ -8,7 +10,13 @@ package WWHash is
 
 	type String_Access is access String;
 	type String_Array is array (Natural range <>) of String_Access;
-	type String_Array_Access is access constant String_Array;
+	type String_Array_Access is access String_Array;
+
+	-- Shallow free for various types
+	procedure Free is new Unchecked_Deallocation (Object => String,
+		Name => String_Access);
+	procedure Free is new Unchecked_Deallocation (Object => String_Array,
+		Name => String_Array_Access);
 
 	-- Prime multiplier
 	Multiplier : constant Unsigned_32 := 16777619;

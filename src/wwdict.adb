@@ -8,26 +8,56 @@ with Interfaces; use Interfaces;
 procedure WWDict is
 	-- Define hash task
 	task type Hash_Task is
-		entry Load (Ext_Prefix : String; Ext_Dictionary : String_Array;
-			Ext_Hashes : Hash_Array);
-		entry Run (Ext_W1 : String);
+		entry Load (Ext_Prefix : String; Ext_Words : Positive;
+			Ext_Dictionary : String_Array; Ext_Hashes : Hash_Array);
+		entry Run (Ext_W : String);
 	end Hash_Task;
 
 	-- Implement hash task
 	task body Hash_Task is
+		-- Variables
 		Dictionary : String_Array_Access;
 		Hashes : Hash_Array_Access;
-		W1 : String_Access;
+		W : String_Access;
 		Prefix : String_Access;
-		Result : Hash_Type;
-		Base_Hash : Hash_Type;
+		New_Hash : Hash_Type;
+		Words : Positive;
+
+		Full_String : String_Array_Access;
+
+		-- Subprogram
+		procedure Dict_Attack (Base_Hash : Hash_Type; Attack_Length : Positive) is
+			New_Hash : Hash_Type;
+		begin
+			for W of Dictionary.all loop
+				New_Hash := Calculate_Hash (Base_Hash, "_" & W.all);
+
+				-- Loop and identify matches
+				for R of Hashes.all loop
+					if New_Hash = R then
+						Put (Prefix.all);
+						for SA of Full_String (1 .. Words - Attack_Length) loop
+							Put (SA.all & "_");
+						end loop;
+						Put_Line (W.all & Hash_Type'Image (R));
+					end if;
+				end loop;
+
+				-- Continue attack if necessary
+				if Attack_Length /= 1 then
+					Full_String (Words - (Attack_Length - 1)) := W;
+					Dict_Attack (New_Hash, Attack_Length - 1);
+				end if;
+			end loop;
+		end Dict_Attack;
 	begin
 		-- Load dictionary and hashes to match against
 		select
-			accept Load (Ext_Prefix : String; Ext_Dictionary : String_Array;
-				Ext_Hashes : Hash_Array)
+			accept Load (Ext_Prefix : String; Ext_Words : Positive;
+				Ext_Dictionary : String_Array; Ext_Hashes : Hash_Array)
 			do
 				Prefix := new String'(Ext_Prefix);
+				Words := Ext_Words;
 				Dictionary := new String_Array'(Ext_Dictionary);
 				Hashes := new Hash_Array'(Ext_Hashes);
 			end Load;
@@ -37,40 +67,25 @@ procedure WWDict is
 
 		loop
 			select
-				accept Run (Ext_W1 : String) do
-					W1 := new String'(Ext_W1);
+				accept Run (Ext_W : String) do
+					W := new String'(Ext_W);
 				end Run;
 
 				-- Check for single-word result
-				Result := Calculate_Hash (Prefix.all & W1.all);
+				New_Hash := Calculate_Hash (Prefix.all & W.all);
 				for R of Hashes.all loop
-					if Result = R then
-						Put_Line (Prefix.all & W1.all & Hash_Type'Image (R));
+					if New_Hash = R then
+						Put_Line (Prefix.all & W.all & Hash_Type'Image (R));
 					end if;
 				end loop;
 
-				-- Setup base hash for speed improvement
-				Base_Hash := Calculate_Hash (Result, "_");
-
-				-- Check all possible multiwords
-				for W2 of Dictionary.all loop
-					Result := Calculate_Hash (Base_Hash, W2.all);
-					for R of Hashes.all loop
-						if Result = R then
-							Put_Line (Prefix.all & W1.all & "_" & W2.all & Hash_Type'Image (R));
-						end if;
-					end loop;
-
-					-- TODO: Possibly very slow check for digit in third position
---					for W3 of Digit_Array loop
---						Result := Calculate_Hash (W1.all & "_" & W2.all & "_" & W3);
---						for R of Hashes.all loop
---							if Result = R then
---								Put_Line (W1.all & "_" & W2.all & "_" & W3 & Hash_Type'Image (R));
---							end if;
---						end loop;
---					end loop;
-				end loop;
+				-- Continue attack if necessary
+				if Words /= 1 then
+					Full_String := new String_Array (1 .. Words);
+					Full_String (1) := W;
+					Dict_Attack (New_Hash, Words - 1);
+					Free (Full_String);
+				end if;
 			or
 				terminate;
 			end select;
@@ -85,14 +100,15 @@ procedure WWDict is
 		Put_Line (Standard_Error, "Usage: "
 			& Command_Name
 			& " prefix"
+			& " number_of_words"
 			& " dictionary_file"
 			& " list_of_hashes");
 	end Show_Usage;
 begin
-	Put_Line (Standard_Error, "WWDict v0.1");
+	Put_Line (Standard_Error, "WWDict v0.2");
 
 	-- Check arguments
-	if Argument_Count < 3 then
+	if Argument_Count < 4 then
 		Show_Usage;
 		return;
 	end if;
@@ -100,11 +116,12 @@ begin
 	-- Load words and targets
 	declare
 		Prefix : String renames Argument (1);
-		Dictionary_File : String renames Argument (2);
+		Words : String renames Argument (2);
+		Dictionary_File : String renames Argument (3);
 		Dictionary_Entries : Positive;
 		DF : File_Type;
 
-		Hashes : Hash_Array (1 .. Argument_Count - 2);
+		Hashes : Hash_Array (1 .. Argument_Count - 3);
 	begin
 		-- Open dictionary and read number of entries
 		Open (DF, In_File, Dictionary_File);
@@ -121,7 +138,7 @@ begin
 
 		-- Load target hashes
 		for I in Hashes'Range loop
-			Hashes (I) := Hash_Type'Value (Argument (I + 2));
+			Hashes (I) := Hash_Type'Value (Argument (I + 3));
 		end loop;
 
 		-- Load dictionary words
@@ -135,7 +152,7 @@ begin
 
 			-- Setup hash tasks
 			for T of Hash_Tasks loop
-				T.Load (Prefix, Dictionary, Hashes);
+				T.Load (Prefix, Positive'Value (Words), Dictionary, Hashes);
 			end loop;
 
 			-- Begin dictionary attack

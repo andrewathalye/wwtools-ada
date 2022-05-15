@@ -5,11 +5,15 @@ action_dire
 active
 activity_type
 almost_done
+alt10
+alt11
+alt2
 arc
 arena
 attached
 baths
 being_invaded
+boss_boxing
 boss_outage
 breakthrough_unlocked
 breath
@@ -62,6 +66,7 @@ invading
 iron_banner
 iron_lord
 kinetic
+laltmix
 landing_speed
 leviathan
 light
@@ -81,11 +86,14 @@ mission_journey
 moon
 moving
 music_switch
+mutatio2
 nine
 no
 normal_health
 ordination_junction
 outside_canyon
+outside_canyon_tight
+outside_edge_edz
 outside_forest
 overtime
 planet_x
@@ -95,6 +103,7 @@ primeval_first
 primeval_second
 red_legion
 reef
+riposte
 round_complete
 round_intro
 run
@@ -121,3 +130,9 @@ week_2
 week_3
 welcome
 yes
+_xtdmage
+ambient_music_switch
+mid_match_intro
+pgcr
+phase2_status_cue
+high_action_dire

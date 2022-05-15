@@ -4,8 +4,6 @@ with Ada.Command_Line; use Ada.Command_Line;
 with WWHash; use WWHash;
 with Interfaces; use Interfaces;
 
-with Unchecked_Deallocation;
-
 procedure WWBrute is
 	-- Constants
 	type Character_Array is array (Positive range <>) of Character;
@@ -13,10 +11,6 @@ procedure WWBrute is
 		'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
 		'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8',
 		'9', '_');
-
-	-- Instanced Procedures
-	procedure Free is new Unchecked_Deallocation (Object => String,
-		Name => String_Access);
 
 	-- Exclude List Type
 	type Position is (Beginning, Other);
