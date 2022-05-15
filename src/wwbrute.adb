@@ -70,6 +70,17 @@ procedure WWBrute is
 		is
 			New_Hash : Hash_Type;
 		begin
+			-- Check if it is possible to find hash on final iteration
+			if Attack_Length = 1 then
+				for R of Hashes.all loop
+					if (Base_Hash & 16#FFFFFF00#) = (R & 16#FFFFFF00#) then
+						goto Continue;
+					end if;
+				end loop;
+				return;
+			end if;
+			<<Continue>>
+
 			for C of Characters loop
 				Inner :
 				loop
