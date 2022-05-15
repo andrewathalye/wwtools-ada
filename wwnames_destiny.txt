@@ -1,138 +1,180 @@
-accelerate
-acceleration
-action
-action_dire
-active
-activity_type
-almost_done
-alt10
-alt11
-alt2
-arc
-arena
-attached
-baths
-being_invaded
-boss_boxing
-boss_outage
-breakthrough_unlocked
-breath
-breath_distressed
-breath_normal
-charge
-city
-class_switch
-close
-close_game
-cosmo
-crystal
-damage_type
-dark
-decelerate
-deep
-default
-demons
-destroyed_city
-detached
-disabled
-dreaming_city
-duck
-duck_less
-eden
-edz
-enabled
-end
-engagement
-fleet
-gardens
-glyph_1
-glyph_2
-glyph_4
-glyph_type
-grenade_duck
-hammer
-hard
-high_action
-hiveship
-holster_overlays
-hunter
-idle
-inactive
-infinite_forest
-injured
-intro
-intrusion_sparrows
-invading
-iron_banner
-iron_lord
-kinetic
-laltmix
-landing_speed
-leviathan
-light
-light_action
-listener_environment
-listener_relation
-locked
-locking
-low_health
-mars
-match_point
-medium
-mercury
-mercury_future
-mercury_past
-mission_journey
-moon
-moving
-music_switch
-mutatio2
-nine
-no
-normal_health
-ordination_junction
-outside_canyon
-outside_canyon_tight
-outside_edge_edz
-outside_forest
-overtime
-planet_x
-plates
-polaris
-primeval_first
-primeval_second
-red_legion
-reef
-riposte
-round_complete
-round_intro
-run
-sneaky
-soft
-solar
-sprint
-stasis
-tangled_shore
-targeting_state
-tension
-thermal
-throne
-titan
-tower
-trials
-venus
-void
-walk
-walking_speed
-warlock
-water_depth
-week_2
-week_3
-welcome
-yes
-_xtdmage
-ambient_music_switch
-mid_match_intro
-pgcr
-phase2_status_cue
-high_action_dire
+abort_engaged_ultra 714293192
+accelerate 3089599978
+acceleration 212170665
+access_bomb_spawner 1122843663
+action 209137191
+action_dire 184709120
+active 58138747
+activity_type 115568169
+almost_done 2738257670
+alt10 1680524729
+alt11 1680524728
+alt2 3201957360
+ambient_music_switch 2211399158
+arc 865867163
+arena 680256650
+arena_touch_catacombs 1139621374
+assault_venus_sarcophagus 1106066065
+attached 4242892217
+awoken_assault_colmn 430567500
+baths 3324357565
+being_invaded 3733978374
+boss_boxing 183806052
+boss_outage 63818140
+boss_super_psion 3307782312
+breakthrough_unlocked 2710335363
+breath 1326786195
+breath_distressed 2753962456
+breath_normal 679176331
+charge 4285247397
+city 3888786832
+class_switch 3670420470
+close 1451272583
+close_game 53226444
+close_game_no 2863684274
+close_game_yes 1270216420
+control_power_play 174449619
+cosmo 2988709806
+crystal 3444057113
+damage_type 1241311385
+dark 1925914845
+decelerate 204918507
+deep 1976939195
+default 782826392
+demons 3097553597
+destroyed_city 126131828
+detached 2369155019
+disabled 3248502869
+doorway_cell_laying 207938986
+dreaming_city 1416096592
+duck 2617048678
+duck_less 204096510
+eden 763066127
+edz 697502628
+enabled 4174102348
+end 529726532
+ending_level_electric 1106066071
+end_music_alt 3430963404
+end_music_begin 1863783634
+endpoint_holoprojector_off 1089288481
+engagement 3176498016
+erly_extractor_iron_banner 2857829186
+features_tkklive_sony2 1593043801
+feature_tkklive_sony1 215715643
+fem_gem_edz 2374084453
+fleet 1455639803
+gardens 554809137
+ghost_dnf_thorn 3201957365
+glyph_1 3141602065
+glyph_2 3141602066
+glyph_4 3141602068
+glyph_type 2190006616
+grenade_duck 582268323
+gungrab_attune_launch6 1089288483
+gunrest_mercury01_settings 1089288488
+hammer 703486095
+hard 3599861390
+high_action 2054095106
+high_action_dire 3207465375
+hiveship 2257359777
+hobgoblin_pyramid_show 4146080700
+holster_overlays 1106066070
+hunter 671679327
+idle 1874288895
+inactive 3163453698
+infinite_forest 2279899879
+injured 2860195132
+inside_large 2043049829
+intro 1125500713
+invading 488002615
+iron_banner 2371050408
+iron_lord 3485311555
+kinetic 1140275154
+laltmix 1724081802
+landing_speed 645685450
+leviathan 3862550981
+light 1935470627
+light_action 18883840
+listener_environment 3932398587
+listener_relation 3264262460
+locked 136945955
+locking 40541712
+loop2_succeed_accept1 1156398954
+looted_phase_last 1156398955
+low_health 72790338
+mars 2809578934
+match_point 1813374043
+medium 2849147824
+mercury 1259908504
+mercury_future 2070789026
+mercury_past 1509401983
+mid_match_intro 293495512
+mission_journey 3634530324
+moon 3128647858
+moving 2649703675
+music_switch 2724869341
+mutatio2 1246133352
+nine 1285484693
+no 1668749452
+normal_health 3268324997
+open_column_interaction 4150284555
+ordination_junction 1433286457
+out_of_time 498199999
+outside_canyon 429506541
+outside_canyon_tight 4189724572
+outside_edge_edz 1511893124
+outside_edz 351229476
+outside_forest 2289308094
+overtime 4009139500
+patrlos_sheltered_bigtower 113537013
+pgcr 1626737477
+phase2_status_cue 1164767985
+phobos 3114284952
+planet_x 4187350074
+plates 1402865754
+polaris 2527054255
+primeval_first 2763968768
+primeval_second 2076855010
+purchase_iron_lord_killed 1122843655
+puzzle_spidertank_phase 1122843663
+pvp 964120289
+queen_spiders_mask 2318682233
+raid_reward_lock 1156398949
+raid_trigger_outskirts 1156398957
+ranged_killed_cosmo 2093546460
+red_legion 915513375
+reef 2512485647
+release_interaction_rain 4033659258
+revived_nova_map 2141765300
+riposte 3009193833
+round_complete 2623641263
+round_intro 1655629056
+run 712161704
+sneaky 468648200
+soft 670602561
+solar 610398656
+source_salvage_light_action 1356645514
+spidertank_engine 3541131907
+sprint 1296465089
+stasis 1274150312
+tangled_shore 3821439926
+targeting_state 275202124
+tension 1571361561
+thermal 683578502
+throne 1840777923
+titan 3655393761
+tower 1737926756
+traveler 1942731632
+trials 2112637710
+vault_reload_pve 1139621375
+venus 3871070152
+void 3370470011
+walk 2108779966
+walking_speed 1959630978
+warlock 2271682572
+water_depth 430223108
+week_2 1709986314
+week_3 1709986315
+week_3_quest_basic 3201957371
+welcome 2421980327
+yes 979470758
