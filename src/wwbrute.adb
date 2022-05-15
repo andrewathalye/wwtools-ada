@@ -73,7 +73,7 @@ procedure WWBrute is
 			-- Check if it is possible to find hash on final iteration
 			if Attack_Length = 1 then
 				for R of Hashes.all loop
-					if (Base_Hash & 16#FFFFFF00#) = (R & 16#FFFFFF00#) then
+					if ((Base_Hash * Multiplier) and 16#FFFFFF00#) = (R and 16#FFFFFF00#) then
 						goto Continue;
 					end if;
 				end loop;
@@ -200,7 +200,7 @@ procedure WWBrute is
 	end Show_Usage;
 
 begin
-	Put_Line (Standard_Error, "WWBrute v0.1");
+	Put_Line (Standard_Error, "WWBrute v0.2");
 
 	-- Check arguments
 	if Argument_Count < 3 then
