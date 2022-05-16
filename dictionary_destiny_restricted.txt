@@ -5,6 +5,7 @@ abc
 ability
 abomination
 abort
+abort_engaged_ultra
 absurd
 abyss
 accel
@@ -13,6 +14,7 @@ acceleration
 accept
 accept1
 access
+access_bomb_spawner
 accpt
 achieve
 achieved
@@ -64,6 +66,7 @@ alt2
 amb
 ambience
 ambient
+ambient_music_switch
 ambush
 ammo
 ance
@@ -101,6 +104,7 @@ arcs
 arcus
 area
 arena
+arena_touch_catacombs
 arm
 armed
 arming
@@ -111,6 +115,7 @@ array
 arrive
 artifact
 assault
+assault_venus_sarcophagus
 assemble
 assist
 asylum
@@ -139,6 +144,7 @@ aware
 away
 awo
 awoken
+awoken_assault_colmn
 awr
 axe
 axion
@@ -226,6 +232,7 @@ boss
 boss_boxing
 boss_outage
 bossroom
+boss_super_psion
 bot
 boulder
 bounce
@@ -387,6 +394,8 @@ close
 closed
 closefail
 close_game
+close_game_no
+close_game_yes
 closing
 cloth
 cloud
@@ -441,6 +450,7 @@ contested
 continue
 contrail
 control
+control_power_play
 convoy
 coo
 coolant
@@ -610,6 +620,7 @@ dome
 done
 door
 doorway
+doorway_cell_laying
 doppelganger
 dos
 dot
@@ -685,7 +696,11 @@ enabled
 end
 endgrab
 ending
+ending_level_electric
+end_music_alt
+end_music_begin
 endpoint
+endpoint_holoprojector_off
 enemy
 energize
 energy
@@ -713,6 +728,7 @@ equipped
 erc
 eris
 erly
+erly_extractor_iron_banner
 error
 ers
 escape
@@ -782,10 +798,13 @@ fciv1
 fciv2
 fciv3
 feature
+features_tkklive_sony2
+feature_tkklive_sony1
 feedback
 felwinter
 fem
 female
+fem_gem_edz
 fence
 fenrir
 ffa
@@ -908,6 +927,7 @@ gg
 gheleon
 gho
 ghost
+ghost_dnf_thorn
 giant
 gift
 gjallarhorn
@@ -967,8 +987,10 @@ guardian
 gun
 guncheck
 gungrab
+gungrab_attune_launch6
 gunrelease
 gunrest
+gunrest_mercury01_settings
 guns
 gust
 gusts
@@ -1031,6 +1053,7 @@ hidden
 hide
 high
 high_action
+high_action_dire
 highlight
 highway
 hiro
@@ -1040,6 +1063,7 @@ hiveship
 hmg
 hng
 hobgoblin
+hobgoblin_pyramid_show
 hol
 holder
 hole
@@ -1133,6 +1157,7 @@ input
 insect
 insects
 inside
+inside_large
 inspect
 int
 int1
@@ -1283,8 +1308,10 @@ look
 loop
 loop1
 loop2
+loop2_succeed_accept1
 loot
 looted
+looted_phase_last
 lord
 lose
 losing
@@ -1384,6 +1411,7 @@ mid
 mid01
 mid02
 mida
+mid_match_intro
 mig
 military
 milk
@@ -1520,6 +1548,7 @@ ood
 oodbye
 ope
 open
+open_column_interaction
 openfail
 options
 oracle
@@ -1545,8 +1574,12 @@ ound
 out
 outer
 outerspace
+out_of_time
 outside
 outside_canyon
+outside_canyon_tight
+outside_edge_edz
+outside_edz
 outside_forest
 outskirts
 over
@@ -1600,6 +1633,7 @@ past
 pat
 path
 patience
+patrlos_sheltered_bigtower
 patrol
 patrols
 payoff
@@ -1624,6 +1658,7 @@ phase
 phase07
 phase1
 phase2
+phase2_status_cue
 pheromone
 phobos
 phrases
@@ -1735,10 +1770,12 @@ pulsing
 pumpkin
 punch
 purchase
+purchase_iron_lord_killed
 pursuit
 push
 pushback
 puzzle
+puzzle_spidertank_phase
 pve
 pvp
 pw
@@ -1754,6 +1791,7 @@ quadroar
 que
 queen
 queenship
+queen_spiders_mask
 quest
 race
 racing
@@ -1767,6 +1805,8 @@ ragdoll
 raid
 raid1
 raid2
+raid_reward_lock
+raid_trigger_outskirts
 railgun
 railing
 rails
@@ -1777,6 +1817,7 @@ rally
 ram
 ramp
 ranged
+ranged_killed_cosmo
 rank
 ransfer
 rapsutin
@@ -1825,6 +1866,7 @@ regicide
 regime
 relays
 release
+release_interaction_rain
 relic
 relics
 reliquary
@@ -1856,6 +1898,7 @@ retreat
 return
 revert
 revived
+revived_nova_map
 reward
 rexotic1
 rexotic2
@@ -2105,6 +2148,7 @@ soul
 souls
 sounds
 source
+source_salvage_light_action
 souvenir
 space
 spacebike
@@ -2133,6 +2177,7 @@ sphere
 spider
 spiders
 spidertank
+spidertank_engine
 spike
 spin
 spinner
@@ -2459,6 +2504,7 @@ var3
 var4
 variks
 vault
+vault_reload_pve
 vehicle
 velocity
 vender
@@ -2533,6 +2579,7 @@ weakspot
 weapon
 week_2
 week_3
+week_3_quest_basic
 welcome
 welder
 welding
