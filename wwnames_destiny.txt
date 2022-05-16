@@ -90,6 +90,7 @@ first_lap 1008449923
 flash_warning_destroyed 1139621368
 fleet 1455639803
 fx_snow_dreaming_city 3651653869
+gambit_music_switch 2690182778
 gardens 554809137
 ghost_dnf_thorn 3201957365
 glyph_1 3141602065
@@ -195,6 +196,7 @@ projectile_ghost_any 2082032187
 purchase_iron_lord_killed 1122843655
 puzzle_spidertank_phase 1122843663
 pvp 964120289
+pvp_destination 1119114332
 pvp_music_switch 4225100452
 queen_spiders_mask 2318682233
 quest_tanks_crystal 2873093348
