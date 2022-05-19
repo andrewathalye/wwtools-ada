@@ -15,4 +15,16 @@ package body WWHash is
 
 		return Hash;
 	end Calculate_Hash;
+
+	function Reverse_Hash (H : Hash_Type; S : String) return Hash_Type is
+		Hash : Hash_Type := H;
+	begin
+		for I in S'Range loop
+			Hash :=
+				(Hash xor Character'Pos (S (S'Last - (I - 1))))
+				* Reverse_Multiplier;
+		end loop;
+
+		return Hash;
+	end Reverse_Hash;
 end WWHash;

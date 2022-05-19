@@ -20,10 +20,14 @@ package WWHash is
 
 	-- Prime multiplier
 	Multiplier : constant Unsigned_32 := 16777619;
+	Reverse_Multiplier : constant Unsigned_32 := 899433627;
 
 	-- Calculate hash for input string (must be lowercase)
 	function Calculate_Hash (S : String) return Hash_Type;
 
 	-- Calculate hash for base hash and input string (see above)
 	function Calculate_Hash (H : Hash_Type; S : String) return Hash_Type;
+
+	-- Reverse hash given a final hash and suffix
+	function Reverse_Hash (H : Hash_Type; S : String) return Hash_Type;
 end WWHash;

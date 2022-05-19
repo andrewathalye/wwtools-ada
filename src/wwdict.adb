@@ -8,7 +8,7 @@ with Interfaces; use Interfaces;
 procedure WWDict is
 	-- Define hash task
 	task type Hash_Task is
-		entry Load (Ext_Prefix : String; Ext_Words : Positive;
+		entry Load (Ext_Prefix : String; Ext_Suffix : String; Ext_Words : Positive;
 			Ext_Dictionary : String_Array; Ext_Hashes : Hash_Array);
 		entry Run (Ext_W : String);
 	end Hash_Task;
@@ -20,6 +20,7 @@ procedure WWDict is
 		Hashes : Hash_Array_Access;
 		W : String_Access;
 		Prefix : String_Access;
+		Suffix : String_Access;
 		New_Hash : Hash_Type;
 		Words : Positive;
 
@@ -39,7 +40,9 @@ procedure WWDict is
 						for SA of Full_String (1 .. Words - Attack_Length) loop
 							Put (SA.all & "_");
 						end loop;
-						Put_Line (W.all & Hash_Type'Image (R));
+						Put_Line (W.all
+							& Suffix.all
+							& Hash_Type'Image (Calculate_Hash (R, Suffix.all)));
 					end if;
 				end loop;
 
@@ -53,10 +56,11 @@ procedure WWDict is
 	begin
 		-- Load dictionary and hashes to match against
 		select
-			accept Load (Ext_Prefix : String; Ext_Words : Positive;
+			accept Load (Ext_Prefix : String; Ext_Suffix : String; Ext_Words : Positive;
 				Ext_Dictionary : String_Array; Ext_Hashes : Hash_Array)
 			do
 				Prefix := new String'(Ext_Prefix);
+				Suffix := new String'(Ext_Suffix);
 				Words := Ext_Words;
 				Dictionary := new String_Array'(Ext_Dictionary);
 				Hashes := new Hash_Array'(Ext_Hashes);
@@ -75,7 +79,10 @@ procedure WWDict is
 				New_Hash := Calculate_Hash (Prefix.all & W.all);
 				for R of Hashes.all loop
 					if New_Hash = R then
-						Put_Line (Prefix.all & W.all & Hash_Type'Image (R));
+						Put_Line (Prefix.all
+							& W.all
+							& Suffix.all
+							& Hash_Type'Image (Calculate_Hash (R, Suffix.all)));
 					end if;
 				end loop;
 
@@ -105,10 +112,10 @@ procedure WWDict is
 			& " list_of_hashes");
 	end Show_Usage;
 begin
-	Put_Line (Standard_Error, "WWDict v0.2");
+	Put_Line (Standard_Error, "WWDict v0.3");
 
 	-- Check arguments
-	if Argument_Count < 4 then
+	if Argument_Count < 5 then
 		Show_Usage;
 		return;
 	end if;
@@ -116,12 +123,13 @@ begin
 	-- Load words and targets
 	declare
 		Prefix : String renames Argument (1);
-		Words : String renames Argument (2);
-		Dictionary_File : String renames Argument (3);
+		Suffix : String renames Argument (2);
+		Words : String renames Argument (3);
+		Dictionary_File : String renames Argument (4);
 		Dictionary_Entries : Positive;
 		DF : File_Type;
 
-		Hashes : Hash_Array (1 .. Argument_Count - 3);
+		Hashes : Hash_Array (1 .. Argument_Count - 4);
 	begin
 		-- Open dictionary and read number of entries
 		Open (DF, In_File, Dictionary_File);
@@ -137,8 +145,9 @@ begin
 		Open (DF, In_File, Dictionary_File);
 
 		-- Load target hashes
+		-- If a Suffix is present, return the hash prior to the suffix
 		for I in Hashes'Range loop
-			Hashes (I) := Hash_Type'Value (Argument (I + 3));
+			Hashes (I) := Reverse_Hash (Hash_Type'Value (Argument (I + 4)), Suffix);
 		end loop;
 
 		-- Load dictionary words
@@ -152,7 +161,7 @@ begin
 
 			-- Setup hash tasks
 			for T of Hash_Tasks loop
-				T.Load (Prefix, Positive'Value (Words), Dictionary, Hashes);
+				T.Load (Prefix, Suffix, Positive'Value (Words), Dictionary, Hashes);
 			end loop;
 
 			-- Begin dictionary attack

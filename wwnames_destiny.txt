@@ -208,12 +208,10 @@ rain_fwc_chimes 822771338
 ramp_spark_meteor 2269862242
 ranged_killed_cosmo 2093546460
 rasputin_hawk_attackers 817255542
-rasputin_vender_hive 2043403989
 red_legion 915513375
 reef 2512485647
 reef_arena_music_switch 4261829758
 release_interaction_rain 4033659258
-repair_nova_ramp 2690182778
 reset_running_archive 465844173
 response_resurrection_p02 2742209877
 revived_nova_map 2141765300
@@ -289,3 +287,4 @@ wind_bones_disappear 1257871365
 win_ending 795149617
 yell_vanish_silo 795149617
 yes 979470758
+raid_sacrifice_music_start 1258632742
