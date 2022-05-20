@@ -12,14 +12,12 @@ alt2 3201957360
 ambient_music_switch 2211399158
 arc 865867163
 arena 680256650
-arena_touch_catacombs 1139621374
 arrive_time_energy 702330855
 assault_venus_sarcophagus 1106066065
 assist_fuel_armor 1902328555
 attached 4242892217
 awoken 2803282938
 awoken_assault_colmn 430567500
-axe_molten_seeker 1139621363
 baths 3324357565
 being_invaded 3733978374
 blast_outside_forest_sand 907662644
@@ -40,7 +38,6 @@ charge 4285247397
 city 3888786832
 class_switch 3670420470
 class_won_readyempty 1089288489
-cloak_cabal4_toss 2922688945
 close 1451272583
 close_game 53226444
 close_game_no 2863684274
@@ -48,9 +45,9 @@ close_game_yes 1270216420
 collect_mini_win 3201957366
 control_power_play 174449619
 cosmo 2988709806
-cryo_exit_lead 1139621362
 crystal 3444057113
 damage_type 1241311385
+damage_type_id 2035894491
 dark 1925914845
 dead_rotating_brain 2724699327
 decelerate 204918507
@@ -62,14 +59,12 @@ detached 2369155019
 director 3482872649
 disabled 3248502869
 disable_greeting_oryx 2803282938
-doorway_cell_laying 207938986
 dreaming_city 1416096592
 duck 2617048678
 duck_less 204096510
 eden 763066127
 edz 697502628
 enabled 4174102348
-enabled_sepicks_sensor 1122843648
 end 529726532
 ending_level_electric 1106066071
 end_music_alt 3430963404
@@ -84,10 +79,8 @@ falling_entrance_lock 1008449923
 features_tkklive_sony2 1593043801
 feature_tkklive_sony1 215715643
 female 2204441813
-fem_gem_edz 2374084453
 final_dead_critical 3201957364
 first_lap 1008449923
-flash_warning_destroyed 1139621368
 fleet 1455639803
 fx_snow_dreaming_city 3651653869
 gambit_music_switch 2690182778
@@ -110,7 +103,6 @@ hive_boss 1003039177
 hive_round_over 739403071
 hiveship 2257359777
 hobgoblin_friendly_p02 221232726
-hobgoblin_pyramid_show 4146080700
 holster_overlays 1106066070
 human 3887404748
 hunter 671679327
@@ -131,7 +123,6 @@ iron_lord 3485311555
 kinetic 1140275154
 laltmix 1724081802
 landing_speed 645685450
-laser_mini_lz 1156398953
 last_lap 3377247535
 layer_jukebox_m9 1827805616
 leviathan 3862550981
@@ -142,8 +133,6 @@ listener_environment 3932398587
 listener_relation 3264262460
 locked 136945955
 locking 40541712
-loop2_succeed_accept1 1156398954
-looted_phase_last 1156398955
 lose 221232726
 low_health 72790338
 male 3111576190
@@ -165,10 +154,8 @@ music_switch 2724869341
 nine 1285484693
 no 1668749452
 normal_health 3268324997
-open_column_interaction 4150284555
 open_hum_corridor 1632872787
 orbit_exit 1341174422
-ordination_junction 1433286457
 out_of_time 498199999
 outside_canyon 429506541
 outside_canyon_tight 4189724572
@@ -176,13 +163,10 @@ outside_edge_edz 1511893124
 outside_edz 351229476
 outside_forest 2289308094
 overtime 4009139500
-passby_mi_cosmo2 1156398956
-passyby_mi_cosmo7 1404315292
 patrlos_sheltered_bigtower 113537013
 pgcr 1626737477
 phase2_status_cue 1164767985
 phobos 3114284952
-plan_bossroom_hanging 1156398952
 planet_x 4187350074
 plates 1402865754
 player_gender 2292048462
@@ -193,8 +177,6 @@ pre_tanks_full 3318378
 primeval_first 2763968768
 primeval_second 2076855010
 projectile_ghost_any 2082032187
-purchase_iron_lord_killed 1122843655
-puzzle_spidertank_phase 1122843663
 pvp 964120289
 pvp_destination 1119114332
 pvp_music_switch 4225100452
@@ -202,7 +184,6 @@ queen_spiders_mask 2318682233
 quest_tanks_crystal 2873093348
 raid 2043403989
 raid1_enter2_resource 1827805616
-raid_reward_lock 1156398949
 raid_trigger_outskirts 1156398957
 rain_fwc_chimes 822771338
 ramp_spark_meteor 2269862242
@@ -227,7 +208,6 @@ rumble_flyover_direct 3938447186
 run 712161704
 salvage_countdown 227409308
 sand_next_race 2082032187
-single_statue_cover 4078745216
 singularity_captured 4235096763
 singularity_far 907662644
 singularity_mid 1177531553
@@ -253,7 +233,6 @@ step01_warmind_fight 2059515542
 taken_boss 3625488590
 tangled_shore 3821439926
 targeting_state 275202124
-team_arc_haywire 1156398959
 temple 2323193050
 tension 1571361561
 thermal 683578502
@@ -270,7 +249,6 @@ twitch_impacts_play 1139621369
 ui_state 1252603985
 update_moved_common 3014635026
 update_scanned_notarget 1827805616
-vault_reload_pve 1139621375
 venus 3871070152
 verb_pike_harvester 2082032187
 vex_boss 3339404766
@@ -288,3 +266,13 @@ win_ending 795149617
 yell_vanish_silo 795149617
 yes 979470758
 raid_sacrifice_music_start 1258632742
+crimson_active 3418578621
+dawning_active 626641454
+in_derelict 4117598489
+solstice_active 1592919278
+almighty_closer 736982917
+enthroned_gaul_event 1072510799
+entrust_mission_event 3347625544
+modified_transmogrify_event 4150284555
+withstanding_ship_event 3610188607
+s11_enabled_exp 1213216268

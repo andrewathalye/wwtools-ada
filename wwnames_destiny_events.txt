@@ -455,3 +455,9 @@ ambient_water_ship2_start 14553607
 ambient_wipe_windy_start 300493232
 ambient_wormroom_destination_start 2122047150
 ambient_wrong_evac_start 3570051820
+baron_hangman_music_start 1718596243
+baron_rider_music_start 1064684587
+baron_rifleman_music_start 2267843281
+baron_trickster_music_start 553051334
+baron_mad_bomber_music_start 1789938679
+baron_mindbender_music_start 790124367
