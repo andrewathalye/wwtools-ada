@@ -45,8 +45,8 @@ procedure WWBrute is
 
 	-- Task Types
 	task type Hash_Task is
-		entry Load (Ext_Prefix : String; Ext_Attack_Length : Natural;
-			Ext_Hashes : Hash_Array);
+		entry Load (Ext_Prefix : String; Ext_Suffix : String;
+			Ext_Attack_Length : Natural; Ext_Hashes : Hash_Array);
 		entry Run (Ext_C : Character);
 	end Hash_Task;
 
@@ -58,6 +58,7 @@ procedure WWBrute is
 		Initial_C : Character;
 		S : String_Access;
 		Prefix : String_Access;
+		Suffix : String_Access;
 
 		-- Generic attack implementation
 		procedure Attack (Base_Hash : Hash_Type; Attack_Length : Natural)
@@ -66,14 +67,17 @@ procedure WWBrute is
 		begin
 			-- Check if it is possible to find hash on final iteration
 			if Attack_Length = 1 then
-				for R of Hashes.all loop
-					if ((Base_Hash * Multiplier) and 16#FFFFFF00#) = (R and 16#FFFFFF00#) then
-						goto Continue;
-					end if;
-				end loop;
-				return;
+				Outer : loop -- Will run at most once
+					for R of Hashes.all loop
+						if ((Base_Hash * Multiplier)
+							and 16#FFFFFF00#) = (R and 16#FFFFFF00#)
+						then
+							exit Outer;
+						end if;
+					end loop;
+					return;
+				end loop Outer;
 			end if;
-			<<Continue>>
 
 			for C of Characters loop
 				Inner :
@@ -92,7 +96,8 @@ procedure WWBrute is
 						if R = New_Hash then
 							Put_Line (Prefix.all
 								& S.all (1 .. S'Last - (Attack_Length - 1))
-								& Hash_Type'Image (New_Hash));
+								& Suffix.all
+								& Hash_Type'Image (Calculate_Hash (New_Hash, Suffix.all)));
 						end if;
 					end loop;
 
@@ -127,7 +132,8 @@ procedure WWBrute is
 						if R = New_Hash then
 							Put_Line (Prefix.all
 								& S.all (1 .. 2)
-								& Hash_Type'Image (New_Hash));
+								& Suffix.all
+								& Hash_Type'Image (Calculate_Hash (New_Hash, Suffix.all)));
 						end if;
 					end loop;
 
@@ -142,12 +148,13 @@ procedure WWBrute is
 		end First_Attack;
 	begin
 		select
-			accept Load (Ext_Prefix : String; Ext_Attack_Length : Natural;
-				Ext_Hashes : Hash_Array)
+			accept Load (Ext_Prefix : String; Ext_Suffix : String;
+				Ext_Attack_Length : Natural; Ext_Hashes : Hash_Array)
 			do
 				Attack_Length := Ext_Attack_Length;
 				Hashes := new Hash_Array'(Ext_Hashes);
 				Prefix := new String'(Ext_Prefix);
+				Suffix := new String'(Ext_Suffix);
 			end Load;
 		or
 			terminate;
@@ -163,7 +170,10 @@ procedure WWBrute is
 				-- If base hash matches
 				for R of Hashes.all loop
 					if Base_Hash = R then
-						Put_Line (Prefix.all & Initial_C & Hash_Type'Image (Base_Hash));
+						Put_Line (Prefix.all
+							& Initial_C
+							& Suffix.all
+							& Hash_Type'Image (Calculate_Hash (Base_Hash, Suffix.all)));
 					end if;
 				end loop;
 
@@ -171,7 +181,13 @@ procedure WWBrute is
 					New_S : constant String (1 .. Attack_Length) := (others => '#');
 				begin
 					S := new String'(Initial_C & New_S);
-					First_Attack (Base_Hash, Attack_Length);
+
+					-- If using a prefix, the "first" letter is really in the middle.
+					if Prefix.all = "" then
+						First_Attack (Base_Hash, Attack_Length);
+					else
+						Attack (Base_Hash, Attack_Length);
+					end if;
 				end;
 
 				Free (S);
@@ -189,15 +205,16 @@ procedure WWBrute is
 		Put_Line (Standard_Error, "Usage: "
 			& Command_Name
 			& " prefix"
+			& " suffix"
 			& " attack_length"
 			& " list_of_hashes");
 	end Show_Usage;
 
 begin
-	Put_Line (Standard_Error, "WWBrute v0.2");
+	Put_Line (Standard_Error, "WWBrute v0.3");
 
 	-- Check arguments
-	if Argument_Count < 3 then
+	if Argument_Count < 4 then
 		Show_Usage;
 		return;
 	end if;
@@ -205,17 +222,18 @@ begin
 	-- Setup information
 	declare
 		Prefix : String renames Argument (1);
-		Attack_Length : constant Natural := Natural'Value (Argument (2));
-		Hashes : Hash_Array (1 .. Argument_Count - 2);
+		Suffix : String renames Argument (2);
+		Attack_Length : constant Natural := Natural'Value (Argument (3));
+		Hashes : Hash_Array (1 .. Argument_Count - 3);
 	begin
 		-- Load hashes
 		for I in Hashes'Range loop
-			Hashes (I) := Hash_Type'Value (Argument (I + 2));
+			Hashes (I) := Reverse_Hash (Hash_Type'Value (Argument (I + 3)), Suffix);
 		end loop;
 
 		-- Setup tasks
 		for T of Hash_Tasks loop
-			T.Load (Prefix, Attack_Length - 1, Hashes);
+			T.Load (Prefix, Suffix, Attack_Length - 1, Hashes);
 		end loop;
 
 		-- Load exclude list
