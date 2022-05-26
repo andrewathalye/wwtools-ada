@@ -2597,3 +2597,13 @@ zero
 zone
 zones
 zoom
+prison_of_elders
+sky_island
+season_hub
+throneworld
+luna_battleground
+mars_genesis
+leviathan_nightmare
+glaive
+ramen
+wilderness_town
