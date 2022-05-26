@@ -237,7 +237,7 @@ begin
 		end loop;
 
 		-- Load exclude list
-		Load_Exclude_List ("exclude.lst");
+		Load_Exclude_List ("dict/exclude.lst");
 
 		-- Begin brute force attack
 		for C of Characters loop
