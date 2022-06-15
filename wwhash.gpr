@@ -1,8 +1,8 @@
 project WWHash is
 	for Languages use ("Ada");
-	for Source_Dirs use ("src");
+	for Source_Dirs use ("src", "src/wwparse");
 	for Object_Dir use "obj";
-	for Main use ("wwdict.adb", "wwbrute.adb", "wwgen.adb");
+	for Main use ("wwdict.adb", "wwbrute.adb", "wwgen.adb", "wwparse.adb");
 	for Exec_Dir use ".";
 
 	package Compiler is

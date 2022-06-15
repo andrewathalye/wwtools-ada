@@ -1,0 +1,3264 @@
+          bank v89 0458-113f.bnk
+             obj  BankHeader
+        4cc  dwTag = b'BKHD' [Bank Header]
+00000004        u32  dwChunkSize = 0xE8
+                obj  AkBankHeader
+00000008           u32  dwBankGeneratorVersion = 89
+0000000c           sid  dwSoundBankID = 2273380822 (moon_raid_int_abyss)
+00000010           u32  dwLanguageID = 0x00 [SFX]
+00000014           u32  bFeedbackInBank = 0x00
+00000018           u32  dwProjectID = 0
+0000001c           gap  padding = 0xD4
+             obj  HircChunk
+000000f0        4cc  dwTag = b'HIRC' [Hierarchy]
+000000f4        u32  dwChunkSize = 0x1048
+000000f8        u32  NumReleasableHircItem = 50
+                lst  listLoadedItem
+                   obj  CAkAttenuation[0]
+000000fc              u8   eHircType = 0x0E [Attenuation]
+000000fd              u32  dwSectionSize = 0x43
+00000101              sid  ulID = 115235321
+                      obj  AttenuationInitialValues
+00000105                 u8   bIsConeEnabled = 0x00
+00000106                 s8   curveToUse[0] = 0
+00000107                 s8   curveToUse[1] = 0
+00000108                 s8   curveToUse[2] = 0
+00000109                 s8   curveToUse[3] = -1
+0000010a                 s8   curveToUse[4] = 1
+0000010b                 u8   NumCurves = 0x02
+                         lst  curves
+                            obj  CAkConversionTable[0]
+0000010c                       u8   eScaling = 0x02 [dB]
+0000010d                       u16  ulSize = 2
+                               lst  pRTPCMgr
+                                  obj  AkRTPCGraphPoint[0]
+0000010f                             f32  From = 0.0
+00000113                             f32  To = 0.0
+00000117                             u32  Interp = 0x09 [Constant]
+                                  obj  AkRTPCGraphPoint[1]
+0000011b                             f32  From = 100.0
+0000011f                             f32  To = 0.0
+00000123                             u32  Interp = 0x04 [Linear]
+                            obj  CAkConversionTable[1]
+00000127                       u8   eScaling = 0x00 [None]
+00000128                       u16  ulSize = 2
+                               lst  pRTPCMgr
+                                  obj  AkRTPCGraphPoint[0]
+0000012a                             f32  From = 0.0
+0000012e                             f32  To = 25.0
+00000132                             u32  Interp = 0x09 [Constant]
+                                  obj  AkRTPCGraphPoint[1]
+00000136                             f32  From = 100.0
+0000013a                             f32  To = 25.0
+0000013e                             u32  Interp = 0x04 [Linear]
+                         obj  InitialRTPC
+00000142                    u16  ulNumRTPC = 0
+                            lst  pRTPCMgr
+                   obj  CAkSound[1]
+00000144              u8   eHircType = 0x02 [Sound]
+00000145              u32  dwSectionSize = 0x4E
+00000149              sid  ulID = 103437012
+                      obj  SoundInitialValues
+                         obj  AkBankSourceData
+0000014d                    u32  ulPluginID = 0x00040001 [VORBIS]
+                       u16  type = 0x01 [Codec]
+                       u16  company = 0x00 [Audiokinetic]
+00000151                    u32  StreamType = 0x01 [Streaming]
+                            obj  AkMediaInformation
+00000155                       tid  sourceID = 668654661
+00000159                       tid  uFileID = 668654661
+0000015d                       u32  uInMemoryMediaSize = 0x35F9
+00000161                       u8   uSourceBits = 0x04
+                          bit0 bIsLanguageSpecific = 0
+                          bit1 bHasSource = 0
+                          bit2 bExternallySupplied = 1
+                         obj  NodeBaseParams
+                            obj  NodeInitialFxParams
+00000162                       u8   bIsOverrideParentFX = 0x00
+00000163                       u8   uNumFx = 0
+00000164                    tid  OverrideBusId = 0
+00000168                    tid  DirectParentID = 204730294
+0000016c                    u8   bPriorityOverrideParent = 0x00
+0000016d                    u8   bPriorityApplyDistFactor = 0x01
+                            obj  NodeInitialParams
+                               obj  AkPropBundle<AkPropValue,unsigned char>
+0000016e                          u8   cProps = 3
+                                  lst  pProps
+                                     obj  AkPropBundle[0]
+0000016f                                u8   pID = 0x05 [Priority]
+00000172                                uni  pValue = 90.0
+                                     obj  AkPropBundle[1]
+00000170                                u8   pID = 0x06 [PriorityDistanceOffset]
+00000176                                uni  pValue = -9.0
+                                     obj  AkPropBundle[2]
+00000171                                u8   pID = 0x16 [GameAuxSendVolume]
+0000017a                                uni  pValue = -12.0
+                               obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+0000017e                          u8   cProps = 0
+                                  lst  pProps
+                            obj  PositioningParams
+0000017f                       u8   uByVector = 0x00
+                          bit0 bPositioningInfoOverrideParent = 0
+                          bit1 bHasListenerRelativeRouting = 0
+                            obj  AuxParams
+00000180                       u8   bOverrideGameAuxSends = 0x00
+00000181                       u8   bUseGameAuxSends = 0x01
+00000182                       u8   bOverrideUserAuxSends = 0x00
+00000183                       u8   bHasAux = 0x00
+                            obj  AdvSettingsParams
+00000184                       u8   eVirtualQueueBehavior = 0x01 [FromElapsedTime]
+00000185                       u8   bKillNewest = 0x00
+00000186                       u8   bUseVirtualBehavior = 0x01
+00000187                       u16  u16MaxNumInstance = 0
+00000189                       u8   bIsGlobalLimit = 0x00
+0000018a                       u8   eBelowThresholdBehavior = 0x02 [SetAsVirtualVoice]
+0000018b                       u8   bIsMaxNumInstOverrideParent = 0x00
+0000018c                       u8   bIsVVoicesOptOverrideParent = 0x00
+0000018d                       u8   bOverrideHdrEnvelope = 0x00
+0000018e                       u8   bOverrideAnalysis = 0x00
+0000018f                       u8   bNormalizeLoudness = 0x00
+00000190                       u8   bEnableEnvelope = 0x00
+                            obj  StateChunk
+00000191                       u32  ulNumStateGroups = 0
+                               lst  pStateChunks
+                            obj  InitialRTPC
+00000195                       u16  ulNumRTPC = 0
+                               lst  pRTPCMgr
+                   obj  CAkSound[2]
+00000197              u8   eHircType = 0x02 [Sound]
+00000198              u32  dwSectionSize = 0x4E
+0000019c              sid  ulID = 158282844
+                      obj  SoundInitialValues
+                         obj  AkBankSourceData
+000001a0                    u32  ulPluginID = 0x00040001 [VORBIS]
+                       u16  type = 0x01 [Codec]
+                       u16  company = 0x00 [Audiokinetic]
+000001a4                    u32  StreamType = 0x01 [Streaming]
+                            obj  AkMediaInformation
+000001a8                       tid  sourceID = 29544649
+000001ac                       tid  uFileID = 29544649
+000001b0                       u32  uInMemoryMediaSize = 0x352D
+000001b4                       u8   uSourceBits = 0x04
+                          bit0 bIsLanguageSpecific = 0
+                          bit1 bHasSource = 0
+                          bit2 bExternallySupplied = 1
+                         obj  NodeBaseParams
+                            obj  NodeInitialFxParams
+000001b5                       u8   bIsOverrideParentFX = 0x00
+000001b6                       u8   uNumFx = 0
+000001b7                    tid  OverrideBusId = 0
+000001bb                    tid  DirectParentID = 204730294
+000001bf                    u8   bPriorityOverrideParent = 0x00
+000001c0                    u8   bPriorityApplyDistFactor = 0x01
+                            obj  NodeInitialParams
+                               obj  AkPropBundle<AkPropValue,unsigned char>
+000001c1                          u8   cProps = 3
+                                  lst  pProps
+                                     obj  AkPropBundle[0]
+000001c2                                u8   pID = 0x05 [Priority]
+000001c5                                uni  pValue = 90.0
+                                     obj  AkPropBundle[1]
+000001c3                                u8   pID = 0x06 [PriorityDistanceOffset]
+000001c9                                uni  pValue = -9.0
+                                     obj  AkPropBundle[2]
+000001c4                                u8   pID = 0x16 [GameAuxSendVolume]
+000001cd                                uni  pValue = -12.0
+                               obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+000001d1                          u8   cProps = 0
+                                  lst  pProps
+                            obj  PositioningParams
+000001d2                       u8   uByVector = 0x00
+                          bit0 bPositioningInfoOverrideParent = 0
+                          bit1 bHasListenerRelativeRouting = 0
+                            obj  AuxParams
+000001d3                       u8   bOverrideGameAuxSends = 0x00
+000001d4                       u8   bUseGameAuxSends = 0x01
+000001d5                       u8   bOverrideUserAuxSends = 0x00
+000001d6                       u8   bHasAux = 0x00
+                            obj  AdvSettingsParams
+000001d7                       u8   eVirtualQueueBehavior = 0x01 [FromElapsedTime]
+000001d8                       u8   bKillNewest = 0x00
+000001d9                       u8   bUseVirtualBehavior = 0x01
+000001da                       u16  u16MaxNumInstance = 0
+000001dc                       u8   bIsGlobalLimit = 0x00
+000001dd                       u8   eBelowThresholdBehavior = 0x02 [SetAsVirtualVoice]
+000001de                       u8   bIsMaxNumInstOverrideParent = 0x00
+000001df                       u8   bIsVVoicesOptOverrideParent = 0x00
+000001e0                       u8   bOverrideHdrEnvelope = 0x00
+000001e1                       u8   bOverrideAnalysis = 0x00
+000001e2                       u8   bNormalizeLoudness = 0x00
+000001e3                       u8   bEnableEnvelope = 0x00
+                            obj  StateChunk
+000001e4                       u32  ulNumStateGroups = 0
+                               lst  pStateChunks
+                            obj  InitialRTPC
+000001e8                       u16  ulNumRTPC = 0
+                               lst  pRTPCMgr
+                   obj  CAkSound[3]
+000001ea              u8   eHircType = 0x02 [Sound]
+000001eb              u32  dwSectionSize = 0x4E
+000001ef              sid  ulID = 523913448
+                      obj  SoundInitialValues
+                         obj  AkBankSourceData
+000001f3                    u32  ulPluginID = 0x00040001 [VORBIS]
+                       u16  type = 0x01 [Codec]
+                       u16  company = 0x00 [Audiokinetic]
+000001f7                    u32  StreamType = 0x01 [Streaming]
+                            obj  AkMediaInformation
+000001fb                       tid  sourceID = 19839895
+000001ff                       tid  uFileID = 19839895
+00000203                       u32  uInMemoryMediaSize = 0x3625
+00000207                       u8   uSourceBits = 0x04
+                          bit0 bIsLanguageSpecific = 0
+                          bit1 bHasSource = 0
+                          bit2 bExternallySupplied = 1
+                         obj  NodeBaseParams
+                            obj  NodeInitialFxParams
+00000208                       u8   bIsOverrideParentFX = 0x00
+00000209                       u8   uNumFx = 0
+0000020a                    tid  OverrideBusId = 0
+0000020e                    tid  DirectParentID = 204730294
+00000212                    u8   bPriorityOverrideParent = 0x00
+00000213                    u8   bPriorityApplyDistFactor = 0x01
+                            obj  NodeInitialParams
+                               obj  AkPropBundle<AkPropValue,unsigned char>
+00000214                          u8   cProps = 3
+                                  lst  pProps
+                                     obj  AkPropBundle[0]
+00000215                                u8   pID = 0x05 [Priority]
+00000218                                uni  pValue = 90.0
+                                     obj  AkPropBundle[1]
+00000216                                u8   pID = 0x06 [PriorityDistanceOffset]
+0000021c                                uni  pValue = -9.0
+                                     obj  AkPropBundle[2]
+00000217                                u8   pID = 0x16 [GameAuxSendVolume]
+00000220                                uni  pValue = -12.0
+                               obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+00000224                          u8   cProps = 0
+                                  lst  pProps
+                            obj  PositioningParams
+00000225                       u8   uByVector = 0x00
+                          bit0 bPositioningInfoOverrideParent = 0
+                          bit1 bHasListenerRelativeRouting = 0
+                            obj  AuxParams
+00000226                       u8   bOverrideGameAuxSends = 0x00
+00000227                       u8   bUseGameAuxSends = 0x01
+00000228                       u8   bOverrideUserAuxSends = 0x00
+00000229                       u8   bHasAux = 0x00
+                            obj  AdvSettingsParams
+0000022a                       u8   eVirtualQueueBehavior = 0x01 [FromElapsedTime]
+0000022b                       u8   bKillNewest = 0x00
+0000022c                       u8   bUseVirtualBehavior = 0x01
+0000022d                       u16  u16MaxNumInstance = 0
+0000022f                       u8   bIsGlobalLimit = 0x00
+00000230                       u8   eBelowThresholdBehavior = 0x02 [SetAsVirtualVoice]
+00000231                       u8   bIsMaxNumInstOverrideParent = 0x00
+00000232                       u8   bIsVVoicesOptOverrideParent = 0x00
+00000233                       u8   bOverrideHdrEnvelope = 0x00
+00000234                       u8   bOverrideAnalysis = 0x00
+00000235                       u8   bNormalizeLoudness = 0x00
+00000236                       u8   bEnableEnvelope = 0x00
+                            obj  StateChunk
+00000237                       u32  ulNumStateGroups = 0
+                               lst  pStateChunks
+                            obj  InitialRTPC
+0000023b                       u16  ulNumRTPC = 0
+                               lst  pRTPCMgr
+                   obj  CAkSound[4]
+0000023d              u8   eHircType = 0x02 [Sound]
+0000023e              u32  dwSectionSize = 0x4E
+00000242              sid  ulID = 843244579
+                      obj  SoundInitialValues
+                         obj  AkBankSourceData
+00000246                    u32  ulPluginID = 0x00040001 [VORBIS]
+                       u16  type = 0x01 [Codec]
+                       u16  company = 0x00 [Audiokinetic]
+0000024a                    u32  StreamType = 0x01 [Streaming]
+                            obj  AkMediaInformation
+0000024e                       tid  sourceID = 205158637
+00000252                       tid  uFileID = 205158637
+00000256                       u32  uInMemoryMediaSize = 0x3571
+0000025a                       u8   uSourceBits = 0x04
+                          bit0 bIsLanguageSpecific = 0
+                          bit1 bHasSource = 0
+                          bit2 bExternallySupplied = 1
+                         obj  NodeBaseParams
+                            obj  NodeInitialFxParams
+0000025b                       u8   bIsOverrideParentFX = 0x00
+0000025c                       u8   uNumFx = 0
+0000025d                    tid  OverrideBusId = 0
+00000261                    tid  DirectParentID = 204730294
+00000265                    u8   bPriorityOverrideParent = 0x00
+00000266                    u8   bPriorityApplyDistFactor = 0x01
+                            obj  NodeInitialParams
+                               obj  AkPropBundle<AkPropValue,unsigned char>
+00000267                          u8   cProps = 3
+                                  lst  pProps
+                                     obj  AkPropBundle[0]
+00000268                                u8   pID = 0x05 [Priority]
+0000026b                                uni  pValue = 90.0
+                                     obj  AkPropBundle[1]
+00000269                                u8   pID = 0x06 [PriorityDistanceOffset]
+0000026f                                uni  pValue = -9.0
+                                     obj  AkPropBundle[2]
+0000026a                                u8   pID = 0x16 [GameAuxSendVolume]
+00000273                                uni  pValue = -12.0
+                               obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+00000277                          u8   cProps = 0
+                                  lst  pProps
+                            obj  PositioningParams
+00000278                       u8   uByVector = 0x00
+                          bit0 bPositioningInfoOverrideParent = 0
+                          bit1 bHasListenerRelativeRouting = 0
+                            obj  AuxParams
+00000279                       u8   bOverrideGameAuxSends = 0x00
+0000027a                       u8   bUseGameAuxSends = 0x01
+0000027b                       u8   bOverrideUserAuxSends = 0x00
+0000027c                       u8   bHasAux = 0x00
+                            obj  AdvSettingsParams
+0000027d                       u8   eVirtualQueueBehavior = 0x01 [FromElapsedTime]
+0000027e                       u8   bKillNewest = 0x00
+0000027f                       u8   bUseVirtualBehavior = 0x01
+00000280                       u16  u16MaxNumInstance = 0
+00000282                       u8   bIsGlobalLimit = 0x00
+00000283                       u8   eBelowThresholdBehavior = 0x02 [SetAsVirtualVoice]
+00000284                       u8   bIsMaxNumInstOverrideParent = 0x00
+00000285                       u8   bIsVVoicesOptOverrideParent = 0x00
+00000286                       u8   bOverrideHdrEnvelope = 0x00
+00000287                       u8   bOverrideAnalysis = 0x00
+00000288                       u8   bNormalizeLoudness = 0x00
+00000289                       u8   bEnableEnvelope = 0x00
+                            obj  StateChunk
+0000028a                       u32  ulNumStateGroups = 0
+                               lst  pStateChunks
+                            obj  InitialRTPC
+0000028e                       u16  ulNumRTPC = 0
+                               lst  pRTPCMgr
+                   obj  CAkRanSeqCntr[5]
+00000290              u8   eHircType = 0x05 [Random/Sequence Container]
+00000291              u32  dwSectionSize = 0x93
+00000295              sid  ulID = 204730294
+                      obj  RanSeqCntrInitialValues
+                         obj  NodeBaseParams
+                            obj  NodeInitialFxParams
+00000299                       u8   bIsOverrideParentFX = 0x00
+0000029a                       u8   uNumFx = 0
+0000029b                    tid  OverrideBusId = 0
+0000029f                    tid  DirectParentID = 349319821
+000002a3                    u8   bPriorityOverrideParent = 0x00
+000002a4                    u8   bPriorityApplyDistFactor = 0x01
+                            obj  NodeInitialParams
+                               obj  AkPropBundle<AkPropValue,unsigned char>
+000002a5                          u8   cProps = 4
+                                  lst  pProps
+                                     obj  AkPropBundle[0]
+000002a6                                u8   pID = 0x00 [Volume]
+000002aa                                uni  pValue = -9.0
+                                     obj  AkPropBundle[1]
+000002a7                                u8   pID = 0x05 [Priority]
+000002ae                                uni  pValue = 90.0
+                                     obj  AkPropBundle[2]
+000002a8                                u8   pID = 0x06 [PriorityDistanceOffset]
+000002b2                                uni  pValue = -9.0
+                                     obj  AkPropBundle[3]
+000002a9                                u8   pID = 0x16 [GameAuxSendVolume]
+000002b6                                uni  pValue = -12.0
+                               obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+000002ba                          u8   cProps = 0
+                                  lst  pProps
+                            obj  PositioningParams
+000002bb                       u8   uByVector = 0x01
+                          bit0 bPositioningInfoOverrideParent = 1
+                          bit1 bHasListenerRelativeRouting = 0
+000002bc                       u8   cbIs2DPositioningAvailable = 0x01
+000002bd                       u8   cbIs3DPositioningAvailable = 0x00
+000002be                       u8   bPositioningEnablePanner = 0x00
+                            obj  AuxParams
+000002bf                       u8   bOverrideGameAuxSends = 0x00
+000002c0                       u8   bUseGameAuxSends = 0x01
+000002c1                       u8   bOverrideUserAuxSends = 0x00
+000002c2                       u8   bHasAux = 0x00
+                            obj  AdvSettingsParams
+000002c3                       u8   eVirtualQueueBehavior = 0x01 [FromElapsedTime]
+000002c4                       u8   bKillNewest = 0x00
+000002c5                       u8   bUseVirtualBehavior = 0x01
+000002c6                       u16  u16MaxNumInstance = 0
+000002c8                       u8   bIsGlobalLimit = 0x00
+000002c9                       u8   eBelowThresholdBehavior = 0x02 [SetAsVirtualVoice]
+000002ca                       u8   bIsMaxNumInstOverrideParent = 0x00
+000002cb                       u8   bIsVVoicesOptOverrideParent = 0x00
+000002cc                       u8   bOverrideHdrEnvelope = 0x00
+000002cd                       u8   bOverrideAnalysis = 0x00
+000002ce                       u8   bNormalizeLoudness = 0x00
+000002cf                       u8   bEnableEnvelope = 0x00
+                            obj  StateChunk
+000002d0                       u32  ulNumStateGroups = 0
+                               lst  pStateChunks
+                            obj  InitialRTPC
+000002d4                       u16  ulNumRTPC = 0
+                               lst  pRTPCMgr
+000002d6                 u16  sLoopCount = 0
+000002d8                 u16  sLoopModMin = 0
+000002da                 u16  sLoopModMax = 0
+000002dc                 f32  fTransitionTime = 1000.0
+000002e0                 f32  fTransitionTimeModMin = 0.0
+000002e4                 f32  fTransitionTimeModMax = 0.0
+000002e8                 u16  wAvoidRepeatCount = 3
+000002ea                 u8   eTransitionMode = 0x04 [SampleAccurate]
+000002eb                 u8   eRandomMode = 0x01 [Shuffle]
+000002ec                 u8   eMode = 0x00 [Random]
+000002ed                 u8   _bIsUsingWeight = 0x00
+000002ee                 u8   bResetPlayListAtEachPlay = 0x01
+000002ef                 u8   bIsRestartBackward = 0x00
+000002f0                 u8   bIsContinuous = 0x01
+000002f1                 u8   bIsGlobal = 0x01
+                         obj  Children
+000002f2                    u32  ulNumChilds = 4
+000002f6                    tid  ulChildID = 103437012
+000002fa                    tid  ulChildID = 158282844
+000002fe                    tid  ulChildID = 523913448
+00000302                    tid  ulChildID = 843244579
+                         obj  CAkPlayList
+00000306                    u16  ulPlayListItem = 4
+                            lst  pItems
+                               obj  AkPlaylistItem[0]
+00000308                          tid  ulPlayID = 103437012
+0000030c                          s32  weight = 50000
+                               obj  AkPlaylistItem[1]
+00000310                          tid  ulPlayID = 158282844
+00000314                          s32  weight = 50000
+                               obj  AkPlaylistItem[2]
+00000318                          tid  ulPlayID = 843244579
+0000031c                          s32  weight = 50000
+                               obj  AkPlaylistItem[3]
+00000320                          tid  ulPlayID = 523913448
+00000324                          s32  weight = 50000
+                   obj  CAkSound[6]
+00000328              u8   eHircType = 0x02 [Sound]
+00000329              u32  dwSectionSize = 0x4E
+0000032d              sid  ulID = 215480202
+                      obj  SoundInitialValues
+                         obj  AkBankSourceData
+00000331                    u32  ulPluginID = 0x00040001 [VORBIS]
+                       u16  type = 0x01 [Codec]
+                       u16  company = 0x00 [Audiokinetic]
+00000335                    u32  StreamType = 0x01 [Streaming]
+                            obj  AkMediaInformation
+00000339                       tid  sourceID = 416421411
+0000033d                       tid  uFileID = 416421411
+00000341                       u32  uInMemoryMediaSize = 0x2D1B
+00000345                       u8   uSourceBits = 0x04
+                          bit0 bIsLanguageSpecific = 0
+                          bit1 bHasSource = 0
+                          bit2 bExternallySupplied = 1
+                         obj  NodeBaseParams
+                            obj  NodeInitialFxParams
+00000346                       u8   bIsOverrideParentFX = 0x00
+00000347                       u8   uNumFx = 0
+00000348                    tid  OverrideBusId = 0
+0000034c                    tid  DirectParentID = 653462418
+00000350                    u8   bPriorityOverrideParent = 0x00
+00000351                    u8   bPriorityApplyDistFactor = 0x01
+                            obj  NodeInitialParams
+                               obj  AkPropBundle<AkPropValue,unsigned char>
+00000352                          u8   cProps = 3
+                                  lst  pProps
+                                     obj  AkPropBundle[0]
+00000353                                u8   pID = 0x05 [Priority]
+00000356                                uni  pValue = 90.0
+                                     obj  AkPropBundle[1]
+00000354                                u8   pID = 0x06 [PriorityDistanceOffset]
+0000035a                                uni  pValue = -9.0
+                                     obj  AkPropBundle[2]
+00000355                                u8   pID = 0x16 [GameAuxSendVolume]
+0000035e                                uni  pValue = -12.0
+                               obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+00000362                          u8   cProps = 0
+                                  lst  pProps
+                            obj  PositioningParams
+00000363                       u8   uByVector = 0x00
+                          bit0 bPositioningInfoOverrideParent = 0
+                          bit1 bHasListenerRelativeRouting = 0
+                            obj  AuxParams
+00000364                       u8   bOverrideGameAuxSends = 0x00
+00000365                       u8   bUseGameAuxSends = 0x01
+00000366                       u8   bOverrideUserAuxSends = 0x00
+00000367                       u8   bHasAux = 0x00
+                            obj  AdvSettingsParams
+00000368                       u8   eVirtualQueueBehavior = 0x01 [FromElapsedTime]
+00000369                       u8   bKillNewest = 0x00
+0000036a                       u8   bUseVirtualBehavior = 0x01
+0000036b                       u16  u16MaxNumInstance = 0
+0000036d                       u8   bIsGlobalLimit = 0x00
+0000036e                       u8   eBelowThresholdBehavior = 0x02 [SetAsVirtualVoice]
+0000036f                       u8   bIsMaxNumInstOverrideParent = 0x00
+00000370                       u8   bIsVVoicesOptOverrideParent = 0x00
+00000371                       u8   bOverrideHdrEnvelope = 0x00
+00000372                       u8   bOverrideAnalysis = 0x00
+00000373                       u8   bNormalizeLoudness = 0x00
+00000374                       u8   bEnableEnvelope = 0x00
+                            obj  StateChunk
+00000375                       u32  ulNumStateGroups = 0
+                               lst  pStateChunks
+                            obj  InitialRTPC
+00000379                       u16  ulNumRTPC = 0
+                               lst  pRTPCMgr
+                   obj  CAkSound[7]
+0000037b              u8   eHircType = 0x02 [Sound]
+0000037c              u32  dwSectionSize = 0x4E
+00000380              sid  ulID = 270464926
+                      obj  SoundInitialValues
+                         obj  AkBankSourceData
+00000384                    u32  ulPluginID = 0x00040001 [VORBIS]
+                       u16  type = 0x01 [Codec]
+                       u16  company = 0x00 [Audiokinetic]
+00000388                    u32  StreamType = 0x01 [Streaming]
+                            obj  AkMediaInformation
+0000038c                       tid  sourceID = 75714671
+00000390                       tid  uFileID = 75714671
+00000394                       u32  uInMemoryMediaSize = 0x2C83
+00000398                       u8   uSourceBits = 0x04
+                          bit0 bIsLanguageSpecific = 0
+                          bit1 bHasSource = 0
+                          bit2 bExternallySupplied = 1
+                         obj  NodeBaseParams
+                            obj  NodeInitialFxParams
+00000399                       u8   bIsOverrideParentFX = 0x00
+0000039a                       u8   uNumFx = 0
+0000039b                    tid  OverrideBusId = 0
+0000039f                    tid  DirectParentID = 653462418
+000003a3                    u8   bPriorityOverrideParent = 0x00
+000003a4                    u8   bPriorityApplyDistFactor = 0x01
+                            obj  NodeInitialParams
+                               obj  AkPropBundle<AkPropValue,unsigned char>
+000003a5                          u8   cProps = 3
+                                  lst  pProps
+                                     obj  AkPropBundle[0]
+000003a6                                u8   pID = 0x05 [Priority]
+000003a9                                uni  pValue = 90.0
+                                     obj  AkPropBundle[1]
+000003a7                                u8   pID = 0x06 [PriorityDistanceOffset]
+000003ad                                uni  pValue = -9.0
+                                     obj  AkPropBundle[2]
+000003a8                                u8   pID = 0x16 [GameAuxSendVolume]
+000003b1                                uni  pValue = -12.0
+                               obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+000003b5                          u8   cProps = 0
+                                  lst  pProps
+                            obj  PositioningParams
+000003b6                       u8   uByVector = 0x00
+                          bit0 bPositioningInfoOverrideParent = 0
+                          bit1 bHasListenerRelativeRouting = 0
+                            obj  AuxParams
+000003b7                       u8   bOverrideGameAuxSends = 0x00
+000003b8                       u8   bUseGameAuxSends = 0x01
+000003b9                       u8   bOverrideUserAuxSends = 0x00
+000003ba                       u8   bHasAux = 0x00
+                            obj  AdvSettingsParams
+000003bb                       u8   eVirtualQueueBehavior = 0x01 [FromElapsedTime]
+000003bc                       u8   bKillNewest = 0x00
+000003bd                       u8   bUseVirtualBehavior = 0x01
+000003be                       u16  u16MaxNumInstance = 0
+000003c0                       u8   bIsGlobalLimit = 0x00
+000003c1                       u8   eBelowThresholdBehavior = 0x02 [SetAsVirtualVoice]
+000003c2                       u8   bIsMaxNumInstOverrideParent = 0x00
+000003c3                       u8   bIsVVoicesOptOverrideParent = 0x00
+000003c4                       u8   bOverrideHdrEnvelope = 0x00
+000003c5                       u8   bOverrideAnalysis = 0x00
+000003c6                       u8   bNormalizeLoudness = 0x00
+000003c7                       u8   bEnableEnvelope = 0x00
+                            obj  StateChunk
+000003c8                       u32  ulNumStateGroups = 0
+                               lst  pStateChunks
+                            obj  InitialRTPC
+000003cc                       u16  ulNumRTPC = 0
+                               lst  pRTPCMgr
+                   obj  CAkSound[8]
+000003ce              u8   eHircType = 0x02 [Sound]
+000003cf              u32  dwSectionSize = 0x4E
+000003d3              sid  ulID = 623230666
+                      obj  SoundInitialValues
+                         obj  AkBankSourceData
+000003d7                    u32  ulPluginID = 0x00040001 [VORBIS]
+                       u16  type = 0x01 [Codec]
+                       u16  company = 0x00 [Audiokinetic]
+000003db                    u32  StreamType = 0x01 [Streaming]
+                            obj  AkMediaInformation
+000003df                       tid  sourceID = 301838215
+000003e3                       tid  uFileID = 301838215
+000003e7                       u32  uInMemoryMediaSize = 0x2D97
+000003eb                       u8   uSourceBits = 0x04
+                          bit0 bIsLanguageSpecific = 0
+                          bit1 bHasSource = 0
+                          bit2 bExternallySupplied = 1
+                         obj  NodeBaseParams
+                            obj  NodeInitialFxParams
+000003ec                       u8   bIsOverrideParentFX = 0x00
+000003ed                       u8   uNumFx = 0
+000003ee                    tid  OverrideBusId = 0
+000003f2                    tid  DirectParentID = 653462418
+000003f6                    u8   bPriorityOverrideParent = 0x00
+000003f7                    u8   bPriorityApplyDistFactor = 0x01
+                            obj  NodeInitialParams
+                               obj  AkPropBundle<AkPropValue,unsigned char>
+000003f8                          u8   cProps = 3
+                                  lst  pProps
+                                     obj  AkPropBundle[0]
+000003f9                                u8   pID = 0x05 [Priority]
+000003fc                                uni  pValue = 90.0
+                                     obj  AkPropBundle[1]
+000003fa                                u8   pID = 0x06 [PriorityDistanceOffset]
+00000400                                uni  pValue = -9.0
+                                     obj  AkPropBundle[2]
+000003fb                                u8   pID = 0x16 [GameAuxSendVolume]
+00000404                                uni  pValue = -12.0
+                               obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+00000408                          u8   cProps = 0
+                                  lst  pProps
+                            obj  PositioningParams
+00000409                       u8   uByVector = 0x00
+                          bit0 bPositioningInfoOverrideParent = 0
+                          bit1 bHasListenerRelativeRouting = 0
+                            obj  AuxParams
+0000040a                       u8   bOverrideGameAuxSends = 0x00
+0000040b                       u8   bUseGameAuxSends = 0x01
+0000040c                       u8   bOverrideUserAuxSends = 0x00
+0000040d                       u8   bHasAux = 0x00
+                            obj  AdvSettingsParams
+0000040e                       u8   eVirtualQueueBehavior = 0x01 [FromElapsedTime]
+0000040f                       u8   bKillNewest = 0x00
+00000410                       u8   bUseVirtualBehavior = 0x01
+00000411                       u16  u16MaxNumInstance = 0
+00000413                       u8   bIsGlobalLimit = 0x00
+00000414                       u8   eBelowThresholdBehavior = 0x02 [SetAsVirtualVoice]
+00000415                       u8   bIsMaxNumInstOverrideParent = 0x00
+00000416                       u8   bIsVVoicesOptOverrideParent = 0x00
+00000417                       u8   bOverrideHdrEnvelope = 0x00
+00000418                       u8   bOverrideAnalysis = 0x00
+00000419                       u8   bNormalizeLoudness = 0x00
+0000041a                       u8   bEnableEnvelope = 0x00
+                            obj  StateChunk
+0000041b                       u32  ulNumStateGroups = 0
+                               lst  pStateChunks
+                            obj  InitialRTPC
+0000041f                       u16  ulNumRTPC = 0
+                               lst  pRTPCMgr
+                   obj  CAkSound[9]
+00000421              u8   eHircType = 0x02 [Sound]
+00000422              u32  dwSectionSize = 0x4E
+00000426              sid  ulID = 929547847
+                      obj  SoundInitialValues
+                         obj  AkBankSourceData
+0000042a                    u32  ulPluginID = 0x00040001 [VORBIS]
+                       u16  type = 0x01 [Codec]
+                       u16  company = 0x00 [Audiokinetic]
+0000042e                    u32  StreamType = 0x01 [Streaming]
+                            obj  AkMediaInformation
+00000432                       tid  sourceID = 19314385
+00000436                       tid  uFileID = 19314385
+0000043a                       u32  uInMemoryMediaSize = 0x2D03
+0000043e                       u8   uSourceBits = 0x04
+                          bit0 bIsLanguageSpecific = 0
+                          bit1 bHasSource = 0
+                          bit2 bExternallySupplied = 1
+                         obj  NodeBaseParams
+                            obj  NodeInitialFxParams
+0000043f                       u8   bIsOverrideParentFX = 0x00
+00000440                       u8   uNumFx = 0
+00000441                    tid  OverrideBusId = 0
+00000445                    tid  DirectParentID = 653462418
+00000449                    u8   bPriorityOverrideParent = 0x00
+0000044a                    u8   bPriorityApplyDistFactor = 0x01
+                            obj  NodeInitialParams
+                               obj  AkPropBundle<AkPropValue,unsigned char>
+0000044b                          u8   cProps = 3
+                                  lst  pProps
+                                     obj  AkPropBundle[0]
+0000044c                                u8   pID = 0x05 [Priority]
+0000044f                                uni  pValue = 90.0
+                                     obj  AkPropBundle[1]
+0000044d                                u8   pID = 0x06 [PriorityDistanceOffset]
+00000453                                uni  pValue = -9.0
+                                     obj  AkPropBundle[2]
+0000044e                                u8   pID = 0x16 [GameAuxSendVolume]
+00000457                                uni  pValue = -12.0
+                               obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+0000045b                          u8   cProps = 0
+                                  lst  pProps
+                            obj  PositioningParams
+0000045c                       u8   uByVector = 0x00
+                          bit0 bPositioningInfoOverrideParent = 0
+                          bit1 bHasListenerRelativeRouting = 0
+                            obj  AuxParams
+0000045d                       u8   bOverrideGameAuxSends = 0x00
+0000045e                       u8   bUseGameAuxSends = 0x01
+0000045f                       u8   bOverrideUserAuxSends = 0x00
+00000460                       u8   bHasAux = 0x00
+                            obj  AdvSettingsParams
+00000461                       u8   eVirtualQueueBehavior = 0x01 [FromElapsedTime]
+00000462                       u8   bKillNewest = 0x00
+00000463                       u8   bUseVirtualBehavior = 0x01
+00000464                       u16  u16MaxNumInstance = 0
+00000466                       u8   bIsGlobalLimit = 0x00
+00000467                       u8   eBelowThresholdBehavior = 0x02 [SetAsVirtualVoice]
+00000468                       u8   bIsMaxNumInstOverrideParent = 0x00
+00000469                       u8   bIsVVoicesOptOverrideParent = 0x00
+0000046a                       u8   bOverrideHdrEnvelope = 0x00
+0000046b                       u8   bOverrideAnalysis = 0x00
+0000046c                       u8   bNormalizeLoudness = 0x00
+0000046d                       u8   bEnableEnvelope = 0x00
+                            obj  StateChunk
+0000046e                       u32  ulNumStateGroups = 0
+                               lst  pStateChunks
+                            obj  InitialRTPC
+00000472                       u16  ulNumRTPC = 0
+                               lst  pRTPCMgr
+                   obj  CAkRanSeqCntr[10]
+00000474              u8   eHircType = 0x05 [Random/Sequence Container]
+00000475              u32  dwSectionSize = 0x8E
+00000479              sid  ulID = 653462418
+                      obj  RanSeqCntrInitialValues
+                         obj  NodeBaseParams
+                            obj  NodeInitialFxParams
+0000047d                       u8   bIsOverrideParentFX = 0x00
+0000047e                       u8   uNumFx = 0
+0000047f                    tid  OverrideBusId = 0
+00000483                    tid  DirectParentID = 349319821
+00000487                    u8   bPriorityOverrideParent = 0x00
+00000488                    u8   bPriorityApplyDistFactor = 0x01
+                            obj  NodeInitialParams
+                               obj  AkPropBundle<AkPropValue,unsigned char>
+00000489                          u8   cProps = 3
+                                  lst  pProps
+                                     obj  AkPropBundle[0]
+0000048a                                u8   pID = 0x05 [Priority]
+0000048d                                uni  pValue = 90.0
+                                     obj  AkPropBundle[1]
+0000048b                                u8   pID = 0x06 [PriorityDistanceOffset]
+00000491                                uni  pValue = -9.0
+                                     obj  AkPropBundle[2]
+0000048c                                u8   pID = 0x16 [GameAuxSendVolume]
+00000495                                uni  pValue = -12.0
+                               obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+00000499                          u8   cProps = 0
+                                  lst  pProps
+                            obj  PositioningParams
+0000049a                       u8   uByVector = 0x01
+                          bit0 bPositioningInfoOverrideParent = 1
+                          bit1 bHasListenerRelativeRouting = 0
+0000049b                       u8   cbIs2DPositioningAvailable = 0x01
+0000049c                       u8   cbIs3DPositioningAvailable = 0x00
+0000049d                       u8   bPositioningEnablePanner = 0x00
+                            obj  AuxParams
+0000049e                       u8   bOverrideGameAuxSends = 0x00
+0000049f                       u8   bUseGameAuxSends = 0x01
+000004a0                       u8   bOverrideUserAuxSends = 0x00
+000004a1                       u8   bHasAux = 0x00
+                            obj  AdvSettingsParams
+000004a2                       u8   eVirtualQueueBehavior = 0x01 [FromElapsedTime]
+000004a3                       u8   bKillNewest = 0x00
+000004a4                       u8   bUseVirtualBehavior = 0x00
+000004a5                       u16  u16MaxNumInstance = 0
+000004a7                       u8   bIsGlobalLimit = 0x00
+000004a8                       u8   eBelowThresholdBehavior = 0x02 [SetAsVirtualVoice]
+000004a9                       u8   bIsMaxNumInstOverrideParent = 0x00
+000004aa                       u8   bIsVVoicesOptOverrideParent = 0x00
+000004ab                       u8   bOverrideHdrEnvelope = 0x00
+000004ac                       u8   bOverrideAnalysis = 0x00
+000004ad                       u8   bNormalizeLoudness = 0x00
+000004ae                       u8   bEnableEnvelope = 0x00
+                            obj  StateChunk
+000004af                       u32  ulNumStateGroups = 0
+                               lst  pStateChunks
+                            obj  InitialRTPC
+000004b3                       u16  ulNumRTPC = 0
+                               lst  pRTPCMgr
+000004b5                 u16  sLoopCount = 0
+000004b7                 u16  sLoopModMin = 0
+000004b9                 u16  sLoopModMax = 0
+000004bb                 f32  fTransitionTime = 1000.0
+000004bf                 f32  fTransitionTimeModMin = 0.0
+000004c3                 f32  fTransitionTimeModMax = 0.0
+000004c7                 u16  wAvoidRepeatCount = 3
+000004c9                 u8   eTransitionMode = 0x04 [SampleAccurate]
+000004ca                 u8   eRandomMode = 0x01 [Shuffle]
+000004cb                 u8   eMode = 0x00 [Random]
+000004cc                 u8   _bIsUsingWeight = 0x00
+000004cd                 u8   bResetPlayListAtEachPlay = 0x01
+000004ce                 u8   bIsRestartBackward = 0x00
+000004cf                 u8   bIsContinuous = 0x01
+000004d0                 u8   bIsGlobal = 0x01
+                         obj  Children
+000004d1                    u32  ulNumChilds = 4
+000004d5                    tid  ulChildID = 215480202
+000004d9                    tid  ulChildID = 270464926
+000004dd                    tid  ulChildID = 623230666
+000004e1                    tid  ulChildID = 929547847
+                         obj  CAkPlayList
+000004e5                    u16  ulPlayListItem = 4
+                            lst  pItems
+                               obj  AkPlaylistItem[0]
+000004e7                          tid  ulPlayID = 215480202
+000004eb                          s32  weight = 50000
+                               obj  AkPlaylistItem[1]
+000004ef                          tid  ulPlayID = 623230666
+000004f3                          s32  weight = 50000
+                               obj  AkPlaylistItem[2]
+000004f7                          tid  ulPlayID = 929547847
+000004fb                          s32  weight = 50000
+                               obj  AkPlaylistItem[3]
+000004ff                          tid  ulPlayID = 270464926
+00000503                          s32  weight = 50000
+                   obj  CAkSound[11]
+00000507              u8   eHircType = 0x02 [Sound]
+00000508              u32  dwSectionSize = 0x3F
+0000050c              sid  ulID = 24600309
+                      obj  SoundInitialValues
+                         obj  AkBankSourceData
+00000510                    u32  ulPluginID = 0x00040001 [VORBIS]
+                       u16  type = 0x01 [Codec]
+                       u16  company = 0x00 [Audiokinetic]
+00000514                    u32  StreamType = 0x01 [Streaming]
+                            obj  AkMediaInformation
+00000518                       tid  sourceID = 704355453
+0000051c                       tid  uFileID = 704355453
+00000520                       u32  uInMemoryMediaSize = 0x1B4F
+00000524                       u8   uSourceBits = 0x04
+                          bit0 bIsLanguageSpecific = 0
+                          bit1 bHasSource = 0
+                          bit2 bExternallySupplied = 1
+                         obj  NodeBaseParams
+                            obj  NodeInitialFxParams
+00000525                       u8   bIsOverrideParentFX = 0x00
+00000526                       u8   uNumFx = 0
+00000527                    tid  OverrideBusId = 0
+0000052b                    tid  DirectParentID = 797197879
+0000052f                    u8   bPriorityOverrideParent = 0x00
+00000530                    u8   bPriorityApplyDistFactor = 0x00
+                            obj  NodeInitialParams
+                               obj  AkPropBundle<AkPropValue,unsigned char>
+00000531                          u8   cProps = 0
+                                  lst  pProps
+                               obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+00000532                          u8   cProps = 0
+                                  lst  pProps
+                            obj  PositioningParams
+00000533                       u8   uByVector = 0x00
+                          bit0 bPositioningInfoOverrideParent = 0
+                          bit1 bHasListenerRelativeRouting = 0
+                            obj  AuxParams
+00000534                       u8   bOverrideGameAuxSends = 0x00
+00000535                       u8   bUseGameAuxSends = 0x00
+00000536                       u8   bOverrideUserAuxSends = 0x00
+00000537                       u8   bHasAux = 0x00
+                            obj  AdvSettingsParams
+00000538                       u8   eVirtualQueueBehavior = 0x01 [FromElapsedTime]
+00000539                       u8   bKillNewest = 0x00
+0000053a                       u8   bUseVirtualBehavior = 0x00
+0000053b                       u16  u16MaxNumInstance = 0
+0000053d                       u8   bIsGlobalLimit = 0x00
+0000053e                       u8   eBelowThresholdBehavior = 0x00 [ContinueToPlay]
+0000053f                       u8   bIsMaxNumInstOverrideParent = 0x00
+00000540                       u8   bIsVVoicesOptOverrideParent = 0x00
+00000541                       u8   bOverrideHdrEnvelope = 0x00
+00000542                       u8   bOverrideAnalysis = 0x00
+00000543                       u8   bNormalizeLoudness = 0x00
+00000544                       u8   bEnableEnvelope = 0x00
+                            obj  StateChunk
+00000545                       u32  ulNumStateGroups = 0
+                               lst  pStateChunks
+                            obj  InitialRTPC
+00000549                       u16  ulNumRTPC = 0
+                               lst  pRTPCMgr
+                   obj  CAkSound[12]
+0000054b              u8   eHircType = 0x02 [Sound]
+0000054c              u32  dwSectionSize = 0x3F
+00000550              sid  ulID = 87671241
+                      obj  SoundInitialValues
+                         obj  AkBankSourceData
+00000554                    u32  ulPluginID = 0x00040001 [VORBIS]
+                       u16  type = 0x01 [Codec]
+                       u16  company = 0x00 [Audiokinetic]
+00000558                    u32  StreamType = 0x01 [Streaming]
+                            obj  AkMediaInformation
+0000055c                       tid  sourceID = 349235917
+00000560                       tid  uFileID = 349235917
+00000564                       u32  uInMemoryMediaSize = 0x18C2
+00000568                       u8   uSourceBits = 0x04
+                          bit0 bIsLanguageSpecific = 0
+                          bit1 bHasSource = 0
+                          bit2 bExternallySupplied = 1
+                         obj  NodeBaseParams
+                            obj  NodeInitialFxParams
+00000569                       u8   bIsOverrideParentFX = 0x00
+0000056a                       u8   uNumFx = 0
+0000056b                    tid  OverrideBusId = 0
+0000056f                    tid  DirectParentID = 797197879
+00000573                    u8   bPriorityOverrideParent = 0x00
+00000574                    u8   bPriorityApplyDistFactor = 0x00
+                            obj  NodeInitialParams
+                               obj  AkPropBundle<AkPropValue,unsigned char>
+00000575                          u8   cProps = 0
+                                  lst  pProps
+                               obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+00000576                          u8   cProps = 0
+                                  lst  pProps
+                            obj  PositioningParams
+00000577                       u8   uByVector = 0x00
+                          bit0 bPositioningInfoOverrideParent = 0
+                          bit1 bHasListenerRelativeRouting = 0
+                            obj  AuxParams
+00000578                       u8   bOverrideGameAuxSends = 0x00
+00000579                       u8   bUseGameAuxSends = 0x00
+0000057a                       u8   bOverrideUserAuxSends = 0x00
+0000057b                       u8   bHasAux = 0x00
+                            obj  AdvSettingsParams
+0000057c                       u8   eVirtualQueueBehavior = 0x01 [FromElapsedTime]
+0000057d                       u8   bKillNewest = 0x00
+0000057e                       u8   bUseVirtualBehavior = 0x00
+0000057f                       u16  u16MaxNumInstance = 0
+00000581                       u8   bIsGlobalLimit = 0x00
+00000582                       u8   eBelowThresholdBehavior = 0x00 [ContinueToPlay]
+00000583                       u8   bIsMaxNumInstOverrideParent = 0x00
+00000584                       u8   bIsVVoicesOptOverrideParent = 0x00
+00000585                       u8   bOverrideHdrEnvelope = 0x00
+00000586                       u8   bOverrideAnalysis = 0x00
+00000587                       u8   bNormalizeLoudness = 0x00
+00000588                       u8   bEnableEnvelope = 0x00
+                            obj  StateChunk
+00000589                       u32  ulNumStateGroups = 0
+                               lst  pStateChunks
+                            obj  InitialRTPC
+0000058d                       u16  ulNumRTPC = 0
+                               lst  pRTPCMgr
+                   obj  CAkSound[13]
+0000058f              u8   eHircType = 0x02 [Sound]
+00000590              u32  dwSectionSize = 0x3F
+00000594              sid  ulID = 171759267
+                      obj  SoundInitialValues
+                         obj  AkBankSourceData
+00000598                    u32  ulPluginID = 0x00040001 [VORBIS]
+                       u16  type = 0x01 [Codec]
+                       u16  company = 0x00 [Audiokinetic]
+0000059c                    u32  StreamType = 0x01 [Streaming]
+                            obj  AkMediaInformation
+000005a0                       tid  sourceID = 650211621
+000005a4                       tid  uFileID = 650211621
+000005a8                       u32  uInMemoryMediaSize = 0x18E9
+000005ac                       u8   uSourceBits = 0x04
+                          bit0 bIsLanguageSpecific = 0
+                          bit1 bHasSource = 0
+                          bit2 bExternallySupplied = 1
+                         obj  NodeBaseParams
+                            obj  NodeInitialFxParams
+000005ad                       u8   bIsOverrideParentFX = 0x00
+000005ae                       u8   uNumFx = 0
+000005af                    tid  OverrideBusId = 0
+000005b3                    tid  DirectParentID = 797197879
+000005b7                    u8   bPriorityOverrideParent = 0x00
+000005b8                    u8   bPriorityApplyDistFactor = 0x00
+                            obj  NodeInitialParams
+                               obj  AkPropBundle<AkPropValue,unsigned char>
+000005b9                          u8   cProps = 0
+                                  lst  pProps
+                               obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+000005ba                          u8   cProps = 0
+                                  lst  pProps
+                            obj  PositioningParams
+000005bb                       u8   uByVector = 0x00
+                          bit0 bPositioningInfoOverrideParent = 0
+                          bit1 bHasListenerRelativeRouting = 0
+                            obj  AuxParams
+000005bc                       u8   bOverrideGameAuxSends = 0x00
+000005bd                       u8   bUseGameAuxSends = 0x00
+000005be                       u8   bOverrideUserAuxSends = 0x00
+000005bf                       u8   bHasAux = 0x00
+                            obj  AdvSettingsParams
+000005c0                       u8   eVirtualQueueBehavior = 0x01 [FromElapsedTime]
+000005c1                       u8   bKillNewest = 0x00
+000005c2                       u8   bUseVirtualBehavior = 0x00
+000005c3                       u16  u16MaxNumInstance = 0
+000005c5                       u8   bIsGlobalLimit = 0x00
+000005c6                       u8   eBelowThresholdBehavior = 0x00 [ContinueToPlay]
+000005c7                       u8   bIsMaxNumInstOverrideParent = 0x00
+000005c8                       u8   bIsVVoicesOptOverrideParent = 0x00
+000005c9                       u8   bOverrideHdrEnvelope = 0x00
+000005ca                       u8   bOverrideAnalysis = 0x00
+000005cb                       u8   bNormalizeLoudness = 0x00
+000005cc                       u8   bEnableEnvelope = 0x00
+                            obj  StateChunk
+000005cd                       u32  ulNumStateGroups = 0
+                               lst  pStateChunks
+                            obj  InitialRTPC
+000005d1                       u16  ulNumRTPC = 0
+                               lst  pRTPCMgr
+                   obj  CAkSound[14]
+000005d3              u8   eHircType = 0x02 [Sound]
+000005d4              u32  dwSectionSize = 0x3F
+000005d8              sid  ulID = 707024592
+                      obj  SoundInitialValues
+                         obj  AkBankSourceData
+000005dc                    u32  ulPluginID = 0x00040001 [VORBIS]
+                       u16  type = 0x01 [Codec]
+                       u16  company = 0x00 [Audiokinetic]
+000005e0                    u32  StreamType = 0x01 [Streaming]
+                            obj  AkMediaInformation
+000005e4                       tid  sourceID = 349910740
+000005e8                       tid  uFileID = 349910740
+000005ec                       u32  uInMemoryMediaSize = 0x18A8
+000005f0                       u8   uSourceBits = 0x04
+                          bit0 bIsLanguageSpecific = 0
+                          bit1 bHasSource = 0
+                          bit2 bExternallySupplied = 1
+                         obj  NodeBaseParams
+                            obj  NodeInitialFxParams
+000005f1                       u8   bIsOverrideParentFX = 0x00
+000005f2                       u8   uNumFx = 0
+000005f3                    tid  OverrideBusId = 0
+000005f7                    tid  DirectParentID = 797197879
+000005fb                    u8   bPriorityOverrideParent = 0x00
+000005fc                    u8   bPriorityApplyDistFactor = 0x00
+                            obj  NodeInitialParams
+                               obj  AkPropBundle<AkPropValue,unsigned char>
+000005fd                          u8   cProps = 0
+                                  lst  pProps
+                               obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+000005fe                          u8   cProps = 0
+                                  lst  pProps
+                            obj  PositioningParams
+000005ff                       u8   uByVector = 0x00
+                          bit0 bPositioningInfoOverrideParent = 0
+                          bit1 bHasListenerRelativeRouting = 0
+                            obj  AuxParams
+00000600                       u8   bOverrideGameAuxSends = 0x00
+00000601                       u8   bUseGameAuxSends = 0x00
+00000602                       u8   bOverrideUserAuxSends = 0x00
+00000603                       u8   bHasAux = 0x00
+                            obj  AdvSettingsParams
+00000604                       u8   eVirtualQueueBehavior = 0x01 [FromElapsedTime]
+00000605                       u8   bKillNewest = 0x00
+00000606                       u8   bUseVirtualBehavior = 0x00
+00000607                       u16  u16MaxNumInstance = 0
+00000609                       u8   bIsGlobalLimit = 0x00
+0000060a                       u8   eBelowThresholdBehavior = 0x00 [ContinueToPlay]
+0000060b                       u8   bIsMaxNumInstOverrideParent = 0x00
+0000060c                       u8   bIsVVoicesOptOverrideParent = 0x00
+0000060d                       u8   bOverrideHdrEnvelope = 0x00
+0000060e                       u8   bOverrideAnalysis = 0x00
+0000060f                       u8   bNormalizeLoudness = 0x00
+00000610                       u8   bEnableEnvelope = 0x00
+                            obj  StateChunk
+00000611                       u32  ulNumStateGroups = 0
+                               lst  pStateChunks
+                            obj  InitialRTPC
+00000615                       u16  ulNumRTPC = 0
+                               lst  pRTPCMgr
+                   obj  CAkSound[15]
+00000617              u8   eHircType = 0x02 [Sound]
+00000618              u32  dwSectionSize = 0x3F
+0000061c              sid  ulID = 1017947864
+                      obj  SoundInitialValues
+                         obj  AkBankSourceData
+00000620                    u32  ulPluginID = 0x00040001 [VORBIS]
+                       u16  type = 0x01 [Codec]
+                       u16  company = 0x00 [Audiokinetic]
+00000624                    u32  StreamType = 0x01 [Streaming]
+                            obj  AkMediaInformation
+00000628                       tid  sourceID = 846521649
+0000062c                       tid  uFileID = 846521649
+00000630                       u32  uInMemoryMediaSize = 0x1725
+00000634                       u8   uSourceBits = 0x04
+                          bit0 bIsLanguageSpecific = 0
+                          bit1 bHasSource = 0
+                          bit2 bExternallySupplied = 1
+                         obj  NodeBaseParams
+                            obj  NodeInitialFxParams
+00000635                       u8   bIsOverrideParentFX = 0x00
+00000636                       u8   uNumFx = 0
+00000637                    tid  OverrideBusId = 0
+0000063b                    tid  DirectParentID = 797197879
+0000063f                    u8   bPriorityOverrideParent = 0x00
+00000640                    u8   bPriorityApplyDistFactor = 0x00
+                            obj  NodeInitialParams
+                               obj  AkPropBundle<AkPropValue,unsigned char>
+00000641                          u8   cProps = 0
+                                  lst  pProps
+                               obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+00000642                          u8   cProps = 0
+                                  lst  pProps
+                            obj  PositioningParams
+00000643                       u8   uByVector = 0x00
+                          bit0 bPositioningInfoOverrideParent = 0
+                          bit1 bHasListenerRelativeRouting = 0
+                            obj  AuxParams
+00000644                       u8   bOverrideGameAuxSends = 0x00
+00000645                       u8   bUseGameAuxSends = 0x00
+00000646                       u8   bOverrideUserAuxSends = 0x00
+00000647                       u8   bHasAux = 0x00
+                            obj  AdvSettingsParams
+00000648                       u8   eVirtualQueueBehavior = 0x01 [FromElapsedTime]
+00000649                       u8   bKillNewest = 0x00
+0000064a                       u8   bUseVirtualBehavior = 0x00
+0000064b                       u16  u16MaxNumInstance = 0
+0000064d                       u8   bIsGlobalLimit = 0x00
+0000064e                       u8   eBelowThresholdBehavior = 0x00 [ContinueToPlay]
+0000064f                       u8   bIsMaxNumInstOverrideParent = 0x00
+00000650                       u8   bIsVVoicesOptOverrideParent = 0x00
+00000651                       u8   bOverrideHdrEnvelope = 0x00
+00000652                       u8   bOverrideAnalysis = 0x00
+00000653                       u8   bNormalizeLoudness = 0x00
+00000654                       u8   bEnableEnvelope = 0x00
+                            obj  StateChunk
+00000655                       u32  ulNumStateGroups = 0
+                               lst  pStateChunks
+                            obj  InitialRTPC
+00000659                       u16  ulNumRTPC = 0
+                               lst  pRTPCMgr
+                   obj  CAkRanSeqCntr[16]
+0000065b              u8   eHircType = 0x05 [Random/Sequence Container]
+0000065c              u32  dwSectionSize = 0x9C
+00000660              sid  ulID = 797197879
+                      obj  RanSeqCntrInitialValues
+                         obj  NodeBaseParams
+                            obj  NodeInitialFxParams
+00000664                       u8   bIsOverrideParentFX = 0x00
+00000665                       u8   uNumFx = 0
+00000666                    tid  OverrideBusId = 0
+0000066a                    tid  DirectParentID = 927026955
+0000066e                    u8   bPriorityOverrideParent = 0x00
+0000066f                    u8   bPriorityApplyDistFactor = 0x01
+                            obj  NodeInitialParams
+                               obj  AkPropBundle<AkPropValue,unsigned char>
+00000670                          u8   cProps = 4
+                                  lst  pProps
+                                     obj  AkPropBundle[0]
+00000671                                u8   pID = 0x05 [Priority]
+00000675                                uni  pValue = 90.0
+                                     obj  AkPropBundle[1]
+00000672                                u8   pID = 0x06 [PriorityDistanceOffset]
+00000679                                uni  pValue = -9.0
+                                     obj  AkPropBundle[2]
+00000673                                u8   pID = 0x16 [GameAuxSendVolume]
+0000067d                                uni  pValue = -12.0
+                                     obj  AkPropBundle[3]
+00000674                                u8   pID = 0x19 [InitialDelay]
+00000681                                uni  pValue = 12.0
+                               obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+00000685                          u8   cProps = 0
+                                  lst  pProps
+                            obj  PositioningParams
+00000686                       u8   uByVector = 0x00
+                          bit0 bPositioningInfoOverrideParent = 0
+                          bit1 bHasListenerRelativeRouting = 0
+                            obj  AuxParams
+00000687                       u8   bOverrideGameAuxSends = 0x00
+00000688                       u8   bUseGameAuxSends = 0x01
+00000689                       u8   bOverrideUserAuxSends = 0x00
+0000068a                       u8   bHasAux = 0x00
+                            obj  AdvSettingsParams
+0000068b                       u8   eVirtualQueueBehavior = 0x01 [FromElapsedTime]
+0000068c                       u8   bKillNewest = 0x00
+0000068d                       u8   bUseVirtualBehavior = 0x00
+0000068e                       u16  u16MaxNumInstance = 0
+00000690                       u8   bIsGlobalLimit = 0x00
+00000691                       u8   eBelowThresholdBehavior = 0x02 [SetAsVirtualVoice]
+00000692                       u8   bIsMaxNumInstOverrideParent = 0x00
+00000693                       u8   bIsVVoicesOptOverrideParent = 0x00
+00000694                       u8   bOverrideHdrEnvelope = 0x00
+00000695                       u8   bOverrideAnalysis = 0x00
+00000696                       u8   bNormalizeLoudness = 0x00
+00000697                       u8   bEnableEnvelope = 0x00
+                            obj  StateChunk
+00000698                       u32  ulNumStateGroups = 0
+                               lst  pStateChunks
+                            obj  InitialRTPC
+0000069c                       u16  ulNumRTPC = 0
+                               lst  pRTPCMgr
+0000069e                 u16  sLoopCount = 0
+000006a0                 u16  sLoopModMin = 0
+000006a2                 u16  sLoopModMax = 0
+000006a4                 f32  fTransitionTime = 15000.0
+000006a8                 f32  fTransitionTimeModMin = 0.0
+000006ac                 f32  fTransitionTimeModMax = 15000.0
+000006b0                 u16  wAvoidRepeatCount = 1
+000006b2                 u8   eTransitionMode = 0x03 [Delay]
+000006b3                 u8   eRandomMode = 0x01 [Shuffle]
+000006b4                 u8   eMode = 0x00 [Random]
+000006b5                 u8   _bIsUsingWeight = 0x00
+000006b6                 u8   bResetPlayListAtEachPlay = 0x01
+000006b7                 u8   bIsRestartBackward = 0x00
+000006b8                 u8   bIsContinuous = 0x01
+000006b9                 u8   bIsGlobal = 0x01
+                         obj  Children
+000006ba                    u32  ulNumChilds = 5
+000006be                    tid  ulChildID = 24600309
+000006c2                    tid  ulChildID = 87671241
+000006c6                    tid  ulChildID = 171759267
+000006ca                    tid  ulChildID = 707024592
+000006ce                    tid  ulChildID = 1017947864
+                         obj  CAkPlayList
+000006d2                    u16  ulPlayListItem = 5
+                            lst  pItems
+                               obj  AkPlaylistItem[0]
+000006d4                          tid  ulPlayID = 1017947864
+000006d8                          s32  weight = 50000
+                               obj  AkPlaylistItem[1]
+000006dc                          tid  ulPlayID = 24600309
+000006e0                          s32  weight = 50000
+                               obj  AkPlaylistItem[2]
+000006e4                          tid  ulPlayID = 171759267
+000006e8                          s32  weight = 50000
+                               obj  AkPlaylistItem[3]
+000006ec                          tid  ulPlayID = 87671241
+000006f0                          s32  weight = 50000
+                               obj  AkPlaylistItem[4]
+000006f4                          tid  ulPlayID = 707024592
+000006f8                          s32  weight = 50000
+                   obj  CAkSound[17]
+000006fc              u8   eHircType = 0x02 [Sound]
+000006fd              u32  dwSectionSize = 0x3F
+00000701              sid  ulID = 78347087
+                      obj  SoundInitialValues
+                         obj  AkBankSourceData
+00000705                    u32  ulPluginID = 0x00040001 [VORBIS]
+                       u16  type = 0x01 [Codec]
+                       u16  company = 0x00 [Audiokinetic]
+00000709                    u32  StreamType = 0x01 [Streaming]
+                            obj  AkMediaInformation
+0000070d                       tid  sourceID = 753441388
+00000711                       tid  uFileID = 753441388
+00000715                       u32  uInMemoryMediaSize = 0x16D9
+00000719                       u8   uSourceBits = 0x04
+                          bit0 bIsLanguageSpecific = 0
+                          bit1 bHasSource = 0
+                          bit2 bExternallySupplied = 1
+                         obj  NodeBaseParams
+                            obj  NodeInitialFxParams
+0000071a                       u8   bIsOverrideParentFX = 0x00
+0000071b                       u8   uNumFx = 0
+0000071c                    tid  OverrideBusId = 0
+00000720                    tid  DirectParentID = 1036501914
+00000724                    u8   bPriorityOverrideParent = 0x00
+00000725                    u8   bPriorityApplyDistFactor = 0x00
+                            obj  NodeInitialParams
+                               obj  AkPropBundle<AkPropValue,unsigned char>
+00000726                          u8   cProps = 0
+                                  lst  pProps
+                               obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+00000727                          u8   cProps = 0
+                                  lst  pProps
+                            obj  PositioningParams
+00000728                       u8   uByVector = 0x00
+                          bit0 bPositioningInfoOverrideParent = 0
+                          bit1 bHasListenerRelativeRouting = 0
+                            obj  AuxParams
+00000729                       u8   bOverrideGameAuxSends = 0x00
+0000072a                       u8   bUseGameAuxSends = 0x00
+0000072b                       u8   bOverrideUserAuxSends = 0x00
+0000072c                       u8   bHasAux = 0x00
+                            obj  AdvSettingsParams
+0000072d                       u8   eVirtualQueueBehavior = 0x01 [FromElapsedTime]
+0000072e                       u8   bKillNewest = 0x00
+0000072f                       u8   bUseVirtualBehavior = 0x00
+00000730                       u16  u16MaxNumInstance = 0
+00000732                       u8   bIsGlobalLimit = 0x00
+00000733                       u8   eBelowThresholdBehavior = 0x00 [ContinueToPlay]
+00000734                       u8   bIsMaxNumInstOverrideParent = 0x00
+00000735                       u8   bIsVVoicesOptOverrideParent = 0x00
+00000736                       u8   bOverrideHdrEnvelope = 0x00
+00000737                       u8   bOverrideAnalysis = 0x00
+00000738                       u8   bNormalizeLoudness = 0x00
+00000739                       u8   bEnableEnvelope = 0x00
+                            obj  StateChunk
+0000073a                       u32  ulNumStateGroups = 0
+                               lst  pStateChunks
+                            obj  InitialRTPC
+0000073e                       u16  ulNumRTPC = 0
+                               lst  pRTPCMgr
+                   obj  CAkSound[18]
+00000740              u8   eHircType = 0x02 [Sound]
+00000741              u32  dwSectionSize = 0x3F
+00000745              sid  ulID = 133819169
+                      obj  SoundInitialValues
+                         obj  AkBankSourceData
+00000749                    u32  ulPluginID = 0x00040001 [VORBIS]
+                       u16  type = 0x01 [Codec]
+                       u16  company = 0x00 [Audiokinetic]
+0000074d                    u32  StreamType = 0x01 [Streaming]
+                            obj  AkMediaInformation
+00000751                       tid  sourceID = 88336207
+00000755                       tid  uFileID = 88336207
+00000759                       u32  uInMemoryMediaSize = 0x16EC
+0000075d                       u8   uSourceBits = 0x04
+                          bit0 bIsLanguageSpecific = 0
+                          bit1 bHasSource = 0
+                          bit2 bExternallySupplied = 1
+                         obj  NodeBaseParams
+                            obj  NodeInitialFxParams
+0000075e                       u8   bIsOverrideParentFX = 0x00
+0000075f                       u8   uNumFx = 0
+00000760                    tid  OverrideBusId = 0
+00000764                    tid  DirectParentID = 1036501914
+00000768                    u8   bPriorityOverrideParent = 0x00
+00000769                    u8   bPriorityApplyDistFactor = 0x00
+                            obj  NodeInitialParams
+                               obj  AkPropBundle<AkPropValue,unsigned char>
+0000076a                          u8   cProps = 0
+                                  lst  pProps
+                               obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+0000076b                          u8   cProps = 0
+                                  lst  pProps
+                            obj  PositioningParams
+0000076c                       u8   uByVector = 0x00
+                          bit0 bPositioningInfoOverrideParent = 0
+                          bit1 bHasListenerRelativeRouting = 0
+                            obj  AuxParams
+0000076d                       u8   bOverrideGameAuxSends = 0x00
+0000076e                       u8   bUseGameAuxSends = 0x00
+0000076f                       u8   bOverrideUserAuxSends = 0x00
+00000770                       u8   bHasAux = 0x00
+                            obj  AdvSettingsParams
+00000771                       u8   eVirtualQueueBehavior = 0x01 [FromElapsedTime]
+00000772                       u8   bKillNewest = 0x00
+00000773                       u8   bUseVirtualBehavior = 0x00
+00000774                       u16  u16MaxNumInstance = 0
+00000776                       u8   bIsGlobalLimit = 0x00
+00000777                       u8   eBelowThresholdBehavior = 0x00 [ContinueToPlay]
+00000778                       u8   bIsMaxNumInstOverrideParent = 0x00
+00000779                       u8   bIsVVoicesOptOverrideParent = 0x00
+0000077a                       u8   bOverrideHdrEnvelope = 0x00
+0000077b                       u8   bOverrideAnalysis = 0x00
+0000077c                       u8   bNormalizeLoudness = 0x00
+0000077d                       u8   bEnableEnvelope = 0x00
+                            obj  StateChunk
+0000077e                       u32  ulNumStateGroups = 0
+                               lst  pStateChunks
+                            obj  InitialRTPC
+00000782                       u16  ulNumRTPC = 0
+                               lst  pRTPCMgr
+                   obj  CAkSound[19]
+00000784              u8   eHircType = 0x02 [Sound]
+00000785              u32  dwSectionSize = 0x3F
+00000789              sid  ulID = 430410746
+                      obj  SoundInitialValues
+                         obj  AkBankSourceData
+0000078d                    u32  ulPluginID = 0x00040001 [VORBIS]
+                       u16  type = 0x01 [Codec]
+                       u16  company = 0x00 [Audiokinetic]
+00000791                    u32  StreamType = 0x01 [Streaming]
+                            obj  AkMediaInformation
+00000795                       tid  sourceID = 160108430
+00000799                       tid  uFileID = 160108430
+0000079d                       u32  uInMemoryMediaSize = 0x15EA
+000007a1                       u8   uSourceBits = 0x04
+                          bit0 bIsLanguageSpecific = 0
+                          bit1 bHasSource = 0
+                          bit2 bExternallySupplied = 1
+                         obj  NodeBaseParams
+                            obj  NodeInitialFxParams
+000007a2                       u8   bIsOverrideParentFX = 0x00
+000007a3                       u8   uNumFx = 0
+000007a4                    tid  OverrideBusId = 0
+000007a8                    tid  DirectParentID = 1036501914
+000007ac                    u8   bPriorityOverrideParent = 0x00
+000007ad                    u8   bPriorityApplyDistFactor = 0x00
+                            obj  NodeInitialParams
+                               obj  AkPropBundle<AkPropValue,unsigned char>
+000007ae                          u8   cProps = 0
+                                  lst  pProps
+                               obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+000007af                          u8   cProps = 0
+                                  lst  pProps
+                            obj  PositioningParams
+000007b0                       u8   uByVector = 0x00
+                          bit0 bPositioningInfoOverrideParent = 0
+                          bit1 bHasListenerRelativeRouting = 0
+                            obj  AuxParams
+000007b1                       u8   bOverrideGameAuxSends = 0x00
+000007b2                       u8   bUseGameAuxSends = 0x00
+000007b3                       u8   bOverrideUserAuxSends = 0x00
+000007b4                       u8   bHasAux = 0x00
+                            obj  AdvSettingsParams
+000007b5                       u8   eVirtualQueueBehavior = 0x01 [FromElapsedTime]
+000007b6                       u8   bKillNewest = 0x00
+000007b7                       u8   bUseVirtualBehavior = 0x00
+000007b8                       u16  u16MaxNumInstance = 0
+000007ba                       u8   bIsGlobalLimit = 0x00
+000007bb                       u8   eBelowThresholdBehavior = 0x00 [ContinueToPlay]
+000007bc                       u8   bIsMaxNumInstOverrideParent = 0x00
+000007bd                       u8   bIsVVoicesOptOverrideParent = 0x00
+000007be                       u8   bOverrideHdrEnvelope = 0x00
+000007bf                       u8   bOverrideAnalysis = 0x00
+000007c0                       u8   bNormalizeLoudness = 0x00
+000007c1                       u8   bEnableEnvelope = 0x00
+                            obj  StateChunk
+000007c2                       u32  ulNumStateGroups = 0
+                               lst  pStateChunks
+                            obj  InitialRTPC
+000007c6                       u16  ulNumRTPC = 0
+                               lst  pRTPCMgr
+                   obj  CAkSound[20]
+000007c8              u8   eHircType = 0x02 [Sound]
+000007c9              u32  dwSectionSize = 0x3F
+000007cd              sid  ulID = 456322994
+                      obj  SoundInitialValues
+                         obj  AkBankSourceData
+000007d1                    u32  ulPluginID = 0x00040001 [VORBIS]
+                       u16  type = 0x01 [Codec]
+                       u16  company = 0x00 [Audiokinetic]
+000007d5                    u32  StreamType = 0x01 [Streaming]
+                            obj  AkMediaInformation
+000007d9                       tid  sourceID = 479262609
+000007dd                       tid  uFileID = 479262609
+000007e1                       u32  uInMemoryMediaSize = 0x16A3
+000007e5                       u8   uSourceBits = 0x04
+                          bit0 bIsLanguageSpecific = 0
+                          bit1 bHasSource = 0
+                          bit2 bExternallySupplied = 1
+                         obj  NodeBaseParams
+                            obj  NodeInitialFxParams
+000007e6                       u8   bIsOverrideParentFX = 0x00
+000007e7                       u8   uNumFx = 0
+000007e8                    tid  OverrideBusId = 0
+000007ec                    tid  DirectParentID = 1036501914
+000007f0                    u8   bPriorityOverrideParent = 0x00
+000007f1                    u8   bPriorityApplyDistFactor = 0x00
+                            obj  NodeInitialParams
+                               obj  AkPropBundle<AkPropValue,unsigned char>
+000007f2                          u8   cProps = 0
+                                  lst  pProps
+                               obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+000007f3                          u8   cProps = 0
+                                  lst  pProps
+                            obj  PositioningParams
+000007f4                       u8   uByVector = 0x00
+                          bit0 bPositioningInfoOverrideParent = 0
+                          bit1 bHasListenerRelativeRouting = 0
+                            obj  AuxParams
+000007f5                       u8   bOverrideGameAuxSends = 0x00
+000007f6                       u8   bUseGameAuxSends = 0x00
+000007f7                       u8   bOverrideUserAuxSends = 0x00
+000007f8                       u8   bHasAux = 0x00
+                            obj  AdvSettingsParams
+000007f9                       u8   eVirtualQueueBehavior = 0x01 [FromElapsedTime]
+000007fa                       u8   bKillNewest = 0x00
+000007fb                       u8   bUseVirtualBehavior = 0x00
+000007fc                       u16  u16MaxNumInstance = 0
+000007fe                       u8   bIsGlobalLimit = 0x00
+000007ff                       u8   eBelowThresholdBehavior = 0x00 [ContinueToPlay]
+00000800                       u8   bIsMaxNumInstOverrideParent = 0x00
+00000801                       u8   bIsVVoicesOptOverrideParent = 0x00
+00000802                       u8   bOverrideHdrEnvelope = 0x00
+00000803                       u8   bOverrideAnalysis = 0x00
+00000804                       u8   bNormalizeLoudness = 0x00
+00000805                       u8   bEnableEnvelope = 0x00
+                            obj  StateChunk
+00000806                       u32  ulNumStateGroups = 0
+                               lst  pStateChunks
+                            obj  InitialRTPC
+0000080a                       u16  ulNumRTPC = 0
+                               lst  pRTPCMgr
+                   obj  CAkSound[21]
+0000080c              u8   eHircType = 0x02 [Sound]
+0000080d              u32  dwSectionSize = 0x3F
+00000811              sid  ulID = 484134238
+                      obj  SoundInitialValues
+                         obj  AkBankSourceData
+00000815                    u32  ulPluginID = 0x00040001 [VORBIS]
+                       u16  type = 0x01 [Codec]
+                       u16  company = 0x00 [Audiokinetic]
+00000819                    u32  StreamType = 0x01 [Streaming]
+                            obj  AkMediaInformation
+0000081d                       tid  sourceID = 34662937
+00000821                       tid  uFileID = 34662937
+00000825                       u32  uInMemoryMediaSize = 0x16E7
+00000829                       u8   uSourceBits = 0x04
+                          bit0 bIsLanguageSpecific = 0
+                          bit1 bHasSource = 0
+                          bit2 bExternallySupplied = 1
+                         obj  NodeBaseParams
+                            obj  NodeInitialFxParams
+0000082a                       u8   bIsOverrideParentFX = 0x00
+0000082b                       u8   uNumFx = 0
+0000082c                    tid  OverrideBusId = 0
+00000830                    tid  DirectParentID = 1036501914
+00000834                    u8   bPriorityOverrideParent = 0x00
+00000835                    u8   bPriorityApplyDistFactor = 0x00
+                            obj  NodeInitialParams
+                               obj  AkPropBundle<AkPropValue,unsigned char>
+00000836                          u8   cProps = 0
+                                  lst  pProps
+                               obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+00000837                          u8   cProps = 0
+                                  lst  pProps
+                            obj  PositioningParams
+00000838                       u8   uByVector = 0x00
+                          bit0 bPositioningInfoOverrideParent = 0
+                          bit1 bHasListenerRelativeRouting = 0
+                            obj  AuxParams
+00000839                       u8   bOverrideGameAuxSends = 0x00
+0000083a                       u8   bUseGameAuxSends = 0x00
+0000083b                       u8   bOverrideUserAuxSends = 0x00
+0000083c                       u8   bHasAux = 0x00
+                            obj  AdvSettingsParams
+0000083d                       u8   eVirtualQueueBehavior = 0x01 [FromElapsedTime]
+0000083e                       u8   bKillNewest = 0x00
+0000083f                       u8   bUseVirtualBehavior = 0x00
+00000840                       u16  u16MaxNumInstance = 0
+00000842                       u8   bIsGlobalLimit = 0x00
+00000843                       u8   eBelowThresholdBehavior = 0x00 [ContinueToPlay]
+00000844                       u8   bIsMaxNumInstOverrideParent = 0x00
+00000845                       u8   bIsVVoicesOptOverrideParent = 0x00
+00000846                       u8   bOverrideHdrEnvelope = 0x00
+00000847                       u8   bOverrideAnalysis = 0x00
+00000848                       u8   bNormalizeLoudness = 0x00
+00000849                       u8   bEnableEnvelope = 0x00
+                            obj  StateChunk
+0000084a                       u32  ulNumStateGroups = 0
+                               lst  pStateChunks
+                            obj  InitialRTPC
+0000084e                       u16  ulNumRTPC = 0
+                               lst  pRTPCMgr
+                   obj  CAkSound[22]
+00000850              u8   eHircType = 0x02 [Sound]
+00000851              u32  dwSectionSize = 0x3F
+00000855              sid  ulID = 688503866
+                      obj  SoundInitialValues
+                         obj  AkBankSourceData
+00000859                    u32  ulPluginID = 0x00040001 [VORBIS]
+                       u16  type = 0x01 [Codec]
+                       u16  company = 0x00 [Audiokinetic]
+0000085d                    u32  StreamType = 0x01 [Streaming]
+                            obj  AkMediaInformation
+00000861                       tid  sourceID = 217628158
+00000865                       tid  uFileID = 217628158
+00000869                       u32  uInMemoryMediaSize = 0x1706
+0000086d                       u8   uSourceBits = 0x04
+                          bit0 bIsLanguageSpecific = 0
+                          bit1 bHasSource = 0
+                          bit2 bExternallySupplied = 1
+                         obj  NodeBaseParams
+                            obj  NodeInitialFxParams
+0000086e                       u8   bIsOverrideParentFX = 0x00
+0000086f                       u8   uNumFx = 0
+00000870                    tid  OverrideBusId = 0
+00000874                    tid  DirectParentID = 1036501914
+00000878                    u8   bPriorityOverrideParent = 0x00
+00000879                    u8   bPriorityApplyDistFactor = 0x00
+                            obj  NodeInitialParams
+                               obj  AkPropBundle<AkPropValue,unsigned char>
+0000087a                          u8   cProps = 0
+                                  lst  pProps
+                               obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+0000087b                          u8   cProps = 0
+                                  lst  pProps
+                            obj  PositioningParams
+0000087c                       u8   uByVector = 0x00
+                          bit0 bPositioningInfoOverrideParent = 0
+                          bit1 bHasListenerRelativeRouting = 0
+                            obj  AuxParams
+0000087d                       u8   bOverrideGameAuxSends = 0x00
+0000087e                       u8   bUseGameAuxSends = 0x00
+0000087f                       u8   bOverrideUserAuxSends = 0x00
+00000880                       u8   bHasAux = 0x00
+                            obj  AdvSettingsParams
+00000881                       u8   eVirtualQueueBehavior = 0x01 [FromElapsedTime]
+00000882                       u8   bKillNewest = 0x00
+00000883                       u8   bUseVirtualBehavior = 0x00
+00000884                       u16  u16MaxNumInstance = 0
+00000886                       u8   bIsGlobalLimit = 0x00
+00000887                       u8   eBelowThresholdBehavior = 0x00 [ContinueToPlay]
+00000888                       u8   bIsMaxNumInstOverrideParent = 0x00
+00000889                       u8   bIsVVoicesOptOverrideParent = 0x00
+0000088a                       u8   bOverrideHdrEnvelope = 0x00
+0000088b                       u8   bOverrideAnalysis = 0x00
+0000088c                       u8   bNormalizeLoudness = 0x00
+0000088d                       u8   bEnableEnvelope = 0x00
+                            obj  StateChunk
+0000088e                       u32  ulNumStateGroups = 0
+                               lst  pStateChunks
+                            obj  InitialRTPC
+00000892                       u16  ulNumRTPC = 0
+                               lst  pRTPCMgr
+                   obj  CAkSound[23]
+00000894              u8   eHircType = 0x02 [Sound]
+00000895              u32  dwSectionSize = 0x3F
+00000899              sid  ulID = 784510618
+                      obj  SoundInitialValues
+                         obj  AkBankSourceData
+0000089d                    u32  ulPluginID = 0x00040001 [VORBIS]
+                       u16  type = 0x01 [Codec]
+                       u16  company = 0x00 [Audiokinetic]
+000008a1                    u32  StreamType = 0x01 [Streaming]
+                            obj  AkMediaInformation
+000008a5                       tid  sourceID = 115782749
+000008a9                       tid  uFileID = 115782749
+000008ad                       u32  uInMemoryMediaSize = 0x1656
+000008b1                       u8   uSourceBits = 0x04
+                          bit0 bIsLanguageSpecific = 0
+                          bit1 bHasSource = 0
+                          bit2 bExternallySupplied = 1
+                         obj  NodeBaseParams
+                            obj  NodeInitialFxParams
+000008b2                       u8   bIsOverrideParentFX = 0x00
+000008b3                       u8   uNumFx = 0
+000008b4                    tid  OverrideBusId = 0
+000008b8                    tid  DirectParentID = 1036501914
+000008bc                    u8   bPriorityOverrideParent = 0x00
+000008bd                    u8   bPriorityApplyDistFactor = 0x00
+                            obj  NodeInitialParams
+                               obj  AkPropBundle<AkPropValue,unsigned char>
+000008be                          u8   cProps = 0
+                                  lst  pProps
+                               obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+000008bf                          u8   cProps = 0
+                                  lst  pProps
+                            obj  PositioningParams
+000008c0                       u8   uByVector = 0x00
+                          bit0 bPositioningInfoOverrideParent = 0
+                          bit1 bHasListenerRelativeRouting = 0
+                            obj  AuxParams
+000008c1                       u8   bOverrideGameAuxSends = 0x00
+000008c2                       u8   bUseGameAuxSends = 0x00
+000008c3                       u8   bOverrideUserAuxSends = 0x00
+000008c4                       u8   bHasAux = 0x00
+                            obj  AdvSettingsParams
+000008c5                       u8   eVirtualQueueBehavior = 0x01 [FromElapsedTime]
+000008c6                       u8   bKillNewest = 0x00
+000008c7                       u8   bUseVirtualBehavior = 0x00
+000008c8                       u16  u16MaxNumInstance = 0
+000008ca                       u8   bIsGlobalLimit = 0x00
+000008cb                       u8   eBelowThresholdBehavior = 0x00 [ContinueToPlay]
+000008cc                       u8   bIsMaxNumInstOverrideParent = 0x00
+000008cd                       u8   bIsVVoicesOptOverrideParent = 0x00
+000008ce                       u8   bOverrideHdrEnvelope = 0x00
+000008cf                       u8   bOverrideAnalysis = 0x00
+000008d0                       u8   bNormalizeLoudness = 0x00
+000008d1                       u8   bEnableEnvelope = 0x00
+                            obj  StateChunk
+000008d2                       u32  ulNumStateGroups = 0
+                               lst  pStateChunks
+                            obj  InitialRTPC
+000008d6                       u16  ulNumRTPC = 0
+                               lst  pRTPCMgr
+                   obj  CAkSound[24]
+000008d8              u8   eHircType = 0x02 [Sound]
+000008d9              u32  dwSectionSize = 0x3F
+000008dd              sid  ulID = 918596508
+                      obj  SoundInitialValues
+                         obj  AkBankSourceData
+000008e1                    u32  ulPluginID = 0x00040001 [VORBIS]
+                       u16  type = 0x01 [Codec]
+                       u16  company = 0x00 [Audiokinetic]
+000008e5                    u32  StreamType = 0x01 [Streaming]
+                            obj  AkMediaInformation
+000008e9                       tid  sourceID = 165435000
+000008ed                       tid  uFileID = 165435000
+000008f1                       u32  uInMemoryMediaSize = 0x173C
+000008f5                       u8   uSourceBits = 0x04
+                          bit0 bIsLanguageSpecific = 0
+                          bit1 bHasSource = 0
+                          bit2 bExternallySupplied = 1
+                         obj  NodeBaseParams
+                            obj  NodeInitialFxParams
+000008f6                       u8   bIsOverrideParentFX = 0x00
+000008f7                       u8   uNumFx = 0
+000008f8                    tid  OverrideBusId = 0
+000008fc                    tid  DirectParentID = 1036501914
+00000900                    u8   bPriorityOverrideParent = 0x00
+00000901                    u8   bPriorityApplyDistFactor = 0x00
+                            obj  NodeInitialParams
+                               obj  AkPropBundle<AkPropValue,unsigned char>
+00000902                          u8   cProps = 0
+                                  lst  pProps
+                               obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+00000903                          u8   cProps = 0
+                                  lst  pProps
+                            obj  PositioningParams
+00000904                       u8   uByVector = 0x00
+                          bit0 bPositioningInfoOverrideParent = 0
+                          bit1 bHasListenerRelativeRouting = 0
+                            obj  AuxParams
+00000905                       u8   bOverrideGameAuxSends = 0x00
+00000906                       u8   bUseGameAuxSends = 0x00
+00000907                       u8   bOverrideUserAuxSends = 0x00
+00000908                       u8   bHasAux = 0x00
+                            obj  AdvSettingsParams
+00000909                       u8   eVirtualQueueBehavior = 0x01 [FromElapsedTime]
+0000090a                       u8   bKillNewest = 0x00
+0000090b                       u8   bUseVirtualBehavior = 0x00
+0000090c                       u16  u16MaxNumInstance = 0
+0000090e                       u8   bIsGlobalLimit = 0x00
+0000090f                       u8   eBelowThresholdBehavior = 0x00 [ContinueToPlay]
+00000910                       u8   bIsMaxNumInstOverrideParent = 0x00
+00000911                       u8   bIsVVoicesOptOverrideParent = 0x00
+00000912                       u8   bOverrideHdrEnvelope = 0x00
+00000913                       u8   bOverrideAnalysis = 0x00
+00000914                       u8   bNormalizeLoudness = 0x00
+00000915                       u8   bEnableEnvelope = 0x00
+                            obj  StateChunk
+00000916                       u32  ulNumStateGroups = 0
+                               lst  pStateChunks
+                            obj  InitialRTPC
+0000091a                       u16  ulNumRTPC = 0
+                               lst  pRTPCMgr
+                   obj  CAkRanSeqCntr[25]
+0000091c              u8   eHircType = 0x05 [Random/Sequence Container]
+0000091d              u32  dwSectionSize = 0xC0
+00000921              sid  ulID = 1036501914
+                      obj  RanSeqCntrInitialValues
+                         obj  NodeBaseParams
+                            obj  NodeInitialFxParams
+00000925                       u8   bIsOverrideParentFX = 0x00
+00000926                       u8   uNumFx = 0
+00000927                    tid  OverrideBusId = 0
+0000092b                    tid  DirectParentID = 927026955
+0000092f                    u8   bPriorityOverrideParent = 0x00
+00000930                    u8   bPriorityApplyDistFactor = 0x01
+                            obj  NodeInitialParams
+                               obj  AkPropBundle<AkPropValue,unsigned char>
+00000931                          u8   cProps = 4
+                                  lst  pProps
+                                     obj  AkPropBundle[0]
+00000932                                u8   pID = 0x05 [Priority]
+00000936                                uni  pValue = 90.0
+                                     obj  AkPropBundle[1]
+00000933                                u8   pID = 0x06 [PriorityDistanceOffset]
+0000093a                                uni  pValue = -9.0
+                                     obj  AkPropBundle[2]
+00000934                                u8   pID = 0x16 [GameAuxSendVolume]
+0000093e                                uni  pValue = -12.0
+                                     obj  AkPropBundle[3]
+00000935                                u8   pID = 0x19 [InitialDelay]
+00000942                                uni  pValue = 10.0
+                               obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+00000946                          u8   cProps = 0
+                                  lst  pProps
+                            obj  PositioningParams
+00000947                       u8   uByVector = 0x00
+                          bit0 bPositioningInfoOverrideParent = 0
+                          bit1 bHasListenerRelativeRouting = 0
+                            obj  AuxParams
+00000948                       u8   bOverrideGameAuxSends = 0x00
+00000949                       u8   bUseGameAuxSends = 0x01
+0000094a                       u8   bOverrideUserAuxSends = 0x00
+0000094b                       u8   bHasAux = 0x00
+                            obj  AdvSettingsParams
+0000094c                       u8   eVirtualQueueBehavior = 0x01 [FromElapsedTime]
+0000094d                       u8   bKillNewest = 0x00
+0000094e                       u8   bUseVirtualBehavior = 0x00
+0000094f                       u16  u16MaxNumInstance = 0
+00000951                       u8   bIsGlobalLimit = 0x00
+00000952                       u8   eBelowThresholdBehavior = 0x02 [SetAsVirtualVoice]
+00000953                       u8   bIsMaxNumInstOverrideParent = 0x00
+00000954                       u8   bIsVVoicesOptOverrideParent = 0x00
+00000955                       u8   bOverrideHdrEnvelope = 0x00
+00000956                       u8   bOverrideAnalysis = 0x00
+00000957                       u8   bNormalizeLoudness = 0x00
+00000958                       u8   bEnableEnvelope = 0x00
+                            obj  StateChunk
+00000959                       u32  ulNumStateGroups = 0
+                               lst  pStateChunks
+                            obj  InitialRTPC
+0000095d                       u16  ulNumRTPC = 0
+                               lst  pRTPCMgr
+0000095f                 u16  sLoopCount = 0
+00000961                 u16  sLoopModMin = 0
+00000963                 u16  sLoopModMax = 0
+00000965                 f32  fTransitionTime = 15000.0
+00000969                 f32  fTransitionTimeModMin = 0.0
+0000096d                 f32  fTransitionTimeModMax = 15000.0
+00000971                 u16  wAvoidRepeatCount = 1
+00000973                 u8   eTransitionMode = 0x03 [Delay]
+00000974                 u8   eRandomMode = 0x01 [Shuffle]
+00000975                 u8   eMode = 0x00 [Random]
+00000976                 u8   _bIsUsingWeight = 0x00
+00000977                 u8   bResetPlayListAtEachPlay = 0x01
+00000978                 u8   bIsRestartBackward = 0x00
+00000979                 u8   bIsContinuous = 0x01
+0000097a                 u8   bIsGlobal = 0x01
+                         obj  Children
+0000097b                    u32  ulNumChilds = 8
+0000097f                    tid  ulChildID = 78347087
+00000983                    tid  ulChildID = 133819169
+00000987                    tid  ulChildID = 430410746
+0000098b                    tid  ulChildID = 456322994
+0000098f                    tid  ulChildID = 484134238
+00000993                    tid  ulChildID = 688503866
+00000997                    tid  ulChildID = 784510618
+0000099b                    tid  ulChildID = 918596508
+                         obj  CAkPlayList
+0000099f                    u16  ulPlayListItem = 8
+                            lst  pItems
+                               obj  AkPlaylistItem[0]
+000009a1                          tid  ulPlayID = 784510618
+000009a5                          s32  weight = 50000
+                               obj  AkPlaylistItem[1]
+000009a9                          tid  ulPlayID = 133819169
+000009ad                          s32  weight = 50000
+                               obj  AkPlaylistItem[2]
+000009b1                          tid  ulPlayID = 918596508
+000009b5                          s32  weight = 50000
+                               obj  AkPlaylistItem[3]
+000009b9                          tid  ulPlayID = 430410746
+000009bd                          s32  weight = 50000
+                               obj  AkPlaylistItem[4]
+000009c1                          tid  ulPlayID = 688503866
+000009c5                          s32  weight = 50000
+                               obj  AkPlaylistItem[5]
+000009c9                          tid  ulPlayID = 78347087
+000009cd                          s32  weight = 50000
+                               obj  AkPlaylistItem[6]
+000009d1                          tid  ulPlayID = 484134238
+000009d5                          s32  weight = 50000
+                               obj  AkPlaylistItem[7]
+000009d9                          tid  ulPlayID = 456322994
+000009dd                          s32  weight = 50000
+                   obj  CAkSound[26]
+000009e1              u8   eHircType = 0x02 [Sound]
+000009e2              u32  dwSectionSize = 0x3F
+000009e6              sid  ulID = 51187672
+                      obj  SoundInitialValues
+                         obj  AkBankSourceData
+000009ea                    u32  ulPluginID = 0x00040001 [VORBIS]
+                       u16  type = 0x01 [Codec]
+                       u16  company = 0x00 [Audiokinetic]
+000009ee                    u32  StreamType = 0x01 [Streaming]
+                            obj  AkMediaInformation
+000009f2                       tid  sourceID = 427268368
+000009f6                       tid  uFileID = 427268368
+000009fa                       u32  uInMemoryMediaSize = 0x4A7D
+000009fe                       u8   uSourceBits = 0x04
+                          bit0 bIsLanguageSpecific = 0
+                          bit1 bHasSource = 0
+                          bit2 bExternallySupplied = 1
+                         obj  NodeBaseParams
+                            obj  NodeInitialFxParams
+000009ff                       u8   bIsOverrideParentFX = 0x00
+00000a00                       u8   uNumFx = 0
+00000a01                    tid  OverrideBusId = 0
+00000a05                    tid  DirectParentID = 1061919671
+00000a09                    u8   bPriorityOverrideParent = 0x00
+00000a0a                    u8   bPriorityApplyDistFactor = 0x00
+                            obj  NodeInitialParams
+                               obj  AkPropBundle<AkPropValue,unsigned char>
+00000a0b                          u8   cProps = 0
+                                  lst  pProps
+                               obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+00000a0c                          u8   cProps = 0
+                                  lst  pProps
+                            obj  PositioningParams
+00000a0d                       u8   uByVector = 0x00
+                          bit0 bPositioningInfoOverrideParent = 0
+                          bit1 bHasListenerRelativeRouting = 0
+                            obj  AuxParams
+00000a0e                       u8   bOverrideGameAuxSends = 0x00
+00000a0f                       u8   bUseGameAuxSends = 0x00
+00000a10                       u8   bOverrideUserAuxSends = 0x00
+00000a11                       u8   bHasAux = 0x00
+                            obj  AdvSettingsParams
+00000a12                       u8   eVirtualQueueBehavior = 0x01 [FromElapsedTime]
+00000a13                       u8   bKillNewest = 0x00
+00000a14                       u8   bUseVirtualBehavior = 0x00
+00000a15                       u16  u16MaxNumInstance = 0
+00000a17                       u8   bIsGlobalLimit = 0x00
+00000a18                       u8   eBelowThresholdBehavior = 0x00 [ContinueToPlay]
+00000a19                       u8   bIsMaxNumInstOverrideParent = 0x00
+00000a1a                       u8   bIsVVoicesOptOverrideParent = 0x00
+00000a1b                       u8   bOverrideHdrEnvelope = 0x00
+00000a1c                       u8   bOverrideAnalysis = 0x00
+00000a1d                       u8   bNormalizeLoudness = 0x00
+00000a1e                       u8   bEnableEnvelope = 0x00
+                            obj  StateChunk
+00000a1f                       u32  ulNumStateGroups = 0
+                               lst  pStateChunks
+                            obj  InitialRTPC
+00000a23                       u16  ulNumRTPC = 0
+                               lst  pRTPCMgr
+                   obj  CAkSound[27]
+00000a25              u8   eHircType = 0x02 [Sound]
+00000a26              u32  dwSectionSize = 0x3F
+00000a2a              sid  ulID = 78332075
+                      obj  SoundInitialValues
+                         obj  AkBankSourceData
+00000a2e                    u32  ulPluginID = 0x00040001 [VORBIS]
+                       u16  type = 0x01 [Codec]
+                       u16  company = 0x00 [Audiokinetic]
+00000a32                    u32  StreamType = 0x01 [Streaming]
+                            obj  AkMediaInformation
+00000a36                       tid  sourceID = 180360295
+00000a3a                       tid  uFileID = 180360295
+00000a3e                       u32  uInMemoryMediaSize = 0x2FF5
+00000a42                       u8   uSourceBits = 0x04
+                          bit0 bIsLanguageSpecific = 0
+                          bit1 bHasSource = 0
+                          bit2 bExternallySupplied = 1
+                         obj  NodeBaseParams
+                            obj  NodeInitialFxParams
+00000a43                       u8   bIsOverrideParentFX = 0x00
+00000a44                       u8   uNumFx = 0
+00000a45                    tid  OverrideBusId = 0
+00000a49                    tid  DirectParentID = 1061919671
+00000a4d                    u8   bPriorityOverrideParent = 0x00
+00000a4e                    u8   bPriorityApplyDistFactor = 0x00
+                            obj  NodeInitialParams
+                               obj  AkPropBundle<AkPropValue,unsigned char>
+00000a4f                          u8   cProps = 0
+                                  lst  pProps
+                               obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+00000a50                          u8   cProps = 0
+                                  lst  pProps
+                            obj  PositioningParams
+00000a51                       u8   uByVector = 0x00
+                          bit0 bPositioningInfoOverrideParent = 0
+                          bit1 bHasListenerRelativeRouting = 0
+                            obj  AuxParams
+00000a52                       u8   bOverrideGameAuxSends = 0x00
+00000a53                       u8   bUseGameAuxSends = 0x00
+00000a54                       u8   bOverrideUserAuxSends = 0x00
+00000a55                       u8   bHasAux = 0x00
+                            obj  AdvSettingsParams
+00000a56                       u8   eVirtualQueueBehavior = 0x01 [FromElapsedTime]
+00000a57                       u8   bKillNewest = 0x00
+00000a58                       u8   bUseVirtualBehavior = 0x00
+00000a59                       u16  u16MaxNumInstance = 0
+00000a5b                       u8   bIsGlobalLimit = 0x00
+00000a5c                       u8   eBelowThresholdBehavior = 0x00 [ContinueToPlay]
+00000a5d                       u8   bIsMaxNumInstOverrideParent = 0x00
+00000a5e                       u8   bIsVVoicesOptOverrideParent = 0x00
+00000a5f                       u8   bOverrideHdrEnvelope = 0x00
+00000a60                       u8   bOverrideAnalysis = 0x00
+00000a61                       u8   bNormalizeLoudness = 0x00
+00000a62                       u8   bEnableEnvelope = 0x00
+                            obj  StateChunk
+00000a63                       u32  ulNumStateGroups = 0
+                               lst  pStateChunks
+                            obj  InitialRTPC
+00000a67                       u16  ulNumRTPC = 0
+                               lst  pRTPCMgr
+                   obj  CAkSound[28]
+00000a69              u8   eHircType = 0x02 [Sound]
+00000a6a              u32  dwSectionSize = 0x3F
+00000a6e              sid  ulID = 135122676
+                      obj  SoundInitialValues
+                         obj  AkBankSourceData
+00000a72                    u32  ulPluginID = 0x00040001 [VORBIS]
+                       u16  type = 0x01 [Codec]
+                       u16  company = 0x00 [Audiokinetic]
+00000a76                    u32  StreamType = 0x01 [Streaming]
+                            obj  AkMediaInformation
+00000a7a                       tid  sourceID = 48170206
+00000a7e                       tid  uFileID = 48170206
+00000a82                       u32  uInMemoryMediaSize = 0x4FA8
+00000a86                       u8   uSourceBits = 0x04
+                          bit0 bIsLanguageSpecific = 0
+                          bit1 bHasSource = 0
+                          bit2 bExternallySupplied = 1
+                         obj  NodeBaseParams
+                            obj  NodeInitialFxParams
+00000a87                       u8   bIsOverrideParentFX = 0x00
+00000a88                       u8   uNumFx = 0
+00000a89                    tid  OverrideBusId = 0
+00000a8d                    tid  DirectParentID = 1061919671
+00000a91                    u8   bPriorityOverrideParent = 0x00
+00000a92                    u8   bPriorityApplyDistFactor = 0x00
+                            obj  NodeInitialParams
+                               obj  AkPropBundle<AkPropValue,unsigned char>
+00000a93                          u8   cProps = 0
+                                  lst  pProps
+                               obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+00000a94                          u8   cProps = 0
+                                  lst  pProps
+                            obj  PositioningParams
+00000a95                       u8   uByVector = 0x00
+                          bit0 bPositioningInfoOverrideParent = 0
+                          bit1 bHasListenerRelativeRouting = 0
+                            obj  AuxParams
+00000a96                       u8   bOverrideGameAuxSends = 0x00
+00000a97                       u8   bUseGameAuxSends = 0x00
+00000a98                       u8   bOverrideUserAuxSends = 0x00
+00000a99                       u8   bHasAux = 0x00
+                            obj  AdvSettingsParams
+00000a9a                       u8   eVirtualQueueBehavior = 0x01 [FromElapsedTime]
+00000a9b                       u8   bKillNewest = 0x00
+00000a9c                       u8   bUseVirtualBehavior = 0x00
+00000a9d                       u16  u16MaxNumInstance = 0
+00000a9f                       u8   bIsGlobalLimit = 0x00
+00000aa0                       u8   eBelowThresholdBehavior = 0x00 [ContinueToPlay]
+00000aa1                       u8   bIsMaxNumInstOverrideParent = 0x00
+00000aa2                       u8   bIsVVoicesOptOverrideParent = 0x00
+00000aa3                       u8   bOverrideHdrEnvelope = 0x00
+00000aa4                       u8   bOverrideAnalysis = 0x00
+00000aa5                       u8   bNormalizeLoudness = 0x00
+00000aa6                       u8   bEnableEnvelope = 0x00
+                            obj  StateChunk
+00000aa7                       u32  ulNumStateGroups = 0
+                               lst  pStateChunks
+                            obj  InitialRTPC
+00000aab                       u16  ulNumRTPC = 0
+                               lst  pRTPCMgr
+                   obj  CAkSound[29]
+00000aad              u8   eHircType = 0x02 [Sound]
+00000aae              u32  dwSectionSize = 0x3F
+00000ab2              sid  ulID = 168215549
+                      obj  SoundInitialValues
+                         obj  AkBankSourceData
+00000ab6                    u32  ulPluginID = 0x00040001 [VORBIS]
+                       u16  type = 0x01 [Codec]
+                       u16  company = 0x00 [Audiokinetic]
+00000aba                    u32  StreamType = 0x01 [Streaming]
+                            obj  AkMediaInformation
+00000abe                       tid  sourceID = 1054893970
+00000ac2                       tid  uFileID = 1054893970
+00000ac6                       u32  uInMemoryMediaSize = 0x332E
+00000aca                       u8   uSourceBits = 0x04
+                          bit0 bIsLanguageSpecific = 0
+                          bit1 bHasSource = 0
+                          bit2 bExternallySupplied = 1
+                         obj  NodeBaseParams
+                            obj  NodeInitialFxParams
+00000acb                       u8   bIsOverrideParentFX = 0x00
+00000acc                       u8   uNumFx = 0
+00000acd                    tid  OverrideBusId = 0
+00000ad1                    tid  DirectParentID = 1061919671
+00000ad5                    u8   bPriorityOverrideParent = 0x00
+00000ad6                    u8   bPriorityApplyDistFactor = 0x00
+                            obj  NodeInitialParams
+                               obj  AkPropBundle<AkPropValue,unsigned char>
+00000ad7                          u8   cProps = 0
+                                  lst  pProps
+                               obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+00000ad8                          u8   cProps = 0
+                                  lst  pProps
+                            obj  PositioningParams
+00000ad9                       u8   uByVector = 0x00
+                          bit0 bPositioningInfoOverrideParent = 0
+                          bit1 bHasListenerRelativeRouting = 0
+                            obj  AuxParams
+00000ada                       u8   bOverrideGameAuxSends = 0x00
+00000adb                       u8   bUseGameAuxSends = 0x00
+00000adc                       u8   bOverrideUserAuxSends = 0x00
+00000add                       u8   bHasAux = 0x00
+                            obj  AdvSettingsParams
+00000ade                       u8   eVirtualQueueBehavior = 0x01 [FromElapsedTime]
+00000adf                       u8   bKillNewest = 0x00
+00000ae0                       u8   bUseVirtualBehavior = 0x00
+00000ae1                       u16  u16MaxNumInstance = 0
+00000ae3                       u8   bIsGlobalLimit = 0x00
+00000ae4                       u8   eBelowThresholdBehavior = 0x00 [ContinueToPlay]
+00000ae5                       u8   bIsMaxNumInstOverrideParent = 0x00
+00000ae6                       u8   bIsVVoicesOptOverrideParent = 0x00
+00000ae7                       u8   bOverrideHdrEnvelope = 0x00
+00000ae8                       u8   bOverrideAnalysis = 0x00
+00000ae9                       u8   bNormalizeLoudness = 0x00
+00000aea                       u8   bEnableEnvelope = 0x00
+                            obj  StateChunk
+00000aeb                       u32  ulNumStateGroups = 0
+                               lst  pStateChunks
+                            obj  InitialRTPC
+00000aef                       u16  ulNumRTPC = 0
+                               lst  pRTPCMgr
+                   obj  CAkSound[30]
+00000af1              u8   eHircType = 0x02 [Sound]
+00000af2              u32  dwSectionSize = 0x3F
+00000af6              sid  ulID = 278783594
+                      obj  SoundInitialValues
+                         obj  AkBankSourceData
+00000afa                    u32  ulPluginID = 0x00040001 [VORBIS]
+                       u16  type = 0x01 [Codec]
+                       u16  company = 0x00 [Audiokinetic]
+00000afe                    u32  StreamType = 0x01 [Streaming]
+                            obj  AkMediaInformation
+00000b02                       tid  sourceID = 252429980
+00000b06                       tid  uFileID = 252429980
+00000b0a                       u32  uInMemoryMediaSize = 0x36D7
+00000b0e                       u8   uSourceBits = 0x04
+                          bit0 bIsLanguageSpecific = 0
+                          bit1 bHasSource = 0
+                          bit2 bExternallySupplied = 1
+                         obj  NodeBaseParams
+                            obj  NodeInitialFxParams
+00000b0f                       u8   bIsOverrideParentFX = 0x00
+00000b10                       u8   uNumFx = 0
+00000b11                    tid  OverrideBusId = 0
+00000b15                    tid  DirectParentID = 1061919671
+00000b19                    u8   bPriorityOverrideParent = 0x00
+00000b1a                    u8   bPriorityApplyDistFactor = 0x00
+                            obj  NodeInitialParams
+                               obj  AkPropBundle<AkPropValue,unsigned char>
+00000b1b                          u8   cProps = 0
+                                  lst  pProps
+                               obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+00000b1c                          u8   cProps = 0
+                                  lst  pProps
+                            obj  PositioningParams
+00000b1d                       u8   uByVector = 0x00
+                          bit0 bPositioningInfoOverrideParent = 0
+                          bit1 bHasListenerRelativeRouting = 0
+                            obj  AuxParams
+00000b1e                       u8   bOverrideGameAuxSends = 0x00
+00000b1f                       u8   bUseGameAuxSends = 0x00
+00000b20                       u8   bOverrideUserAuxSends = 0x00
+00000b21                       u8   bHasAux = 0x00
+                            obj  AdvSettingsParams
+00000b22                       u8   eVirtualQueueBehavior = 0x01 [FromElapsedTime]
+00000b23                       u8   bKillNewest = 0x00
+00000b24                       u8   bUseVirtualBehavior = 0x00
+00000b25                       u16  u16MaxNumInstance = 0
+00000b27                       u8   bIsGlobalLimit = 0x00
+00000b28                       u8   eBelowThresholdBehavior = 0x00 [ContinueToPlay]
+00000b29                       u8   bIsMaxNumInstOverrideParent = 0x00
+00000b2a                       u8   bIsVVoicesOptOverrideParent = 0x00
+00000b2b                       u8   bOverrideHdrEnvelope = 0x00
+00000b2c                       u8   bOverrideAnalysis = 0x00
+00000b2d                       u8   bNormalizeLoudness = 0x00
+00000b2e                       u8   bEnableEnvelope = 0x00
+                            obj  StateChunk
+00000b2f                       u32  ulNumStateGroups = 0
+                               lst  pStateChunks
+                            obj  InitialRTPC
+00000b33                       u16  ulNumRTPC = 0
+                               lst  pRTPCMgr
+                   obj  CAkSound[31]
+00000b35              u8   eHircType = 0x02 [Sound]
+00000b36              u32  dwSectionSize = 0x3F
+00000b3a              sid  ulID = 668872610
+                      obj  SoundInitialValues
+                         obj  AkBankSourceData
+00000b3e                    u32  ulPluginID = 0x00040001 [VORBIS]
+                       u16  type = 0x01 [Codec]
+                       u16  company = 0x00 [Audiokinetic]
+00000b42                    u32  StreamType = 0x01 [Streaming]
+                            obj  AkMediaInformation
+00000b46                       tid  sourceID = 652997948
+00000b4a                       tid  uFileID = 652997948
+00000b4e                       u32  uInMemoryMediaSize = 0x34D1
+00000b52                       u8   uSourceBits = 0x04
+                          bit0 bIsLanguageSpecific = 0
+                          bit1 bHasSource = 0
+                          bit2 bExternallySupplied = 1
+                         obj  NodeBaseParams
+                            obj  NodeInitialFxParams
+00000b53                       u8   bIsOverrideParentFX = 0x00
+00000b54                       u8   uNumFx = 0
+00000b55                    tid  OverrideBusId = 0
+00000b59                    tid  DirectParentID = 1061919671
+00000b5d                    u8   bPriorityOverrideParent = 0x00
+00000b5e                    u8   bPriorityApplyDistFactor = 0x00
+                            obj  NodeInitialParams
+                               obj  AkPropBundle<AkPropValue,unsigned char>
+00000b5f                          u8   cProps = 0
+                                  lst  pProps
+                               obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+00000b60                          u8   cProps = 0
+                                  lst  pProps
+                            obj  PositioningParams
+00000b61                       u8   uByVector = 0x00
+                          bit0 bPositioningInfoOverrideParent = 0
+                          bit1 bHasListenerRelativeRouting = 0
+                            obj  AuxParams
+00000b62                       u8   bOverrideGameAuxSends = 0x00
+00000b63                       u8   bUseGameAuxSends = 0x00
+00000b64                       u8   bOverrideUserAuxSends = 0x00
+00000b65                       u8   bHasAux = 0x00
+                            obj  AdvSettingsParams
+00000b66                       u8   eVirtualQueueBehavior = 0x01 [FromElapsedTime]
+00000b67                       u8   bKillNewest = 0x00
+00000b68                       u8   bUseVirtualBehavior = 0x00
+00000b69                       u16  u16MaxNumInstance = 0
+00000b6b                       u8   bIsGlobalLimit = 0x00
+00000b6c                       u8   eBelowThresholdBehavior = 0x00 [ContinueToPlay]
+00000b6d                       u8   bIsMaxNumInstOverrideParent = 0x00
+00000b6e                       u8   bIsVVoicesOptOverrideParent = 0x00
+00000b6f                       u8   bOverrideHdrEnvelope = 0x00
+00000b70                       u8   bOverrideAnalysis = 0x00
+00000b71                       u8   bNormalizeLoudness = 0x00
+00000b72                       u8   bEnableEnvelope = 0x00
+                            obj  StateChunk
+00000b73                       u32  ulNumStateGroups = 0
+                               lst  pStateChunks
+                            obj  InitialRTPC
+00000b77                       u16  ulNumRTPC = 0
+                               lst  pRTPCMgr
+                   obj  CAkSound[32]
+00000b79              u8   eHircType = 0x02 [Sound]
+00000b7a              u32  dwSectionSize = 0x3F
+00000b7e              sid  ulID = 694523565
+                      obj  SoundInitialValues
+                         obj  AkBankSourceData
+00000b82                    u32  ulPluginID = 0x00040001 [VORBIS]
+                       u16  type = 0x01 [Codec]
+                       u16  company = 0x00 [Audiokinetic]
+00000b86                    u32  StreamType = 0x01 [Streaming]
+                            obj  AkMediaInformation
+00000b8a                       tid  sourceID = 805586314
+00000b8e                       tid  uFileID = 805586314
+00000b92                       u32  uInMemoryMediaSize = 0x45A5
+00000b96                       u8   uSourceBits = 0x04
+                          bit0 bIsLanguageSpecific = 0
+                          bit1 bHasSource = 0
+                          bit2 bExternallySupplied = 1
+                         obj  NodeBaseParams
+                            obj  NodeInitialFxParams
+00000b97                       u8   bIsOverrideParentFX = 0x00
+00000b98                       u8   uNumFx = 0
+00000b99                    tid  OverrideBusId = 0
+00000b9d                    tid  DirectParentID = 1061919671
+00000ba1                    u8   bPriorityOverrideParent = 0x00
+00000ba2                    u8   bPriorityApplyDistFactor = 0x00
+                            obj  NodeInitialParams
+                               obj  AkPropBundle<AkPropValue,unsigned char>
+00000ba3                          u8   cProps = 0
+                                  lst  pProps
+                               obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+00000ba4                          u8   cProps = 0
+                                  lst  pProps
+                            obj  PositioningParams
+00000ba5                       u8   uByVector = 0x00
+                          bit0 bPositioningInfoOverrideParent = 0
+                          bit1 bHasListenerRelativeRouting = 0
+                            obj  AuxParams
+00000ba6                       u8   bOverrideGameAuxSends = 0x00
+00000ba7                       u8   bUseGameAuxSends = 0x00
+00000ba8                       u8   bOverrideUserAuxSends = 0x00
+00000ba9                       u8   bHasAux = 0x00
+                            obj  AdvSettingsParams
+00000baa                       u8   eVirtualQueueBehavior = 0x01 [FromElapsedTime]
+00000bab                       u8   bKillNewest = 0x00
+00000bac                       u8   bUseVirtualBehavior = 0x00
+00000bad                       u16  u16MaxNumInstance = 0
+00000baf                       u8   bIsGlobalLimit = 0x00
+00000bb0                       u8   eBelowThresholdBehavior = 0x00 [ContinueToPlay]
+00000bb1                       u8   bIsMaxNumInstOverrideParent = 0x00
+00000bb2                       u8   bIsVVoicesOptOverrideParent = 0x00
+00000bb3                       u8   bOverrideHdrEnvelope = 0x00
+00000bb4                       u8   bOverrideAnalysis = 0x00
+00000bb5                       u8   bNormalizeLoudness = 0x00
+00000bb6                       u8   bEnableEnvelope = 0x00
+                            obj  StateChunk
+00000bb7                       u32  ulNumStateGroups = 0
+                               lst  pStateChunks
+                            obj  InitialRTPC
+00000bbb                       u16  ulNumRTPC = 0
+                               lst  pRTPCMgr
+                   obj  CAkSound[33]
+00000bbd              u8   eHircType = 0x02 [Sound]
+00000bbe              u32  dwSectionSize = 0x3F
+00000bc2              sid  ulID = 891409416
+                      obj  SoundInitialValues
+                         obj  AkBankSourceData
+00000bc6                    u32  ulPluginID = 0x00040001 [VORBIS]
+                       u16  type = 0x01 [Codec]
+                       u16  company = 0x00 [Audiokinetic]
+00000bca                    u32  StreamType = 0x01 [Streaming]
+                            obj  AkMediaInformation
+00000bce                       tid  sourceID = 530772910
+00000bd2                       tid  uFileID = 530772910
+00000bd6                       u32  uInMemoryMediaSize = 0x2E09
+00000bda                       u8   uSourceBits = 0x04
+                          bit0 bIsLanguageSpecific = 0
+                          bit1 bHasSource = 0
+                          bit2 bExternallySupplied = 1
+                         obj  NodeBaseParams
+                            obj  NodeInitialFxParams
+00000bdb                       u8   bIsOverrideParentFX = 0x00
+00000bdc                       u8   uNumFx = 0
+00000bdd                    tid  OverrideBusId = 0
+00000be1                    tid  DirectParentID = 1061919671
+00000be5                    u8   bPriorityOverrideParent = 0x00
+00000be6                    u8   bPriorityApplyDistFactor = 0x00
+                            obj  NodeInitialParams
+                               obj  AkPropBundle<AkPropValue,unsigned char>
+00000be7                          u8   cProps = 0
+                                  lst  pProps
+                               obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+00000be8                          u8   cProps = 0
+                                  lst  pProps
+                            obj  PositioningParams
+00000be9                       u8   uByVector = 0x00
+                          bit0 bPositioningInfoOverrideParent = 0
+                          bit1 bHasListenerRelativeRouting = 0
+                            obj  AuxParams
+00000bea                       u8   bOverrideGameAuxSends = 0x00
+00000beb                       u8   bUseGameAuxSends = 0x00
+00000bec                       u8   bOverrideUserAuxSends = 0x00
+00000bed                       u8   bHasAux = 0x00
+                            obj  AdvSettingsParams
+00000bee                       u8   eVirtualQueueBehavior = 0x01 [FromElapsedTime]
+00000bef                       u8   bKillNewest = 0x00
+00000bf0                       u8   bUseVirtualBehavior = 0x00
+00000bf1                       u16  u16MaxNumInstance = 0
+00000bf3                       u8   bIsGlobalLimit = 0x00
+00000bf4                       u8   eBelowThresholdBehavior = 0x00 [ContinueToPlay]
+00000bf5                       u8   bIsMaxNumInstOverrideParent = 0x00
+00000bf6                       u8   bIsVVoicesOptOverrideParent = 0x00
+00000bf7                       u8   bOverrideHdrEnvelope = 0x00
+00000bf8                       u8   bOverrideAnalysis = 0x00
+00000bf9                       u8   bNormalizeLoudness = 0x00
+00000bfa                       u8   bEnableEnvelope = 0x00
+                            obj  StateChunk
+00000bfb                       u32  ulNumStateGroups = 0
+                               lst  pStateChunks
+                            obj  InitialRTPC
+00000bff                       u16  ulNumRTPC = 0
+                               lst  pRTPCMgr
+                   obj  CAkRanSeqCntr[34]
+00000c01              u8   eHircType = 0x05 [Random/Sequence Container]
+00000c02              u32  dwSectionSize = 0xBB
+00000c06              sid  ulID = 1061919671
+                      obj  RanSeqCntrInitialValues
+                         obj  NodeBaseParams
+                            obj  NodeInitialFxParams
+00000c0a                       u8   bIsOverrideParentFX = 0x00
+00000c0b                       u8   uNumFx = 0
+00000c0c                    tid  OverrideBusId = 0
+00000c10                    tid  DirectParentID = 927026955
+00000c14                    u8   bPriorityOverrideParent = 0x01
+00000c15                    u8   bPriorityApplyDistFactor = 0x00
+                            obj  NodeInitialParams
+                               obj  AkPropBundle<AkPropValue,unsigned char>
+00000c16                          u8   cProps = 3
+                                  lst  pProps
+                                     obj  AkPropBundle[0]
+00000c17                                u8   pID = 0x06 [PriorityDistanceOffset]
+00000c1a                                uni  pValue = -9.0
+                                     obj  AkPropBundle[1]
+00000c18                                u8   pID = 0x16 [GameAuxSendVolume]
+00000c1e                                uni  pValue = -12.0
+                                     obj  AkPropBundle[2]
+00000c19                                u8   pID = 0x19 [InitialDelay]
+00000c22                                uni  pValue = 4.0
+                               obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+00000c26                          u8   cProps = 0
+                                  lst  pProps
+                            obj  PositioningParams
+00000c27                       u8   uByVector = 0x00
+                          bit0 bPositioningInfoOverrideParent = 0
+                          bit1 bHasListenerRelativeRouting = 0
+                            obj  AuxParams
+00000c28                       u8   bOverrideGameAuxSends = 0x00
+00000c29                       u8   bUseGameAuxSends = 0x01
+00000c2a                       u8   bOverrideUserAuxSends = 0x00
+00000c2b                       u8   bHasAux = 0x00
+                            obj  AdvSettingsParams
+00000c2c                       u8   eVirtualQueueBehavior = 0x01 [FromElapsedTime]
+00000c2d                       u8   bKillNewest = 0x00
+00000c2e                       u8   bUseVirtualBehavior = 0x00
+00000c2f                       u16  u16MaxNumInstance = 0
+00000c31                       u8   bIsGlobalLimit = 0x00
+00000c32                       u8   eBelowThresholdBehavior = 0x02 [SetAsVirtualVoice]
+00000c33                       u8   bIsMaxNumInstOverrideParent = 0x00
+00000c34                       u8   bIsVVoicesOptOverrideParent = 0x00
+00000c35                       u8   bOverrideHdrEnvelope = 0x00
+00000c36                       u8   bOverrideAnalysis = 0x00
+00000c37                       u8   bNormalizeLoudness = 0x00
+00000c38                       u8   bEnableEnvelope = 0x00
+                            obj  StateChunk
+00000c39                       u32  ulNumStateGroups = 0
+                               lst  pStateChunks
+                            obj  InitialRTPC
+00000c3d                       u16  ulNumRTPC = 0
+                               lst  pRTPCMgr
+00000c3f                 u16  sLoopCount = 0
+00000c41                 u16  sLoopModMin = 0
+00000c43                 u16  sLoopModMax = 0
+00000c45                 f32  fTransitionTime = 15000.0
+00000c49                 f32  fTransitionTimeModMin = 0.0
+00000c4d                 f32  fTransitionTimeModMax = 10000.0
+00000c51                 u16  wAvoidRepeatCount = 1
+00000c53                 u8   eTransitionMode = 0x03 [Delay]
+00000c54                 u8   eRandomMode = 0x01 [Shuffle]
+00000c55                 u8   eMode = 0x00 [Random]
+00000c56                 u8   _bIsUsingWeight = 0x00
+00000c57                 u8   bResetPlayListAtEachPlay = 0x01
+00000c58                 u8   bIsRestartBackward = 0x00
+00000c59                 u8   bIsContinuous = 0x01
+00000c5a                 u8   bIsGlobal = 0x01
+                         obj  Children
+00000c5b                    u32  ulNumChilds = 8
+00000c5f                    tid  ulChildID = 51187672
+00000c63                    tid  ulChildID = 78332075
+00000c67                    tid  ulChildID = 135122676
+00000c6b                    tid  ulChildID = 168215549
+00000c6f                    tid  ulChildID = 278783594
+00000c73                    tid  ulChildID = 668872610
+00000c77                    tid  ulChildID = 694523565
+00000c7b                    tid  ulChildID = 891409416
+                         obj  CAkPlayList
+00000c7f                    u16  ulPlayListItem = 8
+                            lst  pItems
+                               obj  AkPlaylistItem[0]
+00000c81                          tid  ulPlayID = 694523565
+00000c85                          s32  weight = 50000
+                               obj  AkPlaylistItem[1]
+00000c89                          tid  ulPlayID = 168215549
+00000c8d                          s32  weight = 50000
+                               obj  AkPlaylistItem[2]
+00000c91                          tid  ulPlayID = 51187672
+00000c95                          s32  weight = 50000
+                               obj  AkPlaylistItem[3]
+00000c99                          tid  ulPlayID = 891409416
+00000c9d                          s32  weight = 50000
+                               obj  AkPlaylistItem[4]
+00000ca1                          tid  ulPlayID = 668872610
+00000ca5                          s32  weight = 50000
+                               obj  AkPlaylistItem[5]
+00000ca9                          tid  ulPlayID = 78332075
+00000cad                          s32  weight = 50000
+                               obj  AkPlaylistItem[6]
+00000cb1                          tid  ulPlayID = 278783594
+00000cb5                          s32  weight = 50000
+                               obj  AkPlaylistItem[7]
+00000cb9                          tid  ulPlayID = 135122676
+00000cbd                          s32  weight = 50000
+                   obj  CAkSound[35]
+00000cc1              u8   eHircType = 0x02 [Sound]
+00000cc2              u32  dwSectionSize = 0x3F
+00000cc6              sid  ulID = 187429012
+                      obj  SoundInitialValues
+                         obj  AkBankSourceData
+00000cca                    u32  ulPluginID = 0x00040001 [VORBIS]
+                       u16  type = 0x01 [Codec]
+                       u16  company = 0x00 [Audiokinetic]
+00000cce                    u32  StreamType = 0x01 [Streaming]
+                            obj  AkMediaInformation
+00000cd2                       tid  sourceID = 322915188
+00000cd6                       tid  uFileID = 322915188
+00000cda                       u32  uInMemoryMediaSize = 0x1391
+00000cde                       u8   uSourceBits = 0x04
+                          bit0 bIsLanguageSpecific = 0
+                          bit1 bHasSource = 0
+                          bit2 bExternallySupplied = 1
+                         obj  NodeBaseParams
+                            obj  NodeInitialFxParams
+00000cdf                       u8   bIsOverrideParentFX = 0x00
+00000ce0                       u8   uNumFx = 0
+00000ce1                    tid  OverrideBusId = 0
+00000ce5                    tid  DirectParentID = 1070207396
+00000ce9                    u8   bPriorityOverrideParent = 0x00
+00000cea                    u8   bPriorityApplyDistFactor = 0x00
+                            obj  NodeInitialParams
+                               obj  AkPropBundle<AkPropValue,unsigned char>
+00000ceb                          u8   cProps = 0
+                                  lst  pProps
+                               obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+00000cec                          u8   cProps = 0
+                                  lst  pProps
+                            obj  PositioningParams
+00000ced                       u8   uByVector = 0x00
+                          bit0 bPositioningInfoOverrideParent = 0
+                          bit1 bHasListenerRelativeRouting = 0
+                            obj  AuxParams
+00000cee                       u8   bOverrideGameAuxSends = 0x00
+00000cef                       u8   bUseGameAuxSends = 0x00
+00000cf0                       u8   bOverrideUserAuxSends = 0x00
+00000cf1                       u8   bHasAux = 0x00
+                            obj  AdvSettingsParams
+00000cf2                       u8   eVirtualQueueBehavior = 0x01 [FromElapsedTime]
+00000cf3                       u8   bKillNewest = 0x00
+00000cf4                       u8   bUseVirtualBehavior = 0x00
+00000cf5                       u16  u16MaxNumInstance = 0
+00000cf7                       u8   bIsGlobalLimit = 0x00
+00000cf8                       u8   eBelowThresholdBehavior = 0x00 [ContinueToPlay]
+00000cf9                       u8   bIsMaxNumInstOverrideParent = 0x00
+00000cfa                       u8   bIsVVoicesOptOverrideParent = 0x00
+00000cfb                       u8   bOverrideHdrEnvelope = 0x00
+00000cfc                       u8   bOverrideAnalysis = 0x00
+00000cfd                       u8   bNormalizeLoudness = 0x00
+00000cfe                       u8   bEnableEnvelope = 0x00
+                            obj  StateChunk
+00000cff                       u32  ulNumStateGroups = 0
+                               lst  pStateChunks
+                            obj  InitialRTPC
+00000d03                       u16  ulNumRTPC = 0
+                               lst  pRTPCMgr
+                   obj  CAkSound[36]
+00000d05              u8   eHircType = 0x02 [Sound]
+00000d06              u32  dwSectionSize = 0x3F
+00000d0a              sid  ulID = 563516194
+                      obj  SoundInitialValues
+                         obj  AkBankSourceData
+00000d0e                    u32  ulPluginID = 0x00040001 [VORBIS]
+                       u16  type = 0x01 [Codec]
+                       u16  company = 0x00 [Audiokinetic]
+00000d12                    u32  StreamType = 0x01 [Streaming]
+                            obj  AkMediaInformation
+00000d16                       tid  sourceID = 175410308
+00000d1a                       tid  uFileID = 175410308
+00000d1e                       u32  uInMemoryMediaSize = 0x13F2
+00000d22                       u8   uSourceBits = 0x04
+                          bit0 bIsLanguageSpecific = 0
+                          bit1 bHasSource = 0
+                          bit2 bExternallySupplied = 1
+                         obj  NodeBaseParams
+                            obj  NodeInitialFxParams
+00000d23                       u8   bIsOverrideParentFX = 0x00
+00000d24                       u8   uNumFx = 0
+00000d25                    tid  OverrideBusId = 0
+00000d29                    tid  DirectParentID = 1070207396
+00000d2d                    u8   bPriorityOverrideParent = 0x00
+00000d2e                    u8   bPriorityApplyDistFactor = 0x00
+                            obj  NodeInitialParams
+                               obj  AkPropBundle<AkPropValue,unsigned char>
+00000d2f                          u8   cProps = 0
+                                  lst  pProps
+                               obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+00000d30                          u8   cProps = 0
+                                  lst  pProps
+                            obj  PositioningParams
+00000d31                       u8   uByVector = 0x00
+                          bit0 bPositioningInfoOverrideParent = 0
+                          bit1 bHasListenerRelativeRouting = 0
+                            obj  AuxParams
+00000d32                       u8   bOverrideGameAuxSends = 0x00
+00000d33                       u8   bUseGameAuxSends = 0x00
+00000d34                       u8   bOverrideUserAuxSends = 0x00
+00000d35                       u8   bHasAux = 0x00
+                            obj  AdvSettingsParams
+00000d36                       u8   eVirtualQueueBehavior = 0x01 [FromElapsedTime]
+00000d37                       u8   bKillNewest = 0x00
+00000d38                       u8   bUseVirtualBehavior = 0x00
+00000d39                       u16  u16MaxNumInstance = 0
+00000d3b                       u8   bIsGlobalLimit = 0x00
+00000d3c                       u8   eBelowThresholdBehavior = 0x00 [ContinueToPlay]
+00000d3d                       u8   bIsMaxNumInstOverrideParent = 0x00
+00000d3e                       u8   bIsVVoicesOptOverrideParent = 0x00
+00000d3f                       u8   bOverrideHdrEnvelope = 0x00
+00000d40                       u8   bOverrideAnalysis = 0x00
+00000d41                       u8   bNormalizeLoudness = 0x00
+00000d42                       u8   bEnableEnvelope = 0x00
+                            obj  StateChunk
+00000d43                       u32  ulNumStateGroups = 0
+                               lst  pStateChunks
+                            obj  InitialRTPC
+00000d47                       u16  ulNumRTPC = 0
+                               lst  pRTPCMgr
+                   obj  CAkSound[37]
+00000d49              u8   eHircType = 0x02 [Sound]
+00000d4a              u32  dwSectionSize = 0x3F
+00000d4e              sid  ulID = 571813338
+                      obj  SoundInitialValues
+                         obj  AkBankSourceData
+00000d52                    u32  ulPluginID = 0x00040001 [VORBIS]
+                       u16  type = 0x01 [Codec]
+                       u16  company = 0x00 [Audiokinetic]
+00000d56                    u32  StreamType = 0x01 [Streaming]
+                            obj  AkMediaInformation
+00000d5a                       tid  sourceID = 523620740
+00000d5e                       tid  uFileID = 523620740
+00000d62                       u32  uInMemoryMediaSize = 0x1409
+00000d66                       u8   uSourceBits = 0x04
+                          bit0 bIsLanguageSpecific = 0
+                          bit1 bHasSource = 0
+                          bit2 bExternallySupplied = 1
+                         obj  NodeBaseParams
+                            obj  NodeInitialFxParams
+00000d67                       u8   bIsOverrideParentFX = 0x00
+00000d68                       u8   uNumFx = 0
+00000d69                    tid  OverrideBusId = 0
+00000d6d                    tid  DirectParentID = 1070207396
+00000d71                    u8   bPriorityOverrideParent = 0x00
+00000d72                    u8   bPriorityApplyDistFactor = 0x00
+                            obj  NodeInitialParams
+                               obj  AkPropBundle<AkPropValue,unsigned char>
+00000d73                          u8   cProps = 0
+                                  lst  pProps
+                               obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+00000d74                          u8   cProps = 0
+                                  lst  pProps
+                            obj  PositioningParams
+00000d75                       u8   uByVector = 0x00
+                          bit0 bPositioningInfoOverrideParent = 0
+                          bit1 bHasListenerRelativeRouting = 0
+                            obj  AuxParams
+00000d76                       u8   bOverrideGameAuxSends = 0x00
+00000d77                       u8   bUseGameAuxSends = 0x00
+00000d78                       u8   bOverrideUserAuxSends = 0x00
+00000d79                       u8   bHasAux = 0x00
+                            obj  AdvSettingsParams
+00000d7a                       u8   eVirtualQueueBehavior = 0x01 [FromElapsedTime]
+00000d7b                       u8   bKillNewest = 0x00
+00000d7c                       u8   bUseVirtualBehavior = 0x00
+00000d7d                       u16  u16MaxNumInstance = 0
+00000d7f                       u8   bIsGlobalLimit = 0x00
+00000d80                       u8   eBelowThresholdBehavior = 0x00 [ContinueToPlay]
+00000d81                       u8   bIsMaxNumInstOverrideParent = 0x00
+00000d82                       u8   bIsVVoicesOptOverrideParent = 0x00
+00000d83                       u8   bOverrideHdrEnvelope = 0x00
+00000d84                       u8   bOverrideAnalysis = 0x00
+00000d85                       u8   bNormalizeLoudness = 0x00
+00000d86                       u8   bEnableEnvelope = 0x00
+                            obj  StateChunk
+00000d87                       u32  ulNumStateGroups = 0
+                               lst  pStateChunks
+                            obj  InitialRTPC
+00000d8b                       u16  ulNumRTPC = 0
+                               lst  pRTPCMgr
+                   obj  CAkSound[38]
+00000d8d              u8   eHircType = 0x02 [Sound]
+00000d8e              u32  dwSectionSize = 0x3F
+00000d92              sid  ulID = 676628402
+                      obj  SoundInitialValues
+                         obj  AkBankSourceData
+00000d96                    u32  ulPluginID = 0x00040001 [VORBIS]
+                       u16  type = 0x01 [Codec]
+                       u16  company = 0x00 [Audiokinetic]
+00000d9a                    u32  StreamType = 0x01 [Streaming]
+                            obj  AkMediaInformation
+00000d9e                       tid  sourceID = 439814671
+00000da2                       tid  uFileID = 439814671
+00000da6                       u32  uInMemoryMediaSize = 0x1339
+00000daa                       u8   uSourceBits = 0x04
+                          bit0 bIsLanguageSpecific = 0
+                          bit1 bHasSource = 0
+                          bit2 bExternallySupplied = 1
+                         obj  NodeBaseParams
+                            obj  NodeInitialFxParams
+00000dab                       u8   bIsOverrideParentFX = 0x00
+00000dac                       u8   uNumFx = 0
+00000dad                    tid  OverrideBusId = 0
+00000db1                    tid  DirectParentID = 1070207396
+00000db5                    u8   bPriorityOverrideParent = 0x00
+00000db6                    u8   bPriorityApplyDistFactor = 0x00
+                            obj  NodeInitialParams
+                               obj  AkPropBundle<AkPropValue,unsigned char>
+00000db7                          u8   cProps = 0
+                                  lst  pProps
+                               obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+00000db8                          u8   cProps = 0
+                                  lst  pProps
+                            obj  PositioningParams
+00000db9                       u8   uByVector = 0x00
+                          bit0 bPositioningInfoOverrideParent = 0
+                          bit1 bHasListenerRelativeRouting = 0
+                            obj  AuxParams
+00000dba                       u8   bOverrideGameAuxSends = 0x00
+00000dbb                       u8   bUseGameAuxSends = 0x00
+00000dbc                       u8   bOverrideUserAuxSends = 0x00
+00000dbd                       u8   bHasAux = 0x00
+                            obj  AdvSettingsParams
+00000dbe                       u8   eVirtualQueueBehavior = 0x01 [FromElapsedTime]
+00000dbf                       u8   bKillNewest = 0x00
+00000dc0                       u8   bUseVirtualBehavior = 0x00
+00000dc1                       u16  u16MaxNumInstance = 0
+00000dc3                       u8   bIsGlobalLimit = 0x00
+00000dc4                       u8   eBelowThresholdBehavior = 0x00 [ContinueToPlay]
+00000dc5                       u8   bIsMaxNumInstOverrideParent = 0x00
+00000dc6                       u8   bIsVVoicesOptOverrideParent = 0x00
+00000dc7                       u8   bOverrideHdrEnvelope = 0x00
+00000dc8                       u8   bOverrideAnalysis = 0x00
+00000dc9                       u8   bNormalizeLoudness = 0x00
+00000dca                       u8   bEnableEnvelope = 0x00
+                            obj  StateChunk
+00000dcb                       u32  ulNumStateGroups = 0
+                               lst  pStateChunks
+                            obj  InitialRTPC
+00000dcf                       u16  ulNumRTPC = 0
+                               lst  pRTPCMgr
+                   obj  CAkSound[39]
+00000dd1              u8   eHircType = 0x02 [Sound]
+00000dd2              u32  dwSectionSize = 0x3F
+00000dd6              sid  ulID = 707091855
+                      obj  SoundInitialValues
+                         obj  AkBankSourceData
+00000dda                    u32  ulPluginID = 0x00040001 [VORBIS]
+                       u16  type = 0x01 [Codec]
+                       u16  company = 0x00 [Audiokinetic]
+00000dde                    u32  StreamType = 0x01 [Streaming]
+                            obj  AkMediaInformation
+00000de2                       tid  sourceID = 287728731
+00000de6                       tid  uFileID = 287728731
+00000dea                       u32  uInMemoryMediaSize = 0x1555
+00000dee                       u8   uSourceBits = 0x04
+                          bit0 bIsLanguageSpecific = 0
+                          bit1 bHasSource = 0
+                          bit2 bExternallySupplied = 1
+                         obj  NodeBaseParams
+                            obj  NodeInitialFxParams
+00000def                       u8   bIsOverrideParentFX = 0x00
+00000df0                       u8   uNumFx = 0
+00000df1                    tid  OverrideBusId = 0
+00000df5                    tid  DirectParentID = 1070207396
+00000df9                    u8   bPriorityOverrideParent = 0x00
+00000dfa                    u8   bPriorityApplyDistFactor = 0x00
+                            obj  NodeInitialParams
+                               obj  AkPropBundle<AkPropValue,unsigned char>
+00000dfb                          u8   cProps = 0
+                                  lst  pProps
+                               obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+00000dfc                          u8   cProps = 0
+                                  lst  pProps
+                            obj  PositioningParams
+00000dfd                       u8   uByVector = 0x00
+                          bit0 bPositioningInfoOverrideParent = 0
+                          bit1 bHasListenerRelativeRouting = 0
+                            obj  AuxParams
+00000dfe                       u8   bOverrideGameAuxSends = 0x00
+00000dff                       u8   bUseGameAuxSends = 0x00
+00000e00                       u8   bOverrideUserAuxSends = 0x00
+00000e01                       u8   bHasAux = 0x00
+                            obj  AdvSettingsParams
+00000e02                       u8   eVirtualQueueBehavior = 0x01 [FromElapsedTime]
+00000e03                       u8   bKillNewest = 0x00
+00000e04                       u8   bUseVirtualBehavior = 0x00
+00000e05                       u16  u16MaxNumInstance = 0
+00000e07                       u8   bIsGlobalLimit = 0x00
+00000e08                       u8   eBelowThresholdBehavior = 0x00 [ContinueToPlay]
+00000e09                       u8   bIsMaxNumInstOverrideParent = 0x00
+00000e0a                       u8   bIsVVoicesOptOverrideParent = 0x00
+00000e0b                       u8   bOverrideHdrEnvelope = 0x00
+00000e0c                       u8   bOverrideAnalysis = 0x00
+00000e0d                       u8   bNormalizeLoudness = 0x00
+00000e0e                       u8   bEnableEnvelope = 0x00
+                            obj  StateChunk
+00000e0f                       u32  ulNumStateGroups = 0
+                               lst  pStateChunks
+                            obj  InitialRTPC
+00000e13                       u16  ulNumRTPC = 0
+                               lst  pRTPCMgr
+                   obj  CAkSound[40]
+00000e15              u8   eHircType = 0x02 [Sound]
+00000e16              u32  dwSectionSize = 0x3F
+00000e1a              sid  ulID = 1048264804
+                      obj  SoundInitialValues
+                         obj  AkBankSourceData
+00000e1e                    u32  ulPluginID = 0x00040001 [VORBIS]
+                       u16  type = 0x01 [Codec]
+                       u16  company = 0x00 [Audiokinetic]
+00000e22                    u32  StreamType = 0x01 [Streaming]
+                            obj  AkMediaInformation
+00000e26                       tid  sourceID = 369189902
+00000e2a                       tid  uFileID = 369189902
+00000e2e                       u32  uInMemoryMediaSize = 0x15A6
+00000e32                       u8   uSourceBits = 0x04
+                          bit0 bIsLanguageSpecific = 0
+                          bit1 bHasSource = 0
+                          bit2 bExternallySupplied = 1
+                         obj  NodeBaseParams
+                            obj  NodeInitialFxParams
+00000e33                       u8   bIsOverrideParentFX = 0x00
+00000e34                       u8   uNumFx = 0
+00000e35                    tid  OverrideBusId = 0
+00000e39                    tid  DirectParentID = 1070207396
+00000e3d                    u8   bPriorityOverrideParent = 0x00
+00000e3e                    u8   bPriorityApplyDistFactor = 0x00
+                            obj  NodeInitialParams
+                               obj  AkPropBundle<AkPropValue,unsigned char>
+00000e3f                          u8   cProps = 0
+                                  lst  pProps
+                               obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+00000e40                          u8   cProps = 0
+                                  lst  pProps
+                            obj  PositioningParams
+00000e41                       u8   uByVector = 0x00
+                          bit0 bPositioningInfoOverrideParent = 0
+                          bit1 bHasListenerRelativeRouting = 0
+                            obj  AuxParams
+00000e42                       u8   bOverrideGameAuxSends = 0x00
+00000e43                       u8   bUseGameAuxSends = 0x00
+00000e44                       u8   bOverrideUserAuxSends = 0x00
+00000e45                       u8   bHasAux = 0x00
+                            obj  AdvSettingsParams
+00000e46                       u8   eVirtualQueueBehavior = 0x01 [FromElapsedTime]
+00000e47                       u8   bKillNewest = 0x00
+00000e48                       u8   bUseVirtualBehavior = 0x00
+00000e49                       u16  u16MaxNumInstance = 0
+00000e4b                       u8   bIsGlobalLimit = 0x00
+00000e4c                       u8   eBelowThresholdBehavior = 0x00 [ContinueToPlay]
+00000e4d                       u8   bIsMaxNumInstOverrideParent = 0x00
+00000e4e                       u8   bIsVVoicesOptOverrideParent = 0x00
+00000e4f                       u8   bOverrideHdrEnvelope = 0x00
+00000e50                       u8   bOverrideAnalysis = 0x00
+00000e51                       u8   bNormalizeLoudness = 0x00
+00000e52                       u8   bEnableEnvelope = 0x00
+                            obj  StateChunk
+00000e53                       u32  ulNumStateGroups = 0
+                               lst  pStateChunks
+                            obj  InitialRTPC
+00000e57                       u16  ulNumRTPC = 0
+                               lst  pRTPCMgr
+                   obj  CAkRanSeqCntr[41]
+00000e59              u8   eHircType = 0x05 [Random/Sequence Container]
+00000e5a              u32  dwSectionSize = 0xA8
+00000e5e              sid  ulID = 1070207396
+                      obj  RanSeqCntrInitialValues
+                         obj  NodeBaseParams
+                            obj  NodeInitialFxParams
+00000e62                       u8   bIsOverrideParentFX = 0x00
+00000e63                       u8   uNumFx = 0
+00000e64                    tid  OverrideBusId = 0
+00000e68                    tid  DirectParentID = 927026955
+00000e6c                    u8   bPriorityOverrideParent = 0x00
+00000e6d                    u8   bPriorityApplyDistFactor = 0x01
+                            obj  NodeInitialParams
+                               obj  AkPropBundle<AkPropValue,unsigned char>
+00000e6e                          u8   cProps = 4
+                                  lst  pProps
+                                     obj  AkPropBundle[0]
+00000e6f                                u8   pID = 0x05 [Priority]
+00000e73                                uni  pValue = 90.0
+                                     obj  AkPropBundle[1]
+00000e70                                u8   pID = 0x06 [PriorityDistanceOffset]
+00000e77                                uni  pValue = -9.0
+                                     obj  AkPropBundle[2]
+00000e71                                u8   pID = 0x16 [GameAuxSendVolume]
+00000e7b                                uni  pValue = -12.0
+                                     obj  AkPropBundle[3]
+00000e72                                u8   pID = 0x19 [InitialDelay]
+00000e7f                                uni  pValue = 2.0
+                               obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+00000e83                          u8   cProps = 0
+                                  lst  pProps
+                            obj  PositioningParams
+00000e84                       u8   uByVector = 0x00
+                          bit0 bPositioningInfoOverrideParent = 0
+                          bit1 bHasListenerRelativeRouting = 0
+                            obj  AuxParams
+00000e85                       u8   bOverrideGameAuxSends = 0x00
+00000e86                       u8   bUseGameAuxSends = 0x01
+00000e87                       u8   bOverrideUserAuxSends = 0x00
+00000e88                       u8   bHasAux = 0x00
+                            obj  AdvSettingsParams
+00000e89                       u8   eVirtualQueueBehavior = 0x01 [FromElapsedTime]
+00000e8a                       u8   bKillNewest = 0x00
+00000e8b                       u8   bUseVirtualBehavior = 0x00
+00000e8c                       u16  u16MaxNumInstance = 0
+00000e8e                       u8   bIsGlobalLimit = 0x00
+00000e8f                       u8   eBelowThresholdBehavior = 0x02 [SetAsVirtualVoice]
+00000e90                       u8   bIsMaxNumInstOverrideParent = 0x00
+00000e91                       u8   bIsVVoicesOptOverrideParent = 0x00
+00000e92                       u8   bOverrideHdrEnvelope = 0x00
+00000e93                       u8   bOverrideAnalysis = 0x00
+00000e94                       u8   bNormalizeLoudness = 0x00
+00000e95                       u8   bEnableEnvelope = 0x00
+                            obj  StateChunk
+00000e96                       u32  ulNumStateGroups = 0
+                               lst  pStateChunks
+                            obj  InitialRTPC
+00000e9a                       u16  ulNumRTPC = 0
+                               lst  pRTPCMgr
+00000e9c                 u16  sLoopCount = 0
+00000e9e                 u16  sLoopModMin = 0
+00000ea0                 u16  sLoopModMax = 0
+00000ea2                 f32  fTransitionTime = 15000.0
+00000ea6                 f32  fTransitionTimeModMin = 0.0
+00000eaa                 f32  fTransitionTimeModMax = 15000.0
+00000eae                 u16  wAvoidRepeatCount = 1
+00000eb0                 u8   eTransitionMode = 0x03 [Delay]
+00000eb1                 u8   eRandomMode = 0x01 [Shuffle]
+00000eb2                 u8   eMode = 0x00 [Random]
+00000eb3                 u8   _bIsUsingWeight = 0x00
+00000eb4                 u8   bResetPlayListAtEachPlay = 0x01
+00000eb5                 u8   bIsRestartBackward = 0x00
+00000eb6                 u8   bIsContinuous = 0x01
+00000eb7                 u8   bIsGlobal = 0x01
+                         obj  Children
+00000eb8                    u32  ulNumChilds = 6
+00000ebc                    tid  ulChildID = 187429012
+00000ec0                    tid  ulChildID = 563516194
+00000ec4                    tid  ulChildID = 571813338
+00000ec8                    tid  ulChildID = 676628402
+00000ecc                    tid  ulChildID = 707091855
+00000ed0                    tid  ulChildID = 1048264804
+                         obj  CAkPlayList
+00000ed4                    u16  ulPlayListItem = 6
+                            lst  pItems
+                               obj  AkPlaylistItem[0]
+00000ed6                          tid  ulPlayID = 563516194
+00000eda                          s32  weight = 50000
+                               obj  AkPlaylistItem[1]
+00000ede                          tid  ulPlayID = 676628402
+00000ee2                          s32  weight = 50000
+                               obj  AkPlaylistItem[2]
+00000ee6                          tid  ulPlayID = 1048264804
+00000eea                          s32  weight = 50000
+                               obj  AkPlaylistItem[3]
+00000eee                          tid  ulPlayID = 187429012
+00000ef2                          s32  weight = 50000
+                               obj  AkPlaylistItem[4]
+00000ef6                          tid  ulPlayID = 571813338
+00000efa                          s32  weight = 50000
+                               obj  AkPlaylistItem[5]
+00000efe                          tid  ulPlayID = 707091855
+00000f02                          s32  weight = 50000
+                   obj  CAkLayerCntr[42]
+00000f06              u8   eHircType = 0x09 [Layer Container]
+00000f07              u32  dwSectionSize = 0x47
+00000f0b              sid  ulID = 927026955
+                      obj  LayerCntrInitialValues
+                         obj  NodeBaseParams
+                            obj  NodeInitialFxParams
+00000f0f                       u8   bIsOverrideParentFX = 0x00
+00000f10                       u8   uNumFx = 0
+00000f11                    tid  OverrideBusId = 0
+00000f15                    tid  DirectParentID = 349319821
+00000f19                    u8   bPriorityOverrideParent = 0x00
+00000f1a                    u8   bPriorityApplyDistFactor = 0x00
+                            obj  NodeInitialParams
+                               obj  AkPropBundle<AkPropValue,unsigned char>
+00000f1b                          u8   cProps = 1
+                                  lst  pProps
+                                     obj  AkPropBundle[0]
+00000f1c                                u8   pID = 0x00 [Volume]
+00000f1d                                uni  pValue = -10.0
+                               obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+00000f21                          u8   cProps = 0
+                                  lst  pProps
+                            obj  PositioningParams
+00000f22                       u8   uByVector = 0x00
+                          bit0 bPositioningInfoOverrideParent = 0
+                          bit1 bHasListenerRelativeRouting = 0
+                            obj  AuxParams
+00000f23                       u8   bOverrideGameAuxSends = 0x00
+00000f24                       u8   bUseGameAuxSends = 0x00
+00000f25                       u8   bOverrideUserAuxSends = 0x00
+00000f26                       u8   bHasAux = 0x00
+                            obj  AdvSettingsParams
+00000f27                       u8   eVirtualQueueBehavior = 0x01 [FromElapsedTime]
+00000f28                       u8   bKillNewest = 0x00
+00000f29                       u8   bUseVirtualBehavior = 0x00
+00000f2a                       u16  u16MaxNumInstance = 0
+00000f2c                       u8   bIsGlobalLimit = 0x00
+00000f2d                       u8   eBelowThresholdBehavior = 0x00 [ContinueToPlay]
+00000f2e                       u8   bIsMaxNumInstOverrideParent = 0x00
+00000f2f                       u8   bIsVVoicesOptOverrideParent = 0x00
+00000f30                       u8   bOverrideHdrEnvelope = 0x00
+00000f31                       u8   bOverrideAnalysis = 0x00
+00000f32                       u8   bNormalizeLoudness = 0x00
+00000f33                       u8   bEnableEnvelope = 0x00
+                            obj  StateChunk
+00000f34                       u32  ulNumStateGroups = 0
+                               lst  pStateChunks
+                            obj  InitialRTPC
+00000f38                       u16  ulNumRTPC = 0
+                               lst  pRTPCMgr
+                         obj  Children
+00000f3a                    u32  ulNumChilds = 4
+00000f3e                    tid  ulChildID = 797197879
+00000f42                    tid  ulChildID = 1036501914
+00000f46                    tid  ulChildID = 1061919671
+00000f4a                    tid  ulChildID = 1070207396
+00000f4e                 u32  ulNumLayers = 0
+                         lst  pLayers
+                   obj  CAkLayerCntr[43]
+00000f52              u8   eHircType = 0x09 [Layer Container]
+00000f53              u32  dwSectionSize = 0x43
+00000f57              sid  ulID = 349319821
+                      obj  LayerCntrInitialValues
+                         obj  NodeBaseParams
+                            obj  NodeInitialFxParams
+00000f5b                       u8   bIsOverrideParentFX = 0x00
+00000f5c                       u8   uNumFx = 0
+00000f5d                    tid  OverrideBusId = 0
+00000f61                    tid  DirectParentID = 799962226
+00000f65                    u8   bPriorityOverrideParent = 0x00
+00000f66                    u8   bPriorityApplyDistFactor = 0x00
+                            obj  NodeInitialParams
+                               obj  AkPropBundle<AkPropValue,unsigned char>
+00000f67                          u8   cProps = 1
+                                  lst  pProps
+                                     obj  AkPropBundle[0]
+00000f68                                u8   pID = 0x00 [Volume]
+00000f69                                uni  pValue = -4.0
+                               obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+00000f6d                          u8   cProps = 0
+                                  lst  pProps
+                            obj  PositioningParams
+00000f6e                       u8   uByVector = 0x00
+                          bit0 bPositioningInfoOverrideParent = 0
+                          bit1 bHasListenerRelativeRouting = 0
+                            obj  AuxParams
+00000f6f                       u8   bOverrideGameAuxSends = 0x00
+00000f70                       u8   bUseGameAuxSends = 0x00
+00000f71                       u8   bOverrideUserAuxSends = 0x00
+00000f72                       u8   bHasAux = 0x00
+                            obj  AdvSettingsParams
+00000f73                       u8   eVirtualQueueBehavior = 0x01 [FromElapsedTime]
+00000f74                       u8   bKillNewest = 0x00
+00000f75                       u8   bUseVirtualBehavior = 0x00
+00000f76                       u16  u16MaxNumInstance = 0
+00000f78                       u8   bIsGlobalLimit = 0x00
+00000f79                       u8   eBelowThresholdBehavior = 0x00 [ContinueToPlay]
+00000f7a                       u8   bIsMaxNumInstOverrideParent = 0x00
+00000f7b                       u8   bIsVVoicesOptOverrideParent = 0x00
+00000f7c                       u8   bOverrideHdrEnvelope = 0x00
+00000f7d                       u8   bOverrideAnalysis = 0x00
+00000f7e                       u8   bNormalizeLoudness = 0x00
+00000f7f                       u8   bEnableEnvelope = 0x00
+                            obj  StateChunk
+00000f80                       u32  ulNumStateGroups = 0
+                               lst  pStateChunks
+                            obj  InitialRTPC
+00000f84                       u16  ulNumRTPC = 0
+                               lst  pRTPCMgr
+                         obj  Children
+00000f86                    u32  ulNumChilds = 3
+00000f8a                    tid  ulChildID = 204730294
+00000f8e                    tid  ulChildID = 653462418
+00000f92                    tid  ulChildID = 927026955
+00000f96                 u32  ulNumLayers = 0
+                         lst  pLayers
+                   obj  CAkActorMixer[44]
+00000f9a              u8   eHircType = 0x07 [Actor-Mixer]
+00000f9b              u32  dwSectionSize = 0x37
+00000f9f              sid  ulID = 799962226
+                      obj  ActorMixerInitialValues
+                         obj  NodeBaseParams
+                            obj  NodeInitialFxParams
+00000fa3                       u8   bIsOverrideParentFX = 0x00
+00000fa4                       u8   uNumFx = 0
+00000fa5                    tid  OverrideBusId = 0
+00000fa9                    tid  DirectParentID = 446416944
+00000fad                    u8   bPriorityOverrideParent = 0x00
+00000fae                    u8   bPriorityApplyDistFactor = 0x00
+                            obj  NodeInitialParams
+                               obj  AkPropBundle<AkPropValue,unsigned char>
+00000faf                          u8   cProps = 1
+                                  lst  pProps
+                                     obj  AkPropBundle[0]
+00000fb0                                u8   pID = 0x00 [Volume]
+00000fb1                                uni  pValue = -10.0
+                               obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+00000fb5                          u8   cProps = 0
+                                  lst  pProps
+                            obj  PositioningParams
+00000fb6                       u8   uByVector = 0x00
+                          bit0 bPositioningInfoOverrideParent = 0
+                          bit1 bHasListenerRelativeRouting = 0
+                            obj  AuxParams
+00000fb7                       u8   bOverrideGameAuxSends = 0x00
+00000fb8                       u8   bUseGameAuxSends = 0x00
+00000fb9                       u8   bOverrideUserAuxSends = 0x00
+00000fba                       u8   bHasAux = 0x00
+                            obj  AdvSettingsParams
+00000fbb                       u8   eVirtualQueueBehavior = 0x01 [FromElapsedTime]
+00000fbc                       u8   bKillNewest = 0x00
+00000fbd                       u8   bUseVirtualBehavior = 0x00
+00000fbe                       u16  u16MaxNumInstance = 0
+00000fc0                       u8   bIsGlobalLimit = 0x00
+00000fc1                       u8   eBelowThresholdBehavior = 0x02 [SetAsVirtualVoice]
+00000fc2                       u8   bIsMaxNumInstOverrideParent = 0x00
+00000fc3                       u8   bIsVVoicesOptOverrideParent = 0x01
+00000fc4                       u8   bOverrideHdrEnvelope = 0x00
+00000fc5                       u8   bOverrideAnalysis = 0x00
+00000fc6                       u8   bNormalizeLoudness = 0x00
+00000fc7                       u8   bEnableEnvelope = 0x00
+                            obj  StateChunk
+00000fc8                       u32  ulNumStateGroups = 0
+                               lst  pStateChunks
+                            obj  InitialRTPC
+00000fcc                       u16  ulNumRTPC = 0
+                               lst  pRTPCMgr
+                         obj  Children
+00000fce                    u32  ulNumChilds = 1
+00000fd2                    tid  ulChildID = 349319821
+                   obj  CAkActorMixer[45]
+00000fd6              u8   eHircType = 0x07 [Actor-Mixer]
+00000fd7              u32  dwSectionSize = 0x115
+00000fdb              sid  ulID = 446416944
+                      obj  ActorMixerInitialValues
+                         obj  NodeBaseParams
+                            obj  NodeInitialFxParams
+00000fdf                       u8   bIsOverrideParentFX = 0x00
+00000fe0                       u8   uNumFx = 0
+00000fe1                    tid  OverrideBusId = 85412153 (ambience)
+00000fe5                    tid  DirectParentID = 0
+00000fe9                    u8   bPriorityOverrideParent = 0x00
+00000fea                    u8   bPriorityApplyDistFactor = 0x01
+                            obj  NodeInitialParams
+                               obj  AkPropBundle<AkPropValue,unsigned char>
+00000feb                          u8   cProps = 4
+                                  lst  pProps
+                                     obj  AkPropBundle[0]
+00000fec                                u8   pID = 0x00 [Volume]
+00000ff0                                uni  pValue = -3.0
+                                     obj  AkPropBundle[1]
+00000fed                                u8   pID = 0x05 [Priority]
+00000ff4                                uni  pValue = 90.0
+                                     obj  AkPropBundle[2]
+00000fee                                u8   pID = 0x06 [PriorityDistanceOffset]
+00000ff8                                uni  pValue = -9.0
+                                     obj  AkPropBundle[3]
+00000fef                                u8   pID = 0x16 [GameAuxSendVolume]
+00000ffc                                uni  pValue = -12.0
+                               obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+00001000                          u8   cProps = 0
+                                  lst  pProps
+                            obj  PositioningParams
+00001001                       u8   uByVector = 0x01
+                          bit0 bPositioningInfoOverrideParent = 1
+                          bit1 bHasListenerRelativeRouting = 0
+00001002                       u8   cbIs2DPositioningAvailable = 0x01
+00001003                       u8   cbIs3DPositioningAvailable = 0x00
+00001004                       u8   bPositioningEnablePanner = 0x00
+                            obj  AuxParams
+00001005                       u8   bOverrideGameAuxSends = 0x00
+00001006                       u8   bUseGameAuxSends = 0x01
+00001007                       u8   bOverrideUserAuxSends = 0x00
+00001008                       u8   bHasAux = 0x00
+                            obj  AdvSettingsParams
+00001009                       u8   eVirtualQueueBehavior = 0x02 [Resume]
+0000100a                       u8   bKillNewest = 0x00
+0000100b                       u8   bUseVirtualBehavior = 0x00
+0000100c                       u16  u16MaxNumInstance = 0
+0000100e                       u8   bIsGlobalLimit = 0x00
+0000100f                       u8   eBelowThresholdBehavior = 0x00 [ContinueToPlay]
+00001010                       u8   bIsMaxNumInstOverrideParent = 0x00
+00001011                       u8   bIsVVoicesOptOverrideParent = 0x00
+00001012                       u8   bOverrideHdrEnvelope = 0x00
+00001013                       u8   bOverrideAnalysis = 0x00
+00001014                       u8   bNormalizeLoudness = 0x00
+00001015                       u8   bEnableEnvelope = 0x00
+                            obj  StateChunk
+00001016                       u32  ulNumStateGroups = 0
+                               lst  pStateChunks
+                            obj  InitialRTPC
+0000101a                       u16  ulNumRTPC = 4
+                               lst  pRTPCMgr
+                                  obj  RTPC[0]
+0000101c                             tid  RTPCID = 767571114
+00001020                             u32  ParamID = 0x17 [OutputBusLPF]
+00001024                             sid  rtpcCurveID = 205567616
+00001028                             u8   eScaling = 0x00 [None]
+00001029                             u16  ulSize = 3
+                                     lst  pRTPCMgr
+                                        obj  AkRTPCGraphPoint[0]
+0000102b                                   f32  From = 0.0
+0000102f                                   f32  To = 0.0
+00001033                                   u32  Interp = 0x04 [Linear]
+                                        obj  AkRTPCGraphPoint[1]
+00001037                                   f32  From = 0.15000000596046448
+0000103b                                   f32  To = 34.0
+0000103f                                   u32  Interp = 0x04 [Linear]
+                                        obj  AkRTPCGraphPoint[2]
+00001043                                   f32  From = 1.0
+00001047                                   f32  To = 50.0
+0000104b                                   u32  Interp = 0x04 [Linear]
+                                  obj  RTPC[1]
+0000104f                             tid  RTPCID = 1177238691
+00001053                             u32  ParamID = 0x00 [Volume]
+00001057                             sid  rtpcCurveID = 294869854
+0000105b                             u8   eScaling = 0x02 [dB]
+0000105c                             u16  ulSize = 3
+                                     lst  pRTPCMgr
+                                        obj  AkRTPCGraphPoint[0]
+0000105e                                   f32  From = 0.0
+00001062                                   f32  To = 0.0
+00001066                                   u32  Interp = 0x04 [Linear]
+                                        obj  AkRTPCGraphPoint[1]
+0000106a                                   f32  From = 0.25
+0000106e                                   f32  To = -0.15860486030578613
+00001072                                   u32  Interp = 0x04 [Linear]
+                                        obj  AkRTPCGraphPoint[2]
+00001076                                   f32  From = 1.0
+0000107a                                   f32  To = -0.4988127648830414
+0000107e                                   u32  Interp = 0x04 [Linear]
+                                  obj  RTPC[2]
+00001082                             tid  RTPCID = 1177238691
+00001086                             u32  ParamID = 0x03 [LPF]
+0000108a                             sid  rtpcCurveID = 554992869
+0000108e                             u8   eScaling = 0x00 [None]
+0000108f                             u16  ulSize = 3
+                                     lst  pRTPCMgr
+                                        obj  AkRTPCGraphPoint[0]
+00001091                                   f32  From = 0.0
+00001095                                   f32  To = 0.0
+00001099                                   u32  Interp = 0x04 [Linear]
+                                        obj  AkRTPCGraphPoint[1]
+0000109d                                   f32  From = 0.25
+000010a1                                   f32  To = 35.0
+000010a5                                   u32  Interp = 0x04 [Linear]
+                                        obj  AkRTPCGraphPoint[2]
+000010a9                                   f32  From = 1.0
+000010ad                                   f32  To = 60.0
+000010b1                                   u32  Interp = 0x04 [Linear]
+                                  obj  RTPC[3]
+000010b5                             tid  RTPCID = 767571114
+000010b9                             u32  ParamID = 0x16 [OutputBusVolume]
+000010bd                             sid  rtpcCurveID = 450820241
+000010c1                             u8   eScaling = 0x02 [dB]
+000010c2                             u16  ulSize = 3
+                                     lst  pRTPCMgr
+                                        obj  AkRTPCGraphPoint[0]
+000010c4                                   f32  From = 0.0
+000010c8                                   f32  To = 0.0
+000010cc                                   u32  Interp = 0x04 [Linear]
+                                        obj  AkRTPCGraphPoint[1]
+000010d0                                   f32  From = 0.15000000596046448
+000010d4                                   f32  To = -0.2056717723608017
+000010d8                                   u32  Interp = 0x04 [Linear]
+                                        obj  AkRTPCGraphPoint[2]
+000010dc                                   f32  From = 1.0
+000010e0                                   f32  To = -0.36904266476631165
+000010e4                                   u32  Interp = 0x04 [Linear]
+                         obj  Children
+000010e8                    u32  ulNumChilds = 1
+000010ec                    tid  ulChildID = 799962226
+                   obj  CAkActionPlay[46]
+000010f0              u8   eHircType = 0x03 [Action]
+000010f1              u32  dwSectionSize = 0x12
+000010f5              sid  ulID = 902114512
+000010f9              u16  ulActionType = 0x0403 [Play]
+                      obj  ActionInitialValues
+000010fb                 tid  idExt = 349319821
+000010ff                 u8   idExt_4 = 0x00
+                    bit0 bIsBus = 0
+                         obj  AkPropBundle<AkPropValue,unsigned char>
+00001100                    u8   cProps = 0
+                            lst  pProps
+                         obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+00001101                    u8   cProps = 0
+                            lst  pProps
+                         obj  PlayActionParams
+00001102                    u8   byBitVector = 0x04
+                       bit0 eFadeCurve = 4 [Linear]
+00001103                    tid  fileID = 2273380822 (moon_raid_int_abyss)
+                   obj  CAkEvent[47]
+00001107              u8   eHircType = 0x04 [Event]
+00001108              u32  dwSectionSize = 0x0C
+0000110c              sid  ulID = 109511359
+                      obj  EventInitialValues
+00001110                 u32  ulActionListSize = 1
+                         lst  actions
+                            obj  Action[0]
+00001114                       tid  ulActionID = 902114512
+                   obj  CAkActionStop[48]
+00001118              u8   eHircType = 0x03 [Action]
+00001119              u32  dwSectionSize = 0x12
+0000111d              sid  ulID = 898693511
+00001121              u16  ulActionType = 0x0103 [Stop_E_O]
+                      obj  ActionInitialValues
+00001123                 tid  idExt = 349319821
+00001127                 u8   idExt_4 = 0x00
+                    bit0 bIsBus = 0
+                         obj  AkPropBundle<AkPropValue,unsigned char>
+00001128                    u8   cProps = 0
+                            lst  pProps
+                         obj  AkPropBundle<RANGED_MODIFIERS<AkPropValue>>
+00001129                    u8   cProps = 0
+                            lst  pProps
+                         obj  ActiveActionParams
+0000112a                    u8   byBitVector = 0x04
+                       bit0 eFadeCurve = 4 [Linear]
+                            obj  ExceptParams
+0000112b                       u32  ulExceptionListSize = 0
+                               lst  listElementException
+                   obj  CAkEvent[49]
+0000112f              u8   eHircType = 0x04 [Event]
+00001130              u32  dwSectionSize = 0x0C
+00001134              sid  ulID = 2301663493
+                      obj  EventInitialValues
+00001138                 u32  ulActionListSize = 1
+                         lst  actions
+                            obj  Action[0]
+0000113c                       tid  ulActionID = 898693511
+             obj  StringMappingChunk
+00001140        4cc  dwTag = b'STID' [String Mappings]
+00001144        u32  dwChunkSize = 0x20
+00001148        u32  uiType = 0x01 [Bank]
+0000114c        u32  uiSize = 0x01
+                lst  BankIDToFileName
+                   obj  AKBKHashHeader[0]
+00001150              tid  bankID = 2273380822 (moon_raid_int_abyss)
+00001154              u8   stringsize = 19
+00001155              str  FileName = moon_raid_int_abyss
