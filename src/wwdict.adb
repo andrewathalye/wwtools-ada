@@ -3,7 +3,6 @@ with Ada.Text_IO; use Ada.Text_IO;
 with Ada.Characters.Handling; use Ada.Characters.Handling;
 
 with WWHash; use WWHash;
-with Interfaces; use Interfaces;
 
 procedure WWDict is
 	-- Define hash task
@@ -107,12 +106,13 @@ procedure WWDict is
 		Put_Line (Standard_Error, "Usage: "
 			& Command_Name
 			& " prefix"
+			& " suffix"
 			& " number_of_words"
 			& " dictionary_file"
 			& " list_of_hashes");
 	end Show_Usage;
 begin
-	Put_Line (Standard_Error, "WWDict v0.3");
+	Put_Line (Standard_Error, "WWDict v0.4");
 
 	-- Check arguments
 	if Argument_Count < 5 then

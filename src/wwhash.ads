@@ -4,7 +4,7 @@ with Unchecked_Deallocation;
 
 package WWHash is
 	-- Define types
-	subtype Hash_Type is Unsigned_32;
+	type Hash_Type is new Unsigned_32;
 	type Hash_Array is array (Natural range <>) of Hash_Type;
 	type Hash_Array_Access is access constant Hash_Array;
 
@@ -19,8 +19,8 @@ package WWHash is
 		Name => String_Array_Access);
 
 	-- Prime multiplier
-	Multiplier : constant Unsigned_32 := 16777619;
-	Reverse_Multiplier : constant Unsigned_32 := 899433627;
+	Multiplier : constant := 16777619;
+	Reverse_Multiplier : constant := 899433627;
 
 	-- Calculate hash for input string (must be lowercase)
 	function Calculate_Hash (S : String) return Hash_Type;

@@ -2,7 +2,6 @@ with Ada.Text_IO; use Ada.Text_IO;
 with Ada.Command_Line; use Ada.Command_Line;
 
 with WWHash; use WWHash;
-with Interfaces; use Interfaces;
 
 procedure WWBrute is
 	-- Constants
@@ -15,7 +14,9 @@ procedure WWBrute is
 	-- Exclude List Type
 	type Position is (Beginning, Other);
 	type Exclude_Array is array (Position, Character, Character) of Boolean;
-	Exclude_Bigrams : Exclude_Array := (others => (others => (others => False)));
+
+	-- Nothing will be excluded by default (set all entries in 3D array to False)
+	Exclude_Bigrams : Exclude_Array := [others => [others => [others => False]]];
 
 	-- Load exclude list from text file
 	procedure Load_Exclude_List (File_Name : String) is
@@ -178,7 +179,8 @@ procedure WWBrute is
 				end loop;
 
 				declare
-					New_S : constant String (1 .. Attack_Length) := (others => '#');
+					-- Initialise all letters to placeholder value
+					New_S : constant String (1 .. Attack_Length) := [others => '#'];
 				begin
 					S := new String'(Initial_C & New_S);
 
