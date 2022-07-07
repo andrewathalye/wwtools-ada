@@ -10,10 +10,10 @@ alt10 1680524729
 alt11 1680524728
 alt2 3201957360
 ambient_music_switch 2211399158
+ambient_music_state 1050885237
 arc 865867163
 arena 680256650
 arrive_time_energy 702330855
-assault_venus_sarcophagus 1106066065
 assist_fuel_armor 1902328555
 attached 4242892217
 awoken 2803282938
@@ -36,7 +36,6 @@ chant_king_lock 2400332879
 charge 4285247397
 city 3888786832
 class_switch 3670420470
-class_won_readyempty 1089288489
 close 1451272583
 close_game 53226444
 close_game_no 2863684274
@@ -64,10 +63,8 @@ eden 763066127
 edz 697502628
 enabled 4174102348
 end 529726532
-ending_level_electric 1106066071
 end_music_alt 3430963404
 end_music_begin 1863783634
-endpoint_holoprojector_off 1089288481
 engagement 3176498016
 erly_extractor_iron_banner 2857829186
 exo 898834093
@@ -84,13 +81,12 @@ fx_snow_dreaming_city 3651653869
 gambit_music_switch 2690182778
 gardens 554809137
 ghost_dnf_thorn 3201957365
+gluttony_music_switch 207938986
 glyph_1 3141602065
 glyph_2 3141602066
 glyph_4 3141602068
 glyph_type 2190006616
 grenade_duck 582268323
-gungrab_attune_launch6 1089288483
-gunrest_mercury01_settings 1089288488
 hammer 703486095
 hard 3599861390
 high_action 2054095106
@@ -99,13 +95,11 @@ hit_count_despawn 3201957367
 hive_boss 1003039177
 hive_round_over 739403071
 hiveship 2257359777
-holster_overlays 1106066070
 human 3887404748
 hunter 671679327
 ick_greeting_wake 4128901497
 idle 1874288895
 inactive 3163453698
-infestation_bossroom_unstoppable 1089288484
 infinite_forest 2279899879
 init_airborne_deep 2923559205
 injured 2860195132
@@ -120,7 +114,6 @@ laltmix 1724081802
 landing_speed 645685450
 last_lap 3377247535
 leviathan 3862550981
-leviathan_part1_turnin 1106066067
 light 1935470627
 light_action 18883840
 listener_environment 3932398587
@@ -175,7 +168,6 @@ pvp_music_switch 4225100452
 queen_spiders_mask 2318682233
 quest_tanks_crystal 2873093348
 raid 2043403989
-raid_trigger_outskirts 1156398957
 ramp_spark_meteor 2269862242
 ranged_killed_cosmo 2093546460
 rasputin_hawk_attackers 817255542
@@ -204,7 +196,6 @@ skolas 2771097678
 sneaky 468648200
 soft 670602561
 solar 610398656
-soul_juice_radar 1072510796
 source_salvage_light_action 1356645514
 sparrow_racing_music_switch 192163651
 spfx_caldera_finale 3467933245
@@ -229,7 +220,6 @@ traveler 1942731632
 treasure_room 1827805616
 treasure_room_ending 1036909386
 trials 2112637710
-twitch_impacts_play 1139621369
 ui_state 1252603985
 venus 3871070152
 vex_boss 3339404766
@@ -251,7 +241,6 @@ dawning_active 626641454
 in_derelict 4117598489
 solstice_active 1592919278
 almighty_closer 736982917
-enthroned_gaul_event 1072510799
 entrust_mission_event 3347625544
 modified_transmogrify_event 4150284555
 withstanding_ship_event 3610188607

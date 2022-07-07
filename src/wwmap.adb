@@ -3,7 +3,10 @@ with Ada.Command_Line; use Ada.Command_Line;
 with Ada.Containers.Ordered_Maps;
 with Ada.Exceptions; use Ada.Exceptions;
 
+with Interfaces; use Interfaces;
+
 with WWHash; use WWHash;
+with Util; use Util;
 
 procedure WWMap is
 	Map_F : File_Type;
@@ -77,13 +80,25 @@ begin
 		Map_Arguments :
 		for I in 2 .. Argument_Count loop
 			declare
+				Hash : constant Hash_Type := Hash_Type'Value (Argument (I));
 				C : constant Hash_Maps.Cursor :=
-					Hash_Maps.Find (Map, Hash_Type'Value (Argument (I)));
+					Hash_Maps.Find (Map, Hash);
 			begin
+				-- If we have a name
 				if Hash_Maps.Has_Element (C) then
 					Put_Line (Hash_Maps.Element (C).all);
 				else
-					Put_Line (Argument (I));
+					-- If this is a Destiny 2 progression identifier
+					if (Hash and 16#F0FFF000#) = 16#40ED3000# then
+						Put_Line ("__stage"
+						& "_" & To_Hex (Unsigned_8 (Shift_Right (Hash, 24)))
+							-- Stage Identifier
+						& "_progress_" &  To_Hex (Unsigned_12 (Hash and 16#FFF#)));
+							-- Progress Identifier
+					else
+						Put_Line (Argument (I));
+					end if;
+
 				end if;
 			end;
 		end loop Map_Arguments;
