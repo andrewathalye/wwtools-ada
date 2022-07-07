@@ -14,7 +14,7 @@ procedure WWMap is
 	package Hash_Maps is new Ada.Containers.Ordered_Maps
 		(Key_Type => Hash_Type, Element_Type => String_Access);
 begin
-	Put_Line (Standard_Error, "WWMap v0.1");
+	Put_Line (Standard_Error, "WWMap v0.2");
 
 	-- Check for required arguments
 	if Argument_Count < 2 then
@@ -89,7 +89,7 @@ begin
 					Put_Line (Hash_Maps.Element (C).all);
 				else
 					-- If this is a Destiny 2 progression identifier
-					if (Hash and 16#F0FFF000#) = 16#40ED3000# then
+					if (Hash and 16#00FFF000#) = 16#00ED3000# then
 						Put_Line ("__stage"
 						& "_" & To_Hex (Unsigned_8 (Shift_Right (Hash, 24)))
 							-- Stage Identifier
