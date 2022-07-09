@@ -11,21 +11,24 @@ package body Bank is
 				when D1RI =>
 					Feedback_Included : Boolean_32; -- 08 .. 0D
 					Project_ID_D1RI : Unsigned_32; -- 0E .. 11
-					Discard_D1RI : Discard_Array (16#12# .. 16#14#);
+					Discard_D1RI : Discard_Array (16#12# .. 16#15#);
 				when D2SK .. D2WQ =>
 					Alignment : Unsigned_16; -- 08 .. 0B
 					Device_Allocated : Boolean_16; -- 0C .. 0D
 					Project_ID_D2SK_D2WQ : Unsigned_32; -- 0E .. 11
-					Discard : Discard_Array (16#12# .. 16#14#);
+					Discard : Discard_Array (16#12# .. 16#15#);
 			end case;
 		end record;
 
 		R : Bank_Header_Raw (Item.Version);
 	begin
 		Bank_Header_Raw'Read (Stream, R);
-		Item := (R.Version, R.Bank_ID, R.Language_ID, (case R.Version is
-			when D1RI => R.Project_ID_D1RI,
-			when D2SK .. D2WQ => R.Project_ID_D2SK_D2WQ));
+		Item := (R.Version,
+			R.Bank_ID,
+			R.Language_ID,
+			Project_ID => (case R.Version is
+				when D1RI => R.Project_ID_D1RI,
+				when D2SK .. D2WQ => R.Project_ID_D2SK_D2WQ));
 	end Read_Bank_Header;
 
 	procedure Read_Chunk_Identifier (

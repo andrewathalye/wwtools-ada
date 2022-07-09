@@ -20,8 +20,8 @@ package Hierarchy is
 	with
 		Read => Read_Marker_Type;
 
-	subtype Action_Type is Unsigned_32;
-	type Action_Array is array (Natural range <>) of Action_Type;
+	subtype Action_ID_Type is Unsigned_32;
+	type Action_ID_Array is array (Unsigned_32 range <>) of Action_ID_Type;
 
 	type Marker_Array is array (Natural range <>) of Marker_Type;
 
@@ -71,54 +71,53 @@ package Hierarchy is
 		Object_ID : Unsigned_32;
 
 		case Identifier is
-			when State =>
-				State_Properties : access Property_Bundle;
-				-- TODO Impl
-			when Sound =>
-				Sound_Source : Source_Type;
-				-- TODO: See if parse_plugin_params is needed
-				Sound_Parameter_Node : Parameter_Node;
-				-- TODO Impl
-			when Action =>
-				Action_Type : Unsigned_16;
-				Action_ID : Unsigned_32;
-				Action_Bits : Unsigned_8;
-				Action_Properties : access Property_Bundle;
-				Action_Modifiers : access Property_Bundle;
-				-- TODO Impl
+--			when State =>
+--				State_Properties : access Property_Bundle;
+--				-- TODO Impl
+--			when Sound =>
+--				Sound_Source : Source_Type;
+--				-- TODO: See if parse_plugin_params is needed
+--				Sound_Parameter_Node : Parameter_Node;
+--				-- TODO Impl
+--			when Action =>
+--				Action_Type : Unsigned_16;
+--				Action_ID : Unsigned_32;
+--				Action_Bits : Unsigned_8;
+--				Action_Properties : access Property_Bundle;
+--				Action_Modifiers : access Property_Bundle;
+--				-- TODO Impl
 			when Event =>
-				Action_List : access Action_Array;
-				-- TODO Impl
-			when Switch =>
-				-- Parameter_Node
-				Group_ID : Unsigned_32;
-				Default_Switch : Unsigned_32;
-				Continuous_Validation : Boolean_8;
-				-- Parameter Node?
-				Switches : access Switch_List;
-				Switch_Params : access Switch_Parameters;
-				-- TODO Impl
-			when Music_Segment =>
-				Music_Node : access Music_Node_Type;
-				Duration : Long_Float;
-				Marker_List : access Marker_Array;
-			when Music_Track =>
-				Music_Flags : Unsigned_8;
-				Music_Source_List : access Source_Array;
-				Playlist_List : access Playlist_Array;
-				Clip_Automation_List : access Clip_Array;
-				Parameters : Parameter_Node;
-				Look_Ahead_Time : Unsigned_32;
-				Music_Switch_Params : access Music_Switch_Parameters;
-				Transition_Params : access Transition_Parameters;
-
-				-- TODO Impl
-			when Music_Switch =>
-				Switch_Transition_Params : access Transition_Parameters;
-				Continuous_Playback : Boolean_8;
-				Arguments : access Music_Switch_Parameters;
-				Tree : access Decision_Tree;
-				-- TODO Impl
+				Action_ID_List : access Action_ID_Array;
+--			when Switch =>
+--				-- Parameter_Node
+--				Group_ID : Unsigned_32;
+--				Default_Switch : Unsigned_32;
+--				Continuous_Validation : Boolean_8;
+--				-- Parameter Node?
+--				Switches : access Switch_List;
+--				Switch_Params : access Switch_Parameters;
+--				-- TODO Impl
+--			when Music_Segment =>
+--				Music_Node : access Music_Node_Type;
+--				Duration : Long_Float;
+--				Marker_List : access Marker_Array;
+--			when Music_Track =>
+--				Music_Flags : Unsigned_8;
+--				Music_Source_List : access Source_Array;
+--				Playlist_List : access Playlist_Array;
+--				Clip_Automation_List : access Clip_Array;
+--				Parameters : Parameter_Node;
+--				Look_Ahead_Time : Unsigned_32;
+--				Music_Switch_Params : access Music_Switch_Parameters;
+--				Transition_Params : access Transition_Parameters;
+--
+--				-- TODO Impl
+--			when Music_Switch =>
+--				Switch_Transition_Params : access Transition_Parameters;
+--				Continuous_Playback : Boolean_8;
+--				Arguments : access Music_Switch_Parameters;
+--				Tree : access Decision_Tree;
+--				-- TODO Impl
 			when others => null;
 		end case;
 	end record

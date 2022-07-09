@@ -21,95 +21,110 @@ begin
 
 	-- Start Searching for BNK files
 	declare
+		-- Renames
+		Input_Dir : String renames Argument (1);
+		Output_Dir : String renames Argument (2);
+
+		-- Variables
 		SE : Search_Type;
 		DE : Directory_Entry_Type;
-		In_F : Stream_IO.File_Type;
-		In_S : Stream_Access;
-		Out_F : Text_IO.File_Type;
+		Input_File : Stream_IO.File_Type;
+		Input_Stream : Stream_Access;
+		Output_File : Text_IO.File_Type;
 	begin
-		Start_Search (SE, Argument (1), "*.bnk");
+		Start_Search (SE, Input_Dir, "*.bnk");
+
+		Read_Entries :
 		while More_Entries (SE) loop
 			Get_Next_Entry (SE, DE);
-			Open (In_F, In_File, Full_Name (DE));
-			In_S := Stream (In_F);
-			Create (Out_F, Out_File, Argument (2)
-				& "/"
-				& Base_Name (Full_Name (DE)) & ".txt");
+			Open (Input_File, In_File, Full_Name (DE));
+			Input_Stream := Stream (Input_File);
+
+			-- Create output directory if necessary
+			if not Exists (Output_Dir) then
+				Create_Directory (Output_Dir);
+			end if;
+
+			Create (
+				Output_File,
+				Out_File,
+				Output_Dir
+				& "/" & Base_Name (Full_Name (DE)) & ".txt");
 
 			Put_Line (Full_Name (DE));
 
 			-- Begin reading chunks
 			declare
-				BCH : Chunk_Header_Type (First_Chunk => True);
+				Bank_CH : Chunk_Header_Type (First_Chunk => True);
 			begin
 				-- Read chunk header for first chunk and check type
-				Chunk_Header_Type'Read (In_S, BCH);
-				Put_Line (Chunk_Header_Type'Image (BCH));
-				if BCH.Identifier /= Bank_Header then
+				Chunk_Header_Type'Read (Input_Stream, Bank_CH);
+				Put_Line (Bank_CH'Image);
+
+				if Bank_CH.Identifier /= Bank_Header then
 					raise Invalid_Bank_Exception;
 				end if;
 
 				-- Read bank header
 				declare
-					BH : Bank_Header_Type (BCH.Version);
-					CH : Chunk_Header_Type;
+					Bank_H : Bank_Header_Type (Bank_CH.Version);
+					Chunk_H : Chunk_Header_Type (First_Chunk => False);
 				begin
-					Bank_Header_Type'Read (In_S, BH);
-					Put_Line (Bank_Header_Type'Image (BH));
+					Bank_Header_Type'Read (Input_Stream, Bank_H);
+					Put_Line (Bank_Header_Type'Image (Bank_H));
 
+					Read_Chunks :
+					while Size (Input_File) - Index (Input_File)
+						>= Chunk_Header_Type'Size / 8
 					loop
-						Chunk_Header_Type'Read (In_S, CH);
-						Put_Line (Chunk_Header_Type'Image (CH));
-						case CH.Identifier is
+						Chunk_Header_Type'Read (Input_Stream, Chunk_H);
+						Put_Line (Chunk_H'Image);
+						case Chunk_H.Identifier is
 							when Bank.Hierarchy => -- Read hierarchy type
 								declare
-									HH : Hierarchy_Header_Type;
-									HOH : Hierarchy_Object_Header (BCH.Version);
+									Hierarchy_H : Hierarchy_Header_Type;
+									Hierarchy_Object_H : Hierarchy_Object_Header (Bank_CH.Version);
 								begin
-									Hierarchy_Header_Type'Read (In_S, HH);
+									Hierarchy_Header_Type'Read (Input_Stream, Hierarchy_H);
 
 									-- Read each hierarchy object
-									for I in 1 .. HH.Releasable_Items loop
-										Hierarchy_Object_Header'Read (In_S, HOH);
+									Read_Hierarchy :
+									for I in 1 .. Hierarchy_H.Releasable_Items loop
+										Hierarchy_Object_Header'Read (Input_Stream, Hierarchy_Object_H);
 										declare
-											HO : Hierarchy_Object (
-												BCH.Version,
-												HOH.Identifier,
-												HOH.Section_Size);
+											Hierarchy_O : Hierarchy_Object (
+												Bank_CH.Version,
+												Hierarchy_Object_H.Identifier,
+												Hierarchy_Object_H.Section_Size);
 										begin
-											Hierarchy_Object'Read (In_S, HO);
-											Put_Line (Hierarchy_Object'Image (HO));
+											Hierarchy_Object'Read (Input_Stream, Hierarchy_O);
+											Put_Line (Hierarchy_O'Image);
 										end;
-									end loop;
+									end loop Read_Hierarchy;
 								end;
 							when others =>
 								raise Chunk_Exception with "Unable to process type: "
-									& Chunk_Identifier_Type'Image (CH.Identifier);
+									& Chunk_H.Identifier'Image;
 						end case;
-					end loop;
+					end loop Read_Chunks;
 				end;
 			exception
 				when Invalid_Bank_Exception =>
 					Put_Line (Standard_Error, "Input file "
 						& Full_Name (DE)
 						& "is not a supported bank file.");
-					Close (In_F);
-					Close (Out_F);
+					Close (Input_File);
+					Close (Output_File);
 				when CE : Chunk_Exception =>
 					Put_Line (Standard_Error, "Aborted reading input file"
 						& Full_Name (DE)
 						& " due to " & Exception_Message (CE));
-					Close (In_F);
-					Close (Out_F);
-				when E : others =>
-					Put_Line (Standard_Error, "Unknown error: "
-						& Exception_Message (E));
-					Close (In_F);
-					Close (Out_F);
+					Close (Input_File);
+					Close (Output_File);
 			end;
 
-			exit; -- TODO Debug, test one bank at time
-		end loop;
+			exit Read_Entries; -- TODO Debug, test one bank at time
+		end loop Read_Entries;
 		End_Search (SE);
 	end;
 end WWParse;

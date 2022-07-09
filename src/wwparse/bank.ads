@@ -10,7 +10,6 @@ package Bank is
 	procedure Read_Chunk_Identifier (
 		Stream : not null access Root_Stream_Type'Class;
 		Item : out Chunk_Identifier_Type);
-
 	for Chunk_Identifier_Type'Read use Read_Chunk_Identifier;
 
 	-- Generic Types in Objects
@@ -47,7 +46,7 @@ package Bank is
 
 	-- Header Types
 	-- Base chunk header
-	type Chunk_Header_Type (First_Chunk : Boolean := False) is record
+	type Chunk_Header_Type (First_Chunk : Boolean) is record
 		Identifier : Chunk_Identifier_Type;
 		Chunk_Size : Unsigned_32;
 		case First_Chunk is
