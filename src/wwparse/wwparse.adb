@@ -98,7 +98,20 @@ begin
 												Hierarchy_Object_H.Section_Size);
 										begin
 											Hierarchy_Object'Read (Input_Stream, Hierarchy_O);
-											Put_Line (Hierarchy_O'Image);
+											Put_Line ("Identifier: "
+												& Hierarchy_O.Identifier'Image);
+											Put_Line ("Object_ID:"
+												& Hierarchy_O.Object_ID'Image);
+
+											-- Print specific info for supported types
+											case Hierarchy_O.Identifier is
+												when Event =>
+													Put_Line ("Action ID List:"
+														& Hierarchy_O.Action_ID_List.all'Image);
+												when others => null;
+											end case;
+
+											New_Line;
 										end;
 									end loop Read_Hierarchy;
 								end;

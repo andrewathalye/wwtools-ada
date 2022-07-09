@@ -1,7 +1,11 @@
-with Ada.Streams; use Ada.Streams;
+with Ada.Streams;
 with Interfaces; use Interfaces;
 
 with Bank; use Bank;
+
+with Hierarchy_Objects; use Hierarchy_Objects;
+with Hierarchy_Objects.Actions;
+with Hierarchy_Objects.Property_Bundles;
 
 package Hierarchy is
 	-- Hierarchy Types and Identifiers
@@ -11,52 +15,6 @@ package Hierarchy is
 		Attenuation, Dialogue_Event)
 	with
 		Size => 8;
-
-	type Marker_Type is record
-		Identifier : Unsigned_32;
-		-- String_Size : Unsigned_32
-		Name : String_Access;
-	end record
-	with
-		Read => Read_Marker_Type;
-
-	subtype Action_ID_Type is Unsigned_32;
-	type Action_ID_Array is array (Unsigned_32 range <>) of Action_ID_Type;
-
-	type Marker_Array is array (Natural range <>) of Marker_Type;
-
-	type Stinger_Type is record
-		Trigger_ID : FNV_Hash;
-		Segment_ID : FNV_Hash;
-		Sync_Type : Unsigned_32;
-		Cue_Filter_Hash : Unsigned_32;
-		Repeat_Exclude_Duration : Unsigned_32;
-		Segment_Look_Ahead : Boolean_32;
-	end record;
-
-	type Stinger_Array is array (Natural range <>) of Stinger_Type;
-
-	type Source_Type is null record; -- TODO Implement
-	type Source_Array is array (Natural range <>) of Source_Type;
-
-	type Playlist_Type is null record; -- TODO Implement
-	type Playlist_Array is array (Natural range <>) of Playlist_Type;
-
-	type Property_Bundle is null record; -- TODO Implement
-	type Parameter_Node is null record; -- TODO Implement
-	type Switch_List is null record; -- TODO Find a better name
-	type Switch_Parameters is null record; -- TODO Find a better name
-	type Music_Node_Type is null record;
-
-	type Clip is null record;
-	type Clip_Array is array (Natural range <>) of Clip;
-
-	type Music_Switch_Parameters is null record;
-		-- TODO Find a better name, split?
-	type Transition_Parameters is null record;
-		-- TODO Find a better name, split?
-
-	type Decision_Tree is null record;
 
 	-- Hierarchy Objects
 	type Hierarchy_Object_Header (Version : Bank_Version_Type) is record
@@ -79,15 +37,15 @@ package Hierarchy is
 --				-- TODO: See if parse_plugin_params is needed
 --				Sound_Parameter_Node : Parameter_Node;
 --				-- TODO Impl
---			when Action =>
---				Action_Type : Unsigned_16;
---				Action_ID : Unsigned_32;
---				Action_Bits : Unsigned_8;
---				Action_Properties : access Property_Bundle;
---				Action_Modifiers : access Property_Bundle;
---				-- TODO Impl
+			when Action =>
+				Action_Type : Actions.Action_Type_Type;
+				Action_External_ID : Unsigned_32;
+				Action_Bits : Unsigned_8;
+				Action_Properties : Property_Bundles.Property_Bundle_CU8_IU8_VU32_Access;
+				Action_Modifiers : Property_Bundles.Property_Bundle_CU8_IU8_VU32_Access;
+					-- Ranged
 			when Event =>
-				Action_ID_List : access Action_ID_Array;
+				Action_ID_List : Actions.Action_ID_Array_Access;
 --			when Switch =>
 --				-- Parameter_Node
 --				Group_ID : Unsigned_32;
@@ -125,12 +83,8 @@ package Hierarchy is
 		Read => Read_Hierarchy_Object;
 
 	-- Subprograms
-	procedure Read_Marker_Type (
-		Stream : not null access Root_Stream_Type'Class;
-		Item : out Marker_Type);
-
-	procedure Read_Hierarchy_Object (
-		Stream : not null access Root_Stream_Type'Class;
+		procedure Read_Hierarchy_Object (
+		Stream : not null access Ada.Streams.Root_Stream_Type'Class;
 		Item : out Hierarchy_Object);
 
 end Hierarchy;
