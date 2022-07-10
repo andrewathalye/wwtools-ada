@@ -4,8 +4,9 @@ with Interfaces; use Interfaces;
 with Bank; use Bank;
 
 with Hierarchy_Objects; use Hierarchy_Objects;
-with Hierarchy_Objects.Actions;
+with Hierarchy_Objects.Actions; use Hierarchy_Objects.Actions;
 with Hierarchy_Objects.Property_Bundles;
+	use Hierarchy_Objects.Property_Bundles;
 
 package Hierarchy is
 	-- Hierarchy Types and Identifiers
@@ -38,14 +39,14 @@ package Hierarchy is
 --				Sound_Parameter_Node : Parameter_Node;
 --				-- TODO Impl
 			when Action =>
-				Action_Type : Actions.Action_Type_Type;
+				Action_Type : Action_Type_Type;
 				Action_External_ID : Unsigned_32;
 				Action_Bits : Unsigned_8;
-				Action_Properties : Property_Bundles.Property_Bundle_CU8_IU8_VU32_Access;
-				Action_Modifiers : Property_Bundles.Property_Bundle_CU8_IU8_VU32_Access;
-					-- Ranged
+				Action_Properties : Property_Bundle_CU8_IU8_VU32_Access;
+				Action_Modifiers : Property_Bundle_CU8_IU8_VU32_Access; -- Ranged
+				Action_Specifics : Action_Details_Access;
 			when Event =>
-				Action_ID_List : Actions.Action_ID_Array_Access;
+				Action_ID_List : Action_ID_Array_Access;
 --			when Switch =>
 --				-- Parameter_Node
 --				Group_ID : Unsigned_32;

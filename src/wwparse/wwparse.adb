@@ -12,7 +12,7 @@ procedure WWParse is
 	Invalid_Bank_Exception : exception;
 	Chunk_Exception : exception;
 begin
-	Put_Line ("WWParse v0.1");
+	Put_Line ("WWParse v0.2");
 	Put_Line ("Usage: " & Command_Name & " INPUT_DIR OUTPUT_DIR");
 
 	if Argument_Count < 2 then
@@ -108,6 +108,8 @@ begin
 												when Event =>
 													Put_Line ("Action ID List:"
 														& Hierarchy_O.Action_ID_List.all'Image);
+												when Action =>
+													Put_Line (Hierarchy_O'Image);
 												when others => null;
 											end case;
 
