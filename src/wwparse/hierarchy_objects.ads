@@ -1,10 +1,9 @@
 with Ada.Streams;
 with Interfaces; use Interfaces;
 
-with Bank; use Bank;
+with Types; use Types;
 
 package Hierarchy_Objects is
-	
 	-- Unimplemented types
 	type Parameter_Node is null record; -- TODO Implement
 	type Switch_List is null record; -- TODO Find a better name

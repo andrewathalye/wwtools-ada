@@ -1,3 +1,5 @@
+with Types; use Types;
+
 package body Bank is
 	procedure Read_Bank_Header (
 		Stream : not null access Ada.Streams.Root_Stream_Type'Class;

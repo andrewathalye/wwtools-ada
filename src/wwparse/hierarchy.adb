@@ -1,3 +1,5 @@
+with Types; use Types;
+
 package body Hierarchy is
 	procedure Read_Hierarchy_Object (
 		Stream : not null access Ada.Streams.Root_Stream_Type'Class;
@@ -11,64 +13,59 @@ package body Hierarchy is
 		case Item.Identifier is
 			when Event =>
 				declare
-					Action_ID_List_Size_D1RI_D2SK : Unsigned_32;
-					Action_ID_List_Size_D2WQ : Unsigned_8; -- TODO: Should be a var type
+					Action_ID_List_Size_U32 : Unsigned_32;
+					Action_ID_List_Size_Var : Unsigned_8; -- TODO: Should be a var type
+					Action_ID_List_Size : Natural;
 				begin
 					-- The list size is stored in a different format before D2WQ
 					case Item.Version is
 						when D1RI | D2SK =>
-							Unsigned_32'Read (Stream, Action_ID_List_Size_D1RI_D2SK);
+							Unsigned_32'Read (Stream, Action_ID_List_Size_U32);
+							Action_ID_List_Size := Natural (Action_ID_List_Size_U32);
 						when D2WQ =>
-							Unsigned_8'Read (Stream, Action_ID_List_Size_D2WQ);
+							Unsigned_8'Read (Stream, Action_ID_List_Size_Var);
+							Action_ID_List_Size := Natural (Action_ID_List_Size_Var);
 					end case;
 
 					-- Create the array and setup the list
-					declare
-						Action_ID_List : Action_ID_Array (1 .. (case Item.Version is
-							when D1RI | D2SK =>
-								Natural (Action_ID_List_Size_D1RI_D2SK),
-							when D2WQ =>
-								Natural (Action_ID_List_Size_D2WQ)));
-					begin
-						Action_ID_Array'Read (Stream, Action_ID_List);
-						Item.Action_ID_List := new Action_ID_Array'(Action_ID_List);
-					end;
+					Item.Action_ID_List := new Action_ID_Array (1 .. Action_ID_List_Size);
+					Action_ID_Array'Read (Stream, Item.Action_ID_List.all);
 				end;
 			when Action =>
+				-- Read General Action Details
 				Action_Type_Type'Read (Stream, Item.Action_Type);
 				Unsigned_32'Read (Stream, Item.Action_External_ID);
 				Unsigned_8'Read (Stream, Item.Action_Bits);
 
-				-- Read Property Bundle sizes
+				-- Read Action Properties and Action Modifiers
 				declare
 					Action_Properties_Length : Unsigned_8;
 					Action_Modifiers_Length : Unsigned_8;
 				begin
 					Unsigned_8'Read (Stream, Action_Properties_Length);
+
+					Item.Action_Properties := new Property_Array_CU8_IU8_VU32
+						(1 .. Action_Properties_Length);
+					Property_Array_CU8_IU8_VU32'Read (
+						Stream,
+						Item.Action_Properties.all);
+
 					Unsigned_8'Read (Stream, Action_Modifiers_Length);
-
-					-- Read Property Bundles
-					declare
-						Action_Properties : Property_Bundle_CU8_IU8_VU32 (
-							Length => Action_Properties_Length,
-							Ranged => False);
-						Action_Modifiers : Property_Bundle_CU8_IU8_VU32 (
-							Length => Action_Modifiers_Length,
-							Ranged => True);
-					begin
-						Property_Bundle_CU8_IU8_VU32'Read (
-							Stream,
-							Action_Properties);
-						Property_Bundle_CU8_IU8_VU32'Read (
-							Stream,
-							Action_Modifiers);
-
-						Item.Action_Properties :=
-							new Property_Bundle_CU8_IU8_VU32'(Action_Properties);
-						Item.Action_Modifiers :=
-							new Property_Bundle_CU8_IU8_VU32'(Action_Modifiers);
-					end;
+					Item.Action_Modifiers := new Ranged_Property_Array_CU8_IU8_VU32
+						(1 .. Action_Modifiers_Length);
+					Ranged_Property_Array_CU8_IU8_VU32'Read (
+						Stream,
+						Item.Action_Modifiers.all);
 				end;
+
+				-- Read Action Specifics
+				Item.Action_Specifics := new Action_Specifics_Type (
+					Item.Version,
+					Action_Category_Type'Val (
+						Unsigned_16 (
+							Action_Type_Type'Enum_Rep (Item.Action_Type))
+							and 16#ff00#));
+				Action_Specifics_Type'Read (Stream, Item.Action_Specifics.all);
 			when others => -- Items without specific support
 				Discard_Array'Read (Stream, Discard);
 		end case;

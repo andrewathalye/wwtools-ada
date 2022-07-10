@@ -5,8 +5,8 @@ with Bank; use Bank;
 
 with Hierarchy_Objects; use Hierarchy_Objects;
 with Hierarchy_Objects.Actions; use Hierarchy_Objects.Actions;
-with Hierarchy_Objects.Property_Bundles;
-	use Hierarchy_Objects.Property_Bundles;
+with Hierarchy_Objects.Property_Arrays;
+	use Hierarchy_Objects.Property_Arrays;
 
 package Hierarchy is
 	-- Hierarchy Types and Identifiers
@@ -41,10 +41,10 @@ package Hierarchy is
 			when Action =>
 				Action_Type : Action_Type_Type;
 				Action_External_ID : Unsigned_32;
-				Action_Bits : Unsigned_8;
-				Action_Properties : Property_Bundle_CU8_IU8_VU32_Access;
-				Action_Modifiers : Property_Bundle_CU8_IU8_VU32_Access; -- Ranged
-				Action_Specifics : Action_Details_Access;
+				Action_Bits : Unsigned_8; -- TODO Create printable type
+				Action_Properties : Property_Array_CU8_IU8_VU32_Access;
+				Action_Modifiers : Ranged_Property_Array_CU8_IU8_VU32_Access;
+				Action_Specifics : Action_Specifics_Access;
 			when Event =>
 				Action_ID_List : Action_ID_Array_Access;
 --			when Switch =>
