@@ -40,7 +40,7 @@ package Hierarchy is
 --				-- TODO Impl
 			when Action =>
 				Action_Type : Action_Type_Type;
-				Action_External_ID : Unsigned_32;
+				Action_Controller_ID : Unsigned_32;
 				Action_Bits : Unsigned_8; -- TODO Create printable type
 				Action_Properties : Property_Array_CU8_IU8_VU32_Access;
 				Action_Modifiers : Ranged_Property_Array_CU8_IU8_VU32_Access;
@@ -60,17 +60,23 @@ package Hierarchy is
 --				Music_Node : access Music_Node_Type;
 --				Duration : Long_Float;
 --				Marker_List : access Marker_Array;
---			when Music_Track =>
---				Music_Flags : Unsigned_8;
---				Music_Source_List : access Source_Array;
---				Playlist_List : access Playlist_Array;
---				Clip_Automation_List : access Clip_Array;
---				Parameters : Parameter_Node;
---				Look_Ahead_Time : Unsigned_32;
---				Music_Switch_Params : access Music_Switch_Parameters;
---				Transition_Params : access Transition_Parameters;
---
---				-- TODO Impl
+			when Music_Track =>
+				Music_Flags : Unsigned_8 := 0; -- TODO printable type. Only after D1RI
+				Music_Source_List : access Source_Array;
+					-- impl
+				Playlist_List : access Playlist_Array;
+					-- impl
+				Clip_Automation_List : access Clip_Array;
+					-- impl
+				Parameters : Parameter_Node;
+					-- impl
+				Random_Sequence_Type : Unsigned_32 := 0; -- TODO print. Only before D2SK
+				Track_Type : Unsigned_8 := 0; -- TODO print. Only after D2SK
+				Music_Switch_Params : access Music_Switch_Parameters; -- May be null
+					-- impl
+				Transition_Params : access Transition_Parameters; -- May be null
+					-- impl
+				Look_Ahead_Time : Unsigned_32;
 --			when Music_Switch =>
 --				Switch_Transition_Params : access Transition_Parameters;
 --				Continuous_Playback : Boolean_8;
@@ -84,7 +90,7 @@ package Hierarchy is
 		Read => Read_Hierarchy_Object;
 
 	-- Subprograms
-		procedure Read_Hierarchy_Object (
+	procedure Read_Hierarchy_Object (
 		Stream : not null access Ada.Streams.Root_Stream_Type'Class;
 		Item : out Hierarchy_Object);
 

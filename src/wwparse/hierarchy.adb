@@ -1,3 +1,5 @@
+with Ada.Text_IO; use Ada.Text_IO;
+
 with Types; use Types;
 
 package body Hierarchy is
@@ -61,11 +63,57 @@ package body Hierarchy is
 				-- Read Action Specifics
 				Item.Action_Specifics := new Action_Specifics_Type (
 					Item.Version,
-					Action_Category_Type'Val (
-						Unsigned_16 (
-							Action_Type_Type'Enum_Rep (Item.Action_Type))
-							and 16#ff00#));
+					Item.Action_Type);
 				Action_Specifics_Type'Read (Stream, Item.Action_Specifics.all);
+			when Music_Track =>
+				-- Music_Flags is absent before D2SK
+				case Item.Version is
+					when D1RI => null
+					when D2SK | D2WQ =>
+						Unsigned_8'Read (Stream, Item.Music_Flags);
+				end case;
+
+				-- Read Source Array
+				declare
+					Sources_Count : Unsigned_32;
+				begin
+					Unsigned_32'Read (Stream, Sources_Count);
+					Item.Music_Source_List := new Source_Array (1 .. Sources_Count);
+				end;
+				Source_Array'Read (Stream, Item.Music_Source_List.all);
+
+				-- Read Playlist Array
+				declare
+					Playlists_Count : Unsigned_32;
+				begin
+					Unsigned_32'Read (Stream, Playlists_Count);
+					Item.Playlist_List := new Playlist_Array (1 .. Playlists_Count);
+				end;
+				Playlist_Array'Read (Stream, Item.Playlist_List.all);
+
+				-- Read Clip Automation List
+				declare
+					Clips_Count : Unsigned_32;
+				begin
+					Unsigned_32'Read (Stream, Clips_Count);
+					Item.Clip_Automation_List := new Clip_Array (1 .. Clips_Count);
+				end;
+				Clip_Array'Read (Stream, Item.Clip_Automation_List.all);
+
+				Parameter_Node'Read (Stream, Item.Parameters);
+
+				-- D1RI has Random Sequence Type, while D2SK and D2WQ have Track Type
+				-- Music Switch Params and Transition Params are only in D2SK and D2WQ
+				case Version is
+					when D1RI =>
+						Unsigned_32'Read (Stream, Item.Random_Sequence_Type);
+					when D2SK | D2WQ =>
+						Unsigned_8'Read (Stream, Item.Track_Type);
+						Music_Switch_Parameters'Read (Stream, Item.Music_Switch_Params);
+						Transition_Parameters'Read (Stream, Item.Transition_Params);
+				end case;
+
+				Unsigned_32'Read (Stream, Item.Look_Ahead_Time);
 			when others => -- Items without specific support
 				Discard_Array'Read (Stream, Discard);
 		end case;

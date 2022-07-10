@@ -231,87 +231,6 @@ package Hierarchy_Objects.Actions is
 		Reset_Set_FX_All => 16#3204#,
 		None_Alt => 16#4000#);
 
-	-- General action categories
-	-- Defined by the upper byte of Action_Type_Type
-	-- If no category fits, assign None
-	type Action_Category_Type is (
-		None,
-		Stop,
-		Pause,
-		Resume,
-		Play,
-		Play_And_Continue,
-		Mute,
-		Unmute,
-		Set_Pitch,
-		Reset_Pitch,
-		Set_None,
-		Reset_None,
-		Set_Bus_Volume,
-		Reset_Bus_Volume,
-		Set_LPF,
-		Reset_LPF,
-		Use_State,
-		Unuse_State,
-		Set_State,
-		Set_Game_Parameter,
-		Reset_Game_Parameter,
-		Stop_Event,
-		Pause_Event,
-		Resume_Event,
-		Set_Switch,
-		Bypass_FX,
-		Reset_Bypass_FX,
-		Break,
-		Trigger,
-		Seek,
-		Release,
-		Set_HPF,
-		Play_Event,
-		Reset_Playlist,
-		Play_Unknown,
-		Reset_HPF)
-	with
-		Size => 16;
-
-	for Action_Category_Type use (
-		None => 16#0000#,
-		Stop => 16#0100#,
-		Pause => 16#0200#,
-		Resume => 16#0300#,
-		Play => 16#0400#,
-		Play_And_Continue => 16#0500#,
-		Mute => 16#0600#,
-		Unmute => 16#0700#,
-		Set_Pitch => 16#0800#,
-		Reset_Pitch => 16#0900#,
-		Set_None => 16#0A00#,
-		Reset_None => 16#0B00#,
-		Set_Bus_Volume => 16#0C00#,
-		Reset_Bus_Volume => 16#0D00#,
-		Set_LPF => 16#0E00#,
-		Reset_LPF => 16#0F00#,
-		Use_State => 16#1000#,
-		Unuse_State => 16#1100#,
-		Set_State => 16#1200#,
-		Set_Game_Parameter => 16#1300#,
-		Reset_Game_Parameter => 16#1400#,
-		Stop_Event => 16#1500#,
-		Pause_Event => 16#1600#,
-		Resume_Event => 16#1700#,
-		Set_Switch => 16#1900#,
-		Bypass_FX => 16#1A00#,
-		Reset_Bypass_FX => 16#1B00#,
-		Break => 16#1C00#,
-		Trigger => 16#1D00#,
-		Seek => 16#1E00#,
-		Release => 16#1F00#,
-		Set_HPF => 16#2000#,
-		Play_Event => 16#2100#,
-		Reset_Playlist => 16#2200#,
-		Play_Unknown => 16#2300#,
-		Reset_HPF => 16#3000#);
-
 	-- Specific additional info for various Action categories
 	type Fade_Type is new Unsigned_8; -- TODO add names
 
@@ -328,10 +247,13 @@ package Hierarchy_Objects.Actions is
 
 	type Action_Specifics_Type (
 		Version : Bank_Version_Type;
-		Action_Category : Action_Category_Type)
+		Action_Type : Action_Type_Type)
 	is record
-		case Action_Category is
-			when Stop =>
+		case Action_Type is
+			when Stop_E | Stop_E_O
+				| Stop_All | Stop_All_O
+				| Stop_AE | Stop_AE_O
+			=>
 				Stop_Fade : Fade_Type;
 				case Version is
 					when D2WQ =>
@@ -340,25 +262,57 @@ package Hierarchy_Objects.Actions is
 					when D1RI | D2SK =>
 						Stop_Except_D1RI_D2SK : Except_Params_Access (Version);
 				end case;
-			when Pause =>
+			when Pause_E | Pause_E_O
+				| Pause_All | Pause_All_O
+				| Pause_AE | Pause_AE_O
+			=>
 				Pause_Fade : Fade_Type;
 				Pause_Bits : Unsigned_8; -- TODO Display bits
 				Pause_Except : Except_Params_Access (Version);
-			when Resume =>
+			when Resume_E | Resume_E_O
+				| Resume_All | Resume_All_O
+				| Resume_AE | Resume_AE_O
+			=>
 				Resume_Fade : Fade_Type;
 				Resume_Bits : Unsigned_8; -- TODO Display bits
 				Resume_Except : Except_Params_Access (Version);
 			when Play | Play_And_Continue | Play_Unknown =>
 				Play_Fade : Fade_Type;
 				File_ID : FNV_Hash; -- TODO check if correct
-			when Mute | Unmute =>
+			when Mute_M | Mute_O
+				| Unmute_M | Unmute_O
+				| Unmute_All | Unmute_All_O
+				| Unmute_AE | Unmute_AE_O
+			=>
 				Mute_Fade : Fade_Type;
 				Mute_Except : Except_Params_Access (Version);
-			when Set_Pitch | Reset_Pitch -- These include additional properties
-				| Set_None | Reset_None
-				| Set_Bus_Volume | Reset_Bus_Volume
-				| Set_LPF | Reset_LPF
-				| Set_HPF | Reset_HPF
+			when Set_Pitch_M | Set_Pitch_O -- These include additional properties
+				| Reset_Pitch_M | Reset_Pitch_O
+				| Reset_Pitch_All | Reset_Pitch_All_O
+				| Reset_Pitch_AE | Reset_Pitch_AE_O
+
+				| Set_Volume_M | Set_Volume_O
+				| Reset_Volume_M | Reset_Volume_O
+				| Reset_Volume_All | Reset_Volume_All_O
+				| Reset_Volume_AE | Reset_Volume_AE_O
+
+				| Set_Bus_Volume_M | Set_Bus_Volume_O
+				| Reset_Bus_Volume_M | Reset_Bus_Volume_O
+				| Reset_Bus_Volume_All | Reset_Bus_Volume_AE
+
+				| Set_LPF_M | Set_LPF_O
+				| Reset_LPF_M | Reset_LPF_O
+				| Reset_LPF_All | Reset_LPF_All_O
+				| Reset_LPF_AE | Reset_LPF_AE_O
+
+				| Set_HPF_M | Set_HPF_O
+				| Reset_HPF_M | Reset_HPF_O
+				| Reset_HPF_All | Reset_HPF_All_O
+				| Reset_HPF_AE | Reset_HPF_AE_O
+
+				-- Note: Tentative
+				| Set_FX_M
+				| Reset_Set_FX_M | Reset_Set_FX_All
 			=>
 				Set_Value_Fade : Fade_Type;
 				Set_Value_Meaning : Unsigned_8; -- TODO Map to values
@@ -366,11 +320,13 @@ package Hierarchy_Objects.Actions is
 				Set_Value_Min : Float_32;
 				Set_Value_Max : Float_32;
 				Set_Value_Except : Except_Params_Access (Version);
-			when Use_State | Unuse_State => null;
+			when Use_State_E | Unuse_State_E => null;
 			when Set_State =>
 				Set_State_Group_ID : FNV_Hash;
 				Set_State_Target_ID : FNV_Hash;
-			when Set_Game_Parameter | Reset_Game_Parameter =>
+			when Set_Game_Parameter | Set_Game_Parameter_O
+				| Reset_Game_Parameter | Reset_Game_Parameter_O
+			=>
 				Set_Game_Parameter_Fade : Fade_Type;
 				Set_Game_Parameter_Bypass_Transition : Boolean_8;
 				Set_Game_Parameter_Value_Meaning : Unsigned_8;
@@ -378,27 +334,37 @@ package Hierarchy_Objects.Actions is
 				Set_Game_Parameter_Min : Float_32;
 				Set_Game_Parameter_Max : Float_32;
 				Set_Game_Parameter_Except : Except_Params_Access (Version);
+			when Duck => null;
 			when Set_Switch =>
 				Set_Switch_Group_ID : FNV_Hash;
 				Set_Switch_State_ID : FNV_Hash;
-			when Bypass_FX | Reset_Bypass_FX =>
+			when Bypass_FX_M | Bypass_FX_O
+				| Reset_Bypass_FX_M | Reset_Bypass_FX_O
+				| Reset_Bypass_FX_All | Reset_Bypass_FX_All_O
+				| Reset_Bypass_FX_AE | Reset_Bypass_FX_AE_O
+			=>
 				Bypass_FX_Is_Bypass : Boolean_8;
 				Bypass_FX_Target_Mask : Boolean_8;
 				Bypass_FX_Except : Except_Params_Access (Version);
-			when Break | Trigger => null;
-			when Seek =>
+			when Break_E | Break_E_O
+				| Trigger | Trigger_O | Trigger_E | Trigger_E_O
+			=> null;
+			when Seek_E | Seek_E_O
+				| Seek_All | Seek_All_O
+				| Seek_AE | Seek_AE_O
+			=>
 				Seek_Is_Relative_To_Duration : Boolean_8;
 				Seek_Value : Float_32; -- TODO check if correct
 				Seek_Value_Min : Float_32;
 				Seek_Value_Max : Float_32;
 				Seek_Snap_To_Nearest_Marker : Boolean_8;
 				Seek_Except : Except_Params_Access (Version);
-			when Release => null;
+			when Release | Release_O => null;
 			when Play_Event | Stop_Event | Pause_Event | Resume_Event => null;
-			when Reset_Playlist =>
+			when Reset_Playlist_E | Reset_Playlist_E_O =>
 				Reset_Playlist_Fade : Fade_Type;
 				Reset_Except : Except_Params_Access (Version);
-			when None => null;
+			when None | None_Alt => null;
 		end case;
 	end record;
 

@@ -13,9 +13,12 @@ procedure WWParse is
 	Chunk_Exception : exception;
 begin
 	Put_Line ("WWParse v0.2");
-	Put_Line ("Usage: " & Command_Name & " INPUT_DIR OUTPUT_DIR");
 
 	if Argument_Count < 2 then
+		Put_Line (Standard_Error,
+			"Usage: "
+			& Command_Name
+			& " INPUT_DIR OUTPUT_DIR");
 		return;
 	end if;
 
@@ -106,9 +109,22 @@ begin
 											-- Print specific info for supported types
 											case Hierarchy_O.Identifier is
 												when Event =>
-													Put_Line ("Action ID List:"
+													Put_Line ("Action ID List: "
 														& Hierarchy_O.Action_ID_List.all'Image);
 												when Action =>
+													Put_Line ("Action Type: "
+														& Hierarchy_O.Action_Type'Image);
+													Put_Line ("Action Controller ID: "
+														& Hierarchy_O.Action_Controller_ID'Image);
+													Put_Line ("Action Bits: "
+														& Hierarchy_O.Action_Bits'Image);
+													Put_Line ("Action Properties: "
+														& Hierarchy_O.Action_Properties.all'Image);
+													Put_Line ("Action Modifiers: "
+														& Hierarchy_O.Action_Modifiers.all'Image);
+													Put_Line ("Action Specifics: "
+														& Hierarchy_O.Action_Specifics.all'Image);
+												when Music_Track =>
 													Put_Line (Hierarchy_O'Image);
 												when others => null;
 											end case;
