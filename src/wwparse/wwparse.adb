@@ -126,6 +126,7 @@ begin
 														& Hierarchy_O.Action_Specifics.all'Image);
 												when Music_Track =>
 													Put_Line (Hierarchy_O'Image);
+													return;
 												when others => null;
 											end case;
 

@@ -15,16 +15,115 @@ package Hierarchy_Objects is
 		Switch => 16#3#);
 
 	-- Unimplemented types
-	type Parameter_Node (Version : Bank_Version_Type) is null record; -- TODO Implement
 	type Switch_List is null record; -- TODO Find a better name
 	type Switch_Parameters is null record; -- TODO Find a better name
 	type Music_Node_Type is null record;
 
-
 	subtype Fade_Type_32 is Unsigned_32; -- TODO Add names
 
+	-- Parameter Node
+	type FX_Element is record
+		FX_Index : Unsigned_8;
+		FX_ID : Unsigned_32;
+		Is_Share_Set : Boolean_8;
+		Is_Rendered : Boolean_8;
+	end record;
+
+	type FX_Element_Array is array (Unsigned_8 range <>) of FX_Element;
+	type FX_Element_Array_Access is access FX_Element_Array;
+
+	type Parameter_Node_FX is record
+		Override_Parent_FX : Boolean_8;
+		FX_Bypass_Bits : Unsigned_8;
+		FX_Elements : FX_Element_Array_Access;
+	end record
+	with
+		Read => Read_Parameter_Node_FX;
+	
+	-- Major TODO
+	type Vertex is record
+		X, Y, Z : Float_32;
+		Duration : Integer_32;
+	end record;
+	type Vertex_Array is array (Unsigned_32 range <>) of Vertex;
+	type Vertex_Array_Access is access Vertex_Array;
+
+	type Automation_Component is record
+		Vertex_Offset : Unsigned_32;
+		Vertex_Count : Unsigned_32;
+	end record;
+	type Automation_Playlist is array (Unsigned_32 range <>)
+		of Automation_Component;
+	type Automation_Playlist_Access is access Automation_Playlist;
+
+	type Automation_Param (Version : Bank_Version_Type) is record
+		Range_X : Float_32;
+		Range_Y : Float_32;
+
+		case Version is
+			when D1RI | D2SK => null;
+			when D2WQ =>
+				Range_Z : Float_32;
+		end case;
+	end record;
+
+	type Automation_Param_Array_D1RI_D2SK is array (Unsigned_32 range <>) of
+		Automation_Param (D2SK);
+	type Automation_Param_Array_D2WQ is array (Unsigned_32 range <>) of
+		Automation_Param (D2WQ);
+	type Automation_Param_Container (
+		Version : Bank_Version_Type;
+		Length : Unsigned_32)
+	is record
+		case Version is
+			when D1RI | D2SK =>
+				Contents_D1RI_D2SK : Automation_Param_Array_D1RI_D2SK (1 .. Length);
+			when D2WQ =>
+				Contents_D2WQ : Automation_Param_Array_D2WQ (1 .. Length);
+		end case;
+	end record;
+	type Automation_Param_Container_Access is access Automation_Param_Container;
+	
+	type Parameter_Node_Positioning (Version : Bank_Version_Type) is record
+		Positioning_Bits : Unsigned_8;
+		Positioning_Available_2D : Boolean_8 := False; -- Before D2WQ
+		Positioning_Available_3D : Boolean_8 := False; -- Before D2WQ
+		Positioning_Type_3D : Unsigned_32 := 0; -- TODO add names, Before D2WQ
+		Bits_3D : Unsigned_8 := 0; -- TODO add names, D2WQ
+		Attenuation_ID_3D : Unsigned_32; -- Before D2WQ
+		Is_Spatialised_3D : Boolean_8; -- Before D2WQ
+		Is_Dynamic : Boolean_8;
+		Automation_Path_Mode : Unsigned_32; -- TODO add names, size change
+		Automation_Is_Looping : Boolean_8; -- Before D2WQ
+		Automation_Transition_Time : Integer_32;
+		Automation_Follow_Orientation : Boolean_8; -- Before D2WQ
+		Automation_Vertices : Vertex_Array_Access;
+		Automation_Playlist : Automation_Playlist_Access;
+		Automation_Params_3D : Automation_Param_Container_Access;
+	end record
+	with
+		Read => Read_Parameter_Node_Positioning;
+
+	type Parameter_Node (Version : Bank_Version_Type) is record
+		FX : Parameter_Node_FX;
+		Override_Attachment_Params : Boolean_8 := False; -- D2WQ
+		Override_Bus_ID : Unsigned_32;
+		Direct_Parent_ID : Unsigned_32;
+		Priority_Override_Parent : Boolean_8 := False; -- Before D2WQ
+		Priority_Apply_Dist_Factor : Boolean_8 := False; -- Before D2WQ
+		Object_Bits : Unsigned_8; -- D2WQ
+		-- Initial Params, Unk
+		Positioning : Parameter_Node_Positioning (Version);
+		Aux : Parameter_Node_Aux;
+		Advanced : Parameter_Node_Advanced;
+		State_Chunk : Parameter_Node_State_Chunk;
+		RTPC : Parameter_Node_RTPC;
+		Feedback : Parameter_Node_Feedback; -- Before D2WQ
+	end record
+	with
+		Read => Read_Parameter_Node;
+
 	-- Simple Parameter Types
-	-- TODO Implement
 	type Music_Switch_Parameters is record
 		Group_Type : Unsigned_8; -- TODO Add names
 		Group_ID : FNV_Hash;
@@ -89,6 +188,7 @@ package Hierarchy_Objects is
 	end record
 	with
 		Read => Read_Clip_Type;
+
 	type Clip_Array is array (Natural range <>) of Clip_Type;
 	type Clip_Array_Access is access Clip_Array;
 
@@ -100,13 +200,15 @@ package Hierarchy_Objects is
 		Plugin_Type : Unsigned_4;
 	end record
 	with
-		Pack => True;
-	for Plugin_Info_Type'Size use 32;
+		Pack => True,
+		Size => 32;
 
 	-- Sources
+	type Source_Stream_Type_Type is (Data, Streaming, Prefetch_Streaming);
+
 	type Source_Type (Version : Bank_Version_Type) is record
 		Plugin_Info : Plugin_Info_Type;
-		Stream_Type : Unsigned_32; -- May actually be U8 after D1RI
+		Stream_Type : Source_Stream_Type_Type; -- Size differs before D2SK
 		Source_ID : Unsigned_32; -- TODO check if FNV
 		File_ID : Unsigned_32 := 0; -- Absent with D2WQ
 		File_Offset :  Unsigned_32 := 0; -- Absent if built-in
