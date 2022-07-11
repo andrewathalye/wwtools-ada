@@ -62,20 +62,15 @@ package Hierarchy is
 --				Marker_List : access Marker_Array;
 			when Music_Track =>
 				Music_Flags : Unsigned_8 := 0; -- TODO printable type. Only after D1RI
-				Music_Source_List : access Source_Array;
-					-- impl
-				Playlist_List : access Playlist_Array;
-					-- impl
-				Clip_Automation_List : access Clip_Array;
-					-- impl
-				Parameters : Parameter_Node;
+				Music_Source_List : Source_Container_Access;
+				Playlist_List : Playlist_Container_Access;
+				Clip_Automation_List : Clip_Array_Access;
+				Music_Track_Parameter_Node : Parameter_Node (Version);
 					-- impl
 				Random_Sequence_Type : Unsigned_32 := 0; -- TODO print. Only before D2SK
-				Track_Type : Unsigned_8 := 0; -- TODO print. Only after D2SK
-				Music_Switch_Params : access Music_Switch_Parameters; -- May be null
-					-- impl
-				Transition_Params : access Transition_Parameters; -- May be null
-					-- impl
+				Track_Type : Music_Track_Type := Normal; -- Only after D2SK
+				Music_Switch_Params : Music_Switch_Parameters; -- Only after D2SK, Switch
+				Transition_Params : Transition_Parameters; -- Only after D2SK, Switch
 				Look_Ahead_Time : Unsigned_32;
 --			when Music_Switch =>
 --				Switch_Transition_Params : access Transition_Parameters;

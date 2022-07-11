@@ -1,5 +1,3 @@
-with Bank; use Bank;
-
 package Hierarchy_Objects.Actions is
 	-- Action-specific types
 	subtype Action_ID_Type is Unsigned_32;
@@ -232,7 +230,7 @@ package Hierarchy_Objects.Actions is
 		None_Alt => 16#4000#);
 
 	-- Specific additional info for various Action categories
-	type Fade_Type is new Unsigned_8; -- TODO add names
+	type Fade_Type_8 is new Unsigned_8; -- TODO add names
 
 	-- Exception Parameters for an Action
 	-- TODO: Actually implement
@@ -254,7 +252,7 @@ package Hierarchy_Objects.Actions is
 				| Stop_All | Stop_All_O
 				| Stop_AE | Stop_AE_O
 			=>
-				Stop_Fade : Fade_Type;
+				Stop_Fade : Fade_Type_8;
 				case Version is
 					when D2WQ =>
 						Stop_Bits : Unsigned_8; -- TODO Display bits
@@ -266,25 +264,25 @@ package Hierarchy_Objects.Actions is
 				| Pause_All | Pause_All_O
 				| Pause_AE | Pause_AE_O
 			=>
-				Pause_Fade : Fade_Type;
+				Pause_Fade : Fade_Type_8;
 				Pause_Bits : Unsigned_8; -- TODO Display bits
 				Pause_Except : Except_Params_Access (Version);
 			when Resume_E | Resume_E_O
 				| Resume_All | Resume_All_O
 				| Resume_AE | Resume_AE_O
 			=>
-				Resume_Fade : Fade_Type;
+				Resume_Fade : Fade_Type_8;
 				Resume_Bits : Unsigned_8; -- TODO Display bits
 				Resume_Except : Except_Params_Access (Version);
 			when Play | Play_And_Continue | Play_Unknown =>
-				Play_Fade : Fade_Type;
+				Play_Fade : Fade_Type_8;
 				File_ID : FNV_Hash; -- TODO check if correct
 			when Mute_M | Mute_O
 				| Unmute_M | Unmute_O
 				| Unmute_All | Unmute_All_O
 				| Unmute_AE | Unmute_AE_O
 			=>
-				Mute_Fade : Fade_Type;
+				Mute_Fade : Fade_Type_8;
 				Mute_Except : Except_Params_Access (Version);
 			when Set_Pitch_M | Set_Pitch_O -- These include additional properties
 				| Reset_Pitch_M | Reset_Pitch_O
@@ -314,7 +312,7 @@ package Hierarchy_Objects.Actions is
 				| Set_FX_M
 				| Reset_Set_FX_M | Reset_Set_FX_All
 			=>
-				Set_Value_Fade : Fade_Type;
+				Set_Value_Fade : Fade_Type_8;
 				Set_Value_Meaning : Unsigned_8; -- TODO Map to values
 				Set_Value_Base : Float_32; -- TODO check if correct
 				Set_Value_Min : Float_32;
@@ -327,7 +325,7 @@ package Hierarchy_Objects.Actions is
 			when Set_Game_Parameter | Set_Game_Parameter_O
 				| Reset_Game_Parameter | Reset_Game_Parameter_O
 			=>
-				Set_Game_Parameter_Fade : Fade_Type;
+				Set_Game_Parameter_Fade : Fade_Type_8;
 				Set_Game_Parameter_Bypass_Transition : Boolean_8;
 				Set_Game_Parameter_Value_Meaning : Unsigned_8;
 				Set_Game_Parameter_Base : Float_32; -- TODO check if correct
@@ -362,7 +360,7 @@ package Hierarchy_Objects.Actions is
 			when Release | Release_O => null;
 			when Play_Event | Stop_Event | Pause_Event | Resume_Event => null;
 			when Reset_Playlist_E | Reset_Playlist_E_O =>
-				Reset_Playlist_Fade : Fade_Type;
+				Reset_Playlist_Fade : Fade_Type_8;
 				Reset_Except : Except_Params_Access (Version);
 			when None | None_Alt => null;
 		end case;

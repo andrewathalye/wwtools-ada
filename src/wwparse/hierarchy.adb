@@ -36,7 +36,7 @@ package body Hierarchy is
 			when Action =>
 				-- Read General Action Details
 				Action_Type_Type'Read (Stream, Item.Action_Type);
-				Unsigned_32'Read (Stream, Item.Action_External_ID);
+				Unsigned_32'Read (Stream, Item.Action_Controller_ID);
 				Unsigned_8'Read (Stream, Item.Action_Bits);
 
 				-- Read Action Properties and Action Modifiers
@@ -68,7 +68,7 @@ package body Hierarchy is
 			when Music_Track =>
 				-- Music_Flags is absent before D2SK
 				case Item.Version is
-					when D1RI => null
+					when D1RI => null;
 					when D2SK | D2WQ =>
 						Unsigned_8'Read (Stream, Item.Music_Flags);
 				end case;
@@ -78,37 +78,41 @@ package body Hierarchy is
 					Sources_Count : Unsigned_32;
 				begin
 					Unsigned_32'Read (Stream, Sources_Count);
-					Item.Music_Source_List := new Source_Array (1 .. Sources_Count);
+					Item.Music_Source_List := new Source_Container (
+						Version => Item.Version,
+						Length => Natural (Sources_Count));
 				end;
-				Source_Array'Read (Stream, Item.Music_Source_List.all);
+				Source_Container'Read (Stream, Item.Music_Source_List.all);
 
 				-- Read Playlist Array
 				declare
 					Playlists_Count : Unsigned_32;
 				begin
 					Unsigned_32'Read (Stream, Playlists_Count);
-					Item.Playlist_List := new Playlist_Array (1 .. Playlists_Count);
+					Item.Playlist_List := new Playlist_Container (
+						Version => Item.Version,
+						Length => Natural (Playlists_Count));
 				end;
-				Playlist_Array'Read (Stream, Item.Playlist_List.all);
+				Playlist_Container'Read (Stream, Item.Playlist_List.all);
 
 				-- Read Clip Automation List
 				declare
 					Clips_Count : Unsigned_32;
 				begin
 					Unsigned_32'Read (Stream, Clips_Count);
-					Item.Clip_Automation_List := new Clip_Array (1 .. Clips_Count);
+					Item.Clip_Automation_List := new Clip_Array (1 .. Natural (Clips_Count));
 				end;
 				Clip_Array'Read (Stream, Item.Clip_Automation_List.all);
 
-				Parameter_Node'Read (Stream, Item.Parameters);
+				Parameter_Node'Read (Stream, Item.Music_Track_Parameter_Node);
 
 				-- D1RI has Random Sequence Type, while D2SK and D2WQ have Track Type
 				-- Music Switch Params and Transition Params are only in D2SK and D2WQ
-				case Version is
+				case Item.Version is
 					when D1RI =>
 						Unsigned_32'Read (Stream, Item.Random_Sequence_Type);
 					when D2SK | D2WQ =>
-						Unsigned_8'Read (Stream, Item.Track_Type);
+						Music_Track_Type'Read (Stream, Item.Track_Type);
 						Music_Switch_Parameters'Read (Stream, Item.Music_Switch_Params);
 						Transition_Parameters'Read (Stream, Item.Transition_Params);
 				end case;
