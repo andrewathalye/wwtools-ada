@@ -35,4 +35,6 @@ package Types is
 	type Unsigned_12 is mod 12;
 	type Unsigned_4 is mod 4;
 
+	type Unsigned_32_Array is array (Natural range <>) of Unsigned_32;
+
 end Types;

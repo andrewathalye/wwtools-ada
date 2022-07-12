@@ -103,8 +103,56 @@ package Hierarchy_Objects is
 	end record
 	with
 		Read => Read_Parameter_Node_Positioning;
+	
+	type Parameter_Node_Aux (Version : Bank_Version_Type) is record
+		-- The below Boolean_8s are only D1RI
+		Override_Game_Aux : Boolean_8 := False;
+		Use_Game_Aux : Boolean_8 := False;
+		Override_User_Aux : Boolean_8 := False;
+		Has_Aux : Boolean_8 := False;
+		Aux_Bits : Unsigned_8 := 0; -- After D1RI
+		Aux_IDs : Unsigned_32_Array (1 .. 4); -- Only if Has_Aux / equiv.
+	end record
+	with
+		Read => Read_Parameter_Node_Aux;
+	
+	type Parameter_Node_Advanced (Version : Bank_Version_Type) is record
+		Virtual_Queue_Behaviour : Unsigned_8; -- TODO add names
+		-- Only D1RI
+		Kill_Newest : Boolean_8 := False;
+		Use_Virtual_Behaviour : Boolean_8 := False;
+		-- Everywhere
+		Max_Instances : Unsigned_16;
+		-- Only D1RI
+		Is_Global_Limit : Boolean_8 := False;
+		-- Everywhere
+		Below_Threshold_Behaviour : Unsigned_8; -- TODO add names
+		-- Only D1RI
+		Max_Instances_Overrides_Parent : Boolean_8 := False;
+		Virtual_Voices_Overrides_Parent : Boolean_8 := False;
+		Override_Header_Envelope : Boolean_8 := False;
+		Override_Analysis : Boolean_8 := False;
+		Normalise_Loudness : Boolean_8 := False;
+		Enable_Envelope : Boolean_8 := False;
+		-- The below are only after D1RI
+		Adv_Bits_1 : Unsigned_8; -- TODO Add names
+		Adv_Bits_2 : Unsigned_8;
+	end record
+	with
+		Read => Read_Parameter_Node_Advanced;
+	
+	type Parameter_Node_Feedback (Feedback_Presence : Boolean) is record
+		case Feedback_Presence is
+			when False => null;
+			when True =>
+				Bus_ID : Unsigned_32;
+		end case;
+	end record;
 
-	type Parameter_Node (Version : Bank_Version_Type) is record
+	type Parameter_Node (
+		Version : Bank_Version_Type;
+		Feedback_Presence : Boolean)
+	is record
 		FX : Parameter_Node_FX;
 		Override_Attachment_Params : Boolean_8 := False; -- D2WQ
 		Override_Bus_ID : Unsigned_32;
@@ -112,13 +160,14 @@ package Hierarchy_Objects is
 		Priority_Override_Parent : Boolean_8 := False; -- Before D2WQ
 		Priority_Apply_Dist_Factor : Boolean_8 := False; -- Before D2WQ
 		Object_Bits : Unsigned_8; -- D2WQ
-		-- Initial Params, Unk
+		Initial_Params : Property_Array_CU8_IU8_VU32_Access;
+		Initial_Params_Ranged : Ranged_Property_Array_CU8_IU8_VU32_Access;
 		Positioning : Parameter_Node_Positioning (Version);
-		Aux : Parameter_Node_Aux;
+		Aux : Parameter_Node_Aux (Version);
 		Advanced : Parameter_Node_Advanced;
 		State_Chunk : Parameter_Node_State_Chunk;
 		RTPC : Parameter_Node_RTPC;
-		Feedback : Parameter_Node_Feedback; -- Before D2WQ
+		Feedback : Parameter_Node_Feedback (Feedback_Presence); -- Before D2WQ
 	end record
 	with
 		Read => Read_Parameter_Node;
