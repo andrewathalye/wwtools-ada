@@ -88,17 +88,7 @@ begin
 				if Hash_Maps.Has_Element (C) then
 					Put_Line (Hash_Maps.Element (C).all);
 				else
-					-- If this is a Destiny 2 progression identifier
-					if (Hash and 16#00FFF000#) = 16#00ED3000# then
-						Put_Line ("__stage"
-						& "_" & To_Hex (Unsigned_8 (Shift_Right (Hash, 24)))
-							-- Stage Identifier
-						& "_progress_" &  To_Hex (Unsigned_12 (Hash and 16#FFF#)));
-							-- Progress Identifier
-					else
-						Put_Line (Argument (I));
-					end if;
-
+					Put_Line (Argument (I));
 				end if;
 			end;
 		end loop Map_Arguments;

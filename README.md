@@ -14,3 +14,5 @@ transforming those for which there are known names, and leaving alone those with
 wwparse takes (multiple) WWise bnk files as input and will output corresponding raw objects in a more generic format.
 Unlike wwiser, which produces playable txtps, this is designed to rapidly produce details which would be useful for someone reassembling 
 tracks.
+
+WWParse development is currently paused because there are other available tools that can parse bnk files better, and the format is incredibly complex. It does work as a proof of concept, but no output filters have been implemented.
