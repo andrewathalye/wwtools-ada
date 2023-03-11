@@ -3,10 +3,7 @@ with Ada.Command_Line; use Ada.Command_Line;
 with Ada.Containers.Ordered_Maps;
 with Ada.Exceptions; use Ada.Exceptions;
 
-with Interfaces; use Interfaces;
-
 with WWHash; use WWHash;
-with Util; use Util;
 
 procedure WWMap is
 	Map_F : File_Type;

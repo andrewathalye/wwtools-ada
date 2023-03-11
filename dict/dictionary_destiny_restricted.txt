@@ -2,16 +2,11 @@
 1
 2
 3
-4
-5
-6
-7
-8
-9
 30
 300
 310
 320
+4
 400
 410
 420
@@ -22,18 +17,23 @@
 470
 480
 490
+5
 500
 510
 520
 530
 540
 550
+6
 600
 610
 620
 630
 640
 650
+7
+8
+9
 a
 aa
 ab
@@ -163,6 +163,7 @@ arcs
 arcus
 area
 arena
+arena_hive
 arg
 aries
 arm
@@ -209,6 +210,7 @@ aux
 avail
 available
 avalanche
+avalon
 avatar
 ave
 awake
@@ -497,6 +499,7 @@ change8
 change9
 chant
 chanting
+chaos
 chaperone
 char
 character
@@ -530,6 +533,8 @@ cinder
 cine
 cinematics
 city
+city_defense
+city_tower
 clan
 clang
 clap
@@ -574,6 +579,7 @@ collect
 collision
 colmn
 colony
+colony_ship
 column
 com
 com01
@@ -1001,6 +1007,7 @@ exit1
 exit2
 exit3
 exo
+exo_challenge
 exodus
 exotic
 exp
@@ -1059,6 +1066,7 @@ fanatic
 far
 faraday
 farm
+farm_social
 fast
 fate
 fbot1
@@ -1795,8 +1803,8 @@ marker
 mars
 mars01
 mars3
-marsb
 mars_genesis
+marsb
 marsstrike3
 mask
 match
@@ -1992,6 +2000,7 @@ nova
 nowind
 npc
 ntro
+nux
 oada
 oasis
 oath
@@ -2033,6 +2042,7 @@ orbit
 orbit2atmo
 orbit2atmos
 orbit2warp
+orbital_station
 ordination
 ordnance
 organic
@@ -2253,8 +2263,8 @@ primary
 primed
 primeval
 prison
-prisonbreak
 prison_of_elders
+prisonbreak
 privateer
 pro
 progress
@@ -2578,8 +2588,8 @@ seal
 search
 season
 season9
-seasonal
 season_hub
+seasonal
 seat
 sec
 second
@@ -2706,8 +2716,8 @@ skolas
 skorri
 skull
 sky
-skybox
 sky_island
+skybox
 skyscraper
 slag
 slain
@@ -2997,6 +3007,7 @@ tentacle
 terminal
 terminals
 terminator
+terraformed_pyramid
 terrain
 test
 tether
@@ -3129,6 +3140,8 @@ trials
 triangulate
 tribunal
 trick
+trident
+trident_chaos
 trigger
 trill
 trinity
@@ -3254,6 +3267,7 @@ vertigo
 very
 vestige
 vex
+vex_tube
 vexy
 vfx
 victory
