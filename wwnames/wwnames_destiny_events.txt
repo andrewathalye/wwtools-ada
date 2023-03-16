@@ -578,6 +578,7 @@ cleaver_thwack 3707846966
 cloak_spark 3806448705
 cloak_start 638098506
 cloak_stop 1518276258
+close_mission_upload_music_630_start 2576930439
 combat_censer_any_dreg_aoe_swing 817935991
 combat_censer_any_dreg_aoe_swing_slam 2431518605
 combat_censer_any_dreg_melee 4080111961
@@ -639,6 +640,7 @@ drill_success 1145607440
 dst_rez__music_start 574469858
 dungeon_duality_music_610_start 1992406927
 dungeon_lantern_chain_creaks 3235945774
+dungeon_powderkeg_music_630_start 3757118089
 dungeon_prophecy_music_start 2208807223
 dungeon_rolling_trap_impacts 2377788731
 dungeon_spyglass_music_540_start 1393216739
@@ -646,8 +648,8 @@ dungeon_swinging_lantern_flyby 4176136206
 dungeon_usurper_champion_slain 2910047190
 dungeon_usurper_champion_slain_final 3775743135
 dungeon_usurper_music_start 3891471083
-e1_deadzone_music_start 158585831
 e12m02_music_start 3249693155
+e1_deadzone_music_start 158585831
 e3ketch_flyover 984778302
 e3ketch_preentry 4145430752
 e5a_thunder_music_start 2477416678
@@ -690,7 +692,9 @@ eris_vignette_vell_bed 1799596375
 error 1880695829
 eur_fallen_mech_public_event_music_start 3969326460
 eviserator_lite 1769063900
+exotic_mission_avalon_music_700_s20_start 702713861
 exotic_mission_chrome_music_600_start 1180964795
+exotic_mission_grasp_music_700_start 725925623
 exotic_mission_sentient_music_600_start 2277602375
 expulsion_start 3833063839
 fallen_drop 1322230521
@@ -713,6 +717,7 @@ fanatic_intro_begin 3237677754
 fanatic_staff_twirl 3160358319
 fanatic_step 3192059380
 fanatic_summon_staff_impact 2827724393
+farm_social_ambient_music_start 2493297065
 farm_water_pump_piston 321466134
 farm_water_pump_piston_thunk 716304895
 felwinter_room_lights_turn_on 1097026449
@@ -1064,6 +1069,7 @@ hard_terrain_concrete_run_left 2874874564
 hard_terrain_concrete_run_right 758576675
 harvester_0_buzzyby 4215428530
 harvester_airfield_buzzby 1201587663
+haunted_lost_sector_edz_music_620_start 1427471196
 haunted_lost_sector_eur_music_530_start 3455493111
 haunted_lost_sector_lna_music_530_start 4036940836
 haunted_lost_sector_nes_music_530_start 3130259669
@@ -1282,6 +1288,9 @@ hc_wr_reload_part3 969300521
 hc_wr_reload_part4 969300526
 heartbeat_detail_music_start 3621343688
 hecate 3031824321
+heist_battlegrounds_europa_music_630_start 1272748079
+heist_battlegrounds_luna_music_630_start 2536673863
+heist_battlegrounds_mars_music_630_start 1968678466
 heist_music_start 3436471829
 helmet_impact 3594956567
 hive_ogre_kraken_intro_anim 1766023625
@@ -1289,6 +1298,7 @@ hive_pod_anim 2303161221
 hive_pool_splash 3718593690
 hive_public_event_music_start 896162277
 hive_ritual_public_event_music_start 1872042409
+hiveship_pvp_music_start 430787439
 hmg 1049288271
 hmg_ba_ready 1021869909
 hmg_ba_reload1 2826388300
@@ -1406,6 +1416,7 @@ integrity_music_start 1170822731
 interceptor_arm 2551250697
 intrepid_music_start 3224084611
 intro_activity_music_start 4133978830
+intro_mission_headhunter_music_630_start 450709534
 intro_mission_music_530_start 491634914
 invective 1643556444
 invisibility_exit 389353671
@@ -1486,6 +1497,7 @@ m0_p01_ghost_p2_p3 4249162769
 m0_p01_ghost_p3_p4 2730291481
 m0_p01_light_fixture_fall 1845085683
 m1_crescent_music_start 2515701406
+m1_mission_chaos_01_music_700_start 2355612698
 m1_mission_club_start 771451850
 m1_mission_genesis_mars_music_600_start 1059597927
 m1_mission_genesis_throneworld_music_600_start 2871311718
@@ -1536,14 +1548,20 @@ minotaur_transform_voice 3226364796
 minotaur_ultra_exit_anim 1071458296
 mission_array_music_start 1661968706
 mission_awakening_music_start 616585102
+mission_decommission_music_700_s20_start 431642529
 mission_demon_tower_music_start 1342859742
 mission_discover_music_start 3882879928
+mission_download_music_630_start 187537867
 mission_emerald_music_start 3830431049
+mission_fall_music_700_s20_start 3922614664
+mission_integrate_music_630_start 1855794174
 mission_intro_music_610_start 276898999
+mission_intro_parley_music_620_start 787872472
 mission_launchpad_m0_music_start 3402541405
 mission_mcquack_music_start 2537933676
 mission_outro_music_610_start 790245356
 mission_queens_favor_music_start 265614337
+mission_restore_music_630_start 543934997
 mission_reveal_music_start 1200335050
 mission_ritual_music_start 2223381056
 mission_rouse_music_start 3993468447
@@ -1722,6 +1740,7 @@ pl_field_forged_reload5 574814469
 pl_field_forged_reload6 574814470
 pl_hakke 2608686560
 pl_kings 4032538112
+plkwt_music_start 3839554396
 pl_monolith_490_ready1 3180677087
 pl_monolith_490_ready2 3180677084
 pl_monolith_490_reload1 4073935623
@@ -1796,7 +1815,6 @@ pl_wr_reload_part3 2107105622
 pl_wr_reload_part4 2107105617
 pl_wr_reload_part5 2107105616
 pl_wr_reload_part6_endgrab 1486056015
-plkwt_music_start 3839554396
 poe_wall_piston 4126350946
 polaris_gambit_music_start 3750288109
 power_play_bad 4263679669
@@ -1870,6 +1888,7 @@ pvp_kill_confirmed_kill_credit 3677493951
 pvp_kill_confirmed_secure 1970425066
 pvp_medal_basic 1841482282
 pvp_medal_black 3823375849
+pvp_music_all_start 4181079736
 pvp_osiris_skull_enemy_killed 1702324712
 pvp_osiris_skull_enemy_revived 728139180
 pvp_osiris_skull_teammate_killed 493090296
@@ -1933,6 +1952,8 @@ r3pr_eur_music_start 1352009886
 r3pr_luna_music_start 2646464586
 radiotower_excellent 2281334382
 raid_descent_music_start 209137267
+raid_harmony_music_700_start 155939073
+raid_kings_fall_reprise_music_620_start 2736226939
 raid_nemesis_nova_music_600_start 3833081591
 raid_punch_blocks 3262069921
 raid_sacrifice_barrier_wall_down 2009481049
@@ -2395,6 +2416,7 @@ sc_wr_reload_part4 1046218383
 sc_wr_reload_part5 1046218382
 sc_wr_reload_part6_endgrab 3993116973
 sc_xzero 229279600
+seasonal_hub_helm_music_start 1542753453
 seasonal_hub_music_start 3588960544
 select_class 2373008152
 sepicks_intro_transition 2468234024
@@ -2859,7 +2881,9 @@ strike_chariot_music_start 1976953359
 strike_devils_lair_music_start 572766915
 strike_fallen_saber_music_start 3429467835
 strike_gantry_music_start 2384950070
+strike_hymn_refresh_music_700_s20_start 558160337
 strike_joust_music_start 1526848564
+strike_tango_refresh_music_700_s20_start 1364055490
 strike_tango_ship_landing 1290755258
 strike_taurus_music_start 2184489731
 strike_virgo_music_start 2407601926
@@ -3137,6 +3161,7 @@ vig_d2_reunion_zavala_sit_injured_gesture_salute_frame13 743295153
 vig_d2_reunion_zavala_sit_injured_posebreaker_stand_attempt_frame31 4010106117
 vig_d2_reunion_zavala_sit_injured_posebreaker_stand_attempt_var1_frame3 3493156987
 vig_d2_rise_slag_staff_journey_intro 4275138113
+vig_farewell_music_630_start 1386113203
 vig_t0_cayde_brawl_gg_door_open 3492057215
 vig_t0_cayde_gg_brawl_legionaries 2919715130
 vig_t0_cayde_gg_brawl_part1 3680802954
