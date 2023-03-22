@@ -22,8 +22,8 @@
 # https://www.quora.com/What-are-all-of-the-two-letter-combinations-that-never-occur-in-an-English-dictionary
 # https://linguistics.stackexchange.com/questions/4082/impossible-bigrams-in-the-english-language
 # https://stackoverflow.com/questions/1891404/how-do-you-create-an-english-like-word
-
-
+#
+#
 # beginning combos
 ^a[aeiouq3456789]
 ^b[bcdfhjkmnpqstvwxyz_3456789]
@@ -51,8 +51,8 @@
 ^x[x3456789]
 ^y[tywz3456789]
 ^z[tywz3456789]
-
-
+#
+#
 # mid combos
 a[a3456789]
 b[qxz3456789]
@@ -80,7 +80,7 @@ w[qvxz3456789]
 x[bdgjkrvxz3456789]
 y[qvyz3456789]
 z[bcfghjnqrsx3456789]
-
+#
 # numbers not allowed to be used as start (but _ is)
 ^0[abcdefghijklmnopqrstuvwxyz_0123456789]
 ^1[abcdefghijklmnopqrstuvwxyz_0123456789]
@@ -92,6 +92,6 @@ z[bcfghjnqrsx3456789]
 ^7[abcdefghijklmnopqrstuvwxyz_0123456789]
 ^8[abcdefghijklmnopqrstuvwxyz_0123456789]
 ^9[abcdefghijklmnopqrstuvwxyz_0123456789]
-
+#
 ^_[_]
 _[_]
